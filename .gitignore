@@ -7,18 +7,44 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies & build
 node_modules
 dist
 dist-ssr
 *.local
-.env
-.env.*.local
 
-# Editor directories and files
+# Env & secrets (Vite only exposes VITE_* — keep all .env files out of git)
+.env
+.env.*
+!.env.example
+
+# Vercel CLI (local project link / tokens — use dashboard for prod)
+.vercel
+
+# Test & coverage
+coverage
+*.lcov
+
+# Tooling caches
+.cache
+.parcel-cache
+.eslintcache
+*.tsbuildinfo
+.vite
+
+# Editor / IDE
 .vscode/*
 !.vscode/extensions.json
 .idea
+*.sublime-*
+
+# OS
 .DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Misc
 *.suo
 *.ntvs*
 *.njsproj

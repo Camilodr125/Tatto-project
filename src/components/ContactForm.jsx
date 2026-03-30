@@ -4,6 +4,7 @@ import emailjs from '@emailjs/browser'
 import { motion, useReducedMotion } from 'framer-motion'
 import { placementOptions, tattooStyleOptions } from '../data/booking'
 import { STUDIO_EMAIL } from '../constants'
+import { emailJsEnvDiagnostics, readEmailJsEnv } from '../utils/emailjsEnv'
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
@@ -20,11 +21,7 @@ function digitsOnly(s) {
 }
 
 function getEnv() {
-  return {
-    publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-    serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID,
-    templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-  }
+  return readEmailJsEnv(import.meta.env)
 }
 
 const inputClass =
@@ -127,6 +124,19 @@ export default function ContactForm() {
       return
     }
 
+    const diag = emailJsEnvDiagnostics(import.meta.env)
+    if (
+      diag.publicKey.looksPlaceholder ||
+      diag.serviceId.looksPlaceholder ||
+      diag.templateId.looksPlaceholder
+    ) {
+      setStatus({
+        type: 'error',
+        text: '`.env` still contains placeholder text (e.g. REPLACE_WITH_…). Save the file on disk with your real EmailJS keys, then restart `npm run dev`. Vite only reads saved files — unsaved tabs in the editor are ignored.',
+      })
+      return
+    }
+
     const travelLabel = isLocal ? 'Location: Local' : 'Location: Travelling'
     const clientLabel = isNewClient ? 'Client: New' : 'Client: Returning'
     const fullName = `${firstName.trim()} ${lastName.trim()}`
@@ -142,6 +152,9 @@ export default function ContactForm() {
           first_name: firstName.trim(),
           last_name: lastName.trim(),
           from_email: email.trim(),
+          user_email: email.trim(),
+          email: email.trim(),
+          to_email: STUDIO_EMAIL,
           phone: phone.trim(),
           preferred_date: preferredDate,
           placement,
@@ -155,7 +168,7 @@ export default function ContactForm() {
           message: summary,
           reply_to: email.trim(),
         },
-        { publicKey },
+        { publicKey }
       )
       setStatus({
         type: 'success',
@@ -179,12 +192,16 @@ export default function ContactForm() {
       artistSeeded.current = false
     } catch (err) {
       console.error(err)
+      const apiText = typeof err?.text === 'string' ? err.text : ''
+      const publicKeyRejected =
+        err?.status === 400 && /public key is invalid/i.test(apiText)
       setStatus({
         type: 'error',
-        text:
-          err?.text ||
-          err?.message ||
-          'Something went wrong. Please try again in a moment.',
+        text: publicKeyRejected
+          ? 'EmailJS rejected this public key (the request reached their API). Fix it in the dashboard: Account → General — copy the Public Key again (not the Service or Template ID). Account → Security — turn off “Use private key”; the browser SDK cannot send a private key safely. If you use allowed origins / domain allowlist, add your dev URL (e.g. http://localhost:5173) and your production domain.'
+          : apiText ||
+            err?.message ||
+            'Something went wrong. Please try again in a moment.',
       })
     } finally {
       setSending(false)

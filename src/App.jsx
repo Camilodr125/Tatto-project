@@ -8,6 +8,7 @@ import AboutPage from './pages/AboutPage'
 import ReviewsPage from './pages/ReviewsPage'
 import ContactPage from './pages/ContactPage'
 import MerchPage from './pages/MerchPage'
+import EmailJsEnvDebugPage from './pages/EmailJsEnvDebugPage'
 import NotFoundPage from './pages/NotFoundPage'
 
 export default function App() {
@@ -23,6 +24,7 @@ export default function App() {
           <Route path="reviews" element={<ReviewsPage />} />
           <Route path="merch" element={<MerchPage />} />
           <Route path="contact" element={<ContactPage />} />
+          <Route path="dev/emailjs-env" element={<EmailJsEnvDebugPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

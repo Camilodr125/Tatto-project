@@ -37,6 +37,7 @@ Routing uses **React Router**. Each major section has its own URL:
 | `/reviews` | Extended reviews + CTA |
 | `/merch` | Merch (caps, shirts, hoodies, bags) — email to order |
 | `/contact` | Booking form + studio details |
+| `/dev/emailjs-env` | (Dev only) masked EmailJS env diagnostic |
 
 Unknown paths show a **404** page. On refresh/deep links, the host must serve `index.html` for all routes (see **Deploying** below).
 
@@ -47,6 +48,16 @@ Other scripts:
 | `npm run build`   | Production build → `dist/` |
 | `npm run preview` | Preview the production build |
 | `npm run lint`    | ESLint                   |
+| `npm run test`    | Vitest — env parsing unit tests |
+| `npm run test:watch` | Vitest watch mode      |
+
+---
+
+## EmailJS: test env loading vs code
+
+1. **Automated:** run `npm run test`. This only checks **`src/utils/emailjsEnv.js`** (normalization + reading mock env objects). It does **not** read your real `.env` file.
+
+2. **In the browser (dev):** start `npm run dev` and open **`http://localhost:5173/dev/emailjs-env`**. You’ll see whether each `VITE_EMAILJS_*` variable is **present**, its **length** (not the value), and a **placeholder warning** if the string looks like dummy text. Production builds hide the useful details on that page.
 
 ---
 
@@ -136,6 +147,14 @@ VITE_EMAILJS_TEMPLATE_ID=your_template_id_here
 
 If keys are missing, the UI shows a clear error instead of failing silently.
 
+**“Public Key is invalid” but the value looks right**
+
+- Restart `npm run dev` after editing `.env` (Vite reads env at startup).
+- Ensure the file is named **`.env`** in the **project root** (same folder as `vite.config.js`), not `.env.txt`.
+- No spaces around `=` : `VITE_EMAILJS_PUBLIC_KEY=myKey` (not `KEY = myKey`).
+- Paste **Public Key** from [Account → API keys](https://dashboard.emailjs.com/admin/account), not Private Key / Service ID.
+- The app strips BOM, CR characters, and outer quotes when reading env vars (see `normalizeEnvValue` in `ContactForm.jsx`).
+
 ---
 
 ## Project structure (high level)
@@ -164,6 +183,8 @@ src/
     booking.js            # Placement & style dropdowns
     merch.js              # Merch products
   constants.js            # STUDIO_EMAIL (test@email.com)
+  utils/
+    emailjsEnv.js         # Env read/normalize (+ tests)
 public/
   _redirects              # Netlify SPA fallback
 vercel.json               # Vercel SPA rewrites
