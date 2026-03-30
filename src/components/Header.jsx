@@ -10,7 +10,6 @@ const nav = [
   { to: '/merch', label: 'Merch' },
   { to: '/about', label: 'About' },
   { to: '/reviews', label: 'Reviews' },
-  { to: '/contact', label: 'Contact' },
 ]
 
 const linkClass = ({ isActive }) =>
@@ -72,7 +71,7 @@ export default function Header() {
           <SocialLinks className="hidden md:flex" />
 
           <Link
-            to="/contact"
+            to="/book"
             className="ml-1 hidden rounded-sm border border-white/20 bg-white/[0.04] px-4 py-2.5 text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-100 transition-colors hover:border-white/40 hover:bg-white/10 hover:text-white md:ml-2 md:inline-flex"
           >
             Book
@@ -133,7 +132,7 @@ export default function Header() {
                 </NavLink>
               ))}
               <Link
-                to="/contact"
+                to="/book"
                 className="mt-3 mb-4 rounded-sm border border-white/25 bg-white/5 py-3.5 text-center text-xs font-bold uppercase tracking-[0.2em] text-zinc-100"
                 onClick={() => setOpen(false)}
               >

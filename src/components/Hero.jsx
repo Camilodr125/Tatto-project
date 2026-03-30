@@ -52,7 +52,7 @@ export default function Hero() {
             transition={{ duration: 0.45, delay: 0.2 }}
           >
             <Link
-              to="/contact"
+              to="/book"
               className="inline-flex items-center justify-center rounded-sm bg-accent px-8 py-3.5 text-sm font-bold uppercase tracking-wider text-ink transition-colors hover:bg-accent-hot"
             >
               Request a consult

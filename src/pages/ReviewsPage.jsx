@@ -51,7 +51,7 @@ export default function ReviewsPage() {
             new project instead?
           </p>
           <Link
-            to="/contact"
+            to="/book"
             className="mt-8 inline-flex rounded-sm bg-accent px-8 py-3.5 text-sm font-bold uppercase tracking-wider text-ink transition-colors hover:bg-accent-hot"
           >
             Contact the studio

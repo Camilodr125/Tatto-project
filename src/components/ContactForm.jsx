@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import emailjs from '@emailjs/browser'
 import { motion, useReducedMotion } from 'framer-motion'
+import { artists } from '../data/artists'
 import { placementOptions, tattooStyleOptions } from '../data/booking'
 import { STUDIO_EMAIL } from '../constants'
 import { emailJsEnvDiagnostics, readEmailJsEnv } from '../utils/emailjsEnv'
@@ -33,8 +34,6 @@ const req = <span className="text-zinc-500">*</span>
 export default function ContactForm() {
   const reduce = useReducedMotion()
   const location = useLocation()
-  const preferredArtist = location.state?.artist
-  const artistSeeded = useRef(false)
 
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
@@ -53,15 +52,14 @@ export default function ContactForm() {
   const [errors, setErrors] = useState({})
   const [sending, setSending] = useState(false)
   const [status, setStatus] = useState(null)
+  const [preferredArtist, setPreferredArtist] = useState('')
 
   useEffect(() => {
-    if (!preferredArtist || artistSeeded.current) return
-    setTattooDescription((d) => {
-      if (d.trim()) return d
-      artistSeeded.current = true
-      return `I would like to book with ${preferredArtist}.\n\n`
-    })
-  }, [preferredArtist])
+    const fromArtist = location.state?.artist
+    if (typeof fromArtist === 'string' && fromArtist.trim()) {
+      setPreferredArtist(fromArtist.trim())
+    }
+  }, [location.state?.artist])
 
   const validate = () => {
     const next = {}
@@ -119,7 +117,9 @@ export default function ContactForm() {
     if (!publicKey || !serviceId || !templateId) {
       setStatus({
         type: 'error',
-        text: 'Email is not configured yet. Add your EmailJS keys to a `.env` file (see README).',
+        text: import.meta.env.PROD
+          ? 'Email is not configured on the server. In Vercel: Project → Settings → Environment Variables — add VITE_EMAILJS_PUBLIC_KEY, VITE_EMAILJS_SERVICE_ID, and VITE_EMAILJS_TEMPLATE_ID (same values as local `.env`), apply to Production, then Deployments → Redeploy. `.env` is not uploaded to git.'
+          : 'Email is not configured yet. Add your EmailJS keys to a `.env` file in the project root (see README), save, and restart `npm run dev`.',
       })
       return
     }
@@ -132,7 +132,9 @@ export default function ContactForm() {
     ) {
       setStatus({
         type: 'error',
-        text: '`.env` still contains placeholder text (e.g. REPLACE_WITH_…). Save the file on disk with your real EmailJS keys, then restart `npm run dev`. Vite only reads saved files — unsaved tabs in the editor are ignored.',
+        text: import.meta.env.PROD
+          ? 'EmailJS values look like placeholders. In Vercel → Environment Variables, replace any dummy `VITE_EMAILJS_*` values with your real EmailJS keys and redeploy.'
+          : '`.env` still contains placeholder text (e.g. REPLACE_WITH_…). Save the file on disk with your real EmailJS keys, then restart `npm run dev`. Vite only reads saved files — unsaved tabs in the editor are ignored.',
       })
       return
     }
@@ -188,8 +190,8 @@ export default function ContactForm() {
       setIsTravelling(false)
       setIsNewClient(false)
       setIsReturningClient(false)
+      setPreferredArtist('')
       setErrors({})
-      artistSeeded.current = false
     } catch (err) {
       console.error(err)
       const apiText = typeof err?.text === 'string' ? err.text : ''
@@ -382,6 +384,33 @@ export default function ContactForm() {
                     {errors.preferredDate}
                   </p>
                 )}
+              </div>
+
+              <div>
+                <label htmlFor="booking-artist" className={labelClass}>
+                  Preferred artist
+                </label>
+                <select
+                  id="booking-artist"
+                  name="preferred_artist"
+                  value={preferredArtist}
+                  onChange={(ev) => setPreferredArtist(ev.target.value)}
+                  className={selectClass}
+                  disabled={sending}
+                >
+                  <option value="">No preference — we&apos;ll match you</option>
+                  {artists.map((a) => (
+                    <option key={a.id} value={a.name}>
+                      {a.name}
+                      {a.status === 'temporary' && a.availableFrom && a.availableTo
+                        ? ` (guest)`
+                        : ''}
+                    </option>
+                  ))}
+                </select>
+                <p className="mt-1.5 text-xs text-zinc-500">
+                  Pre-filled when you tap &quot;Request&quot; on an artist profile.
+                </p>
               </div>
 
               <fieldset className="rounded border border-border/80 p-4">

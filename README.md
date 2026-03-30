@@ -202,7 +202,24 @@ vercel.json               # Vercel SPA rewrites
 
 ## Deploying
 
-Build with `npm run build` and host the `dist/` folder on any static host (Netlify, Vercel, Cloudflare Pages, etc.). Add the same `VITE_EMAILJS_*` variables in the host’s environment UI for production builds.
+Build with `npm run build` and host the `dist/` folder on any static host (Netlify, Vercel, Cloudflare Pages, etc.).
+
+### Vercel + EmailJS
+
+Your local `.env` is **not** pushed to git (and Vercel does not see it). Vite bakes **`VITE_*`** variables in at **build** time, so you must define them on Vercel and trigger a new build.
+
+1. Open **[Vercel](https://vercel.com)** → your **project** → **Settings** → **Environment Variables**.
+2. Add these three (names must match exactly, including the `VITE_` prefix):
+
+   - `VITE_EMAILJS_PUBLIC_KEY`
+   - `VITE_EMAILJS_SERVICE_ID`
+   - `VITE_EMAILJS_TEMPLATE_ID`
+
+3. Set **Environment** to **Production** (and **Preview** too if you want forms on preview URLs).
+4. Paste the same values you use in local `.env` (no quotes needed).
+5. **Deployments** → open the latest deployment → **⋯** → **Redeploy** (or push a new commit).
+
+Until those exist, the contact form shows a clear “not configured” message in production.
 
 **SPA routing:** This app is a client-side router. The server must return `index.html` for deep links (e.g. `/gallery`). This repo includes **`public/_redirects`** (Netlify) and **`vercel.json`** (Vercel). For other hosts, configure an equivalent “rewrite all paths to `/index.html`” rule.
 

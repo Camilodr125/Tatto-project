@@ -1,7 +1,7 @@
 import PageHeader from '../components/PageHeader'
 import ContactForm from '../components/ContactForm'
 
-export default function ContactPage() {
+export default function BookPage() {
   return (
     <>
       <PageHeader

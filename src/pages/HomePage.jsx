@@ -35,8 +35,8 @@ const explore = [
     desc: 'Client experiences — healing, communication, and long-term results.',
   },
   {
-    to: '/contact',
-    title: 'Contact',
+    to: '/book',
+    title: 'Book',
     desc: 'Send your idea, placement, and timing. We reply within a few business days.',
   },
 ]

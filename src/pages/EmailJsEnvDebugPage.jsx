@@ -81,7 +81,7 @@ export default function EmailJsEnvDebugPage() {
       </p>
 
       <p className="mt-6">
-        <Link to="/contact" className="text-zinc-400 hover:text-white">
+        <Link to="/book" className="text-zinc-400 hover:text-white">
           ← Back to booking form
         </Link>
       </p>

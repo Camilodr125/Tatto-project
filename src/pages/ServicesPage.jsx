@@ -71,7 +71,7 @@ export default function ServicesPage() {
 
           <p className="text-center text-sm text-muted">
             Ready to talk specifics?{' '}
-            <Link to="/contact" className="font-semibold text-zinc-200 hover:text-white">
+            <Link to="/book" className="font-semibold text-zinc-200 hover:text-white">
               Book a consult
             </Link>
             {' · '}

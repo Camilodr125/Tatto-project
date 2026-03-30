@@ -64,7 +64,7 @@ export default function AboutPage() {
               Read client reviews
             </Link>
             {' · '}
-            <Link to="/contact" className="text-zinc-500 hover:text-zinc-300">
+            <Link to="/book" className="text-zinc-500 hover:text-zinc-300">
               Book a consult
             </Link>
           </p>

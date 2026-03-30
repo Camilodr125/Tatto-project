@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { STUDIO_EMAIL } from '../constants'
+import SocialLinks from './SocialLinks'
 
 const links = [
   { to: '/services', label: 'Services' },
@@ -8,7 +9,7 @@ const links = [
   { to: '/merch', label: 'Merch' },
   { to: '/about', label: 'About' },
   { to: '/reviews', label: 'Reviews' },
-  { to: '/contact', label: 'Contact' },
+  { to: '/book', label: 'Book' },
 ]
 
 export default function Footer() {
@@ -18,7 +19,8 @@ export default function Footer() {
       role="contentinfo"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-10 sm:flex-row sm:items-start sm:justify-between">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+          {/* Brand */}
           <div>
             <p className="font-display text-lg tracking-[0.12em] text-zinc-100">
               1BLOOD<span className="text-zinc-500"> STUDIO</span>
@@ -26,8 +28,11 @@ export default function Footer() {
             <p className="mt-2 max-w-xs text-sm text-muted">
               Dedication, respect for the client, and love for the art.
             </p>
+            <SocialLinks className="mt-4" />
           </div>
-          <nav className="flex flex-wrap gap-x-8 gap-y-2" aria-label="Footer">
+
+          {/* Nav */}
+          <nav className="flex flex-col gap-2" aria-label="Footer">
             {links.map((l) => (
               <Link
                 key={l.to}
@@ -38,18 +43,40 @@ export default function Footer() {
               </Link>
             ))}
           </nav>
-          <div className="text-sm text-muted sm:text-right">
-            <a
-              href={`mailto:${STUDIO_EMAIL}`}
-              className="text-zinc-200 transition-colors hover:text-white"
-            >
-              {STUDIO_EMAIL}
-            </a>
-            <p className="mt-3 text-xs text-zinc-600">
-              © {new Date().getFullYear()} 1blood studio. All rights reserved.
-            </p>
+
+          {/* Contact info */}
+          <div className="text-sm text-muted lg:col-span-2">
+            <h3 className="mb-3 text-xs font-bold uppercase tracking-widest text-zinc-400">
+              Contact
+            </h3>
+            <ul className="space-y-2">
+              <li>
+                <a
+                  href={`mailto:${STUDIO_EMAIL}`}
+                  className="text-zinc-200 transition-colors hover:text-white"
+                >
+                  {STUDIO_EMAIL}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="tel:+15551234567"
+                  className="text-zinc-200 transition-colors hover:text-white"
+                >
+                  (555) 123-4567
+                </a>
+              </li>
+              <li className="leading-relaxed text-zinc-400">
+                123 Ink Avenue, Suite 4<br />
+                Los Angeles, CA 90001
+              </li>
+            </ul>
           </div>
         </div>
+
+        <p className="mt-10 border-t border-border pt-6 text-center text-xs text-zinc-600">
+          © {new Date().getFullYear()} 1blood studio. All rights reserved.
+        </p>
       </div>
     </footer>
   )
