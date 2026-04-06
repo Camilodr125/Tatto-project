@@ -118,7 +118,7 @@ export default function ContactForm() {
       setStatus({
         type: 'error',
         text: import.meta.env.PROD
-          ? 'Email is not configured on the server. In Vercel: Project → Settings → Environment Variables — add VITE_EMAILJS_PUBLIC_KEY, VITE_EMAILJS_SERVICE_ID, and VITE_EMAILJS_TEMPLATE_ID (same values as local `.env`), apply to Production, then Deployments → Redeploy. `.env` is not uploaded to git.'
+          ? 'EmailJS is not set on the server. In Vercel: Project → Settings → Environment Variables, add VITE_EMAILJS_PUBLIC_KEY, VITE_EMAILJS_SERVICE_ID, and VITE_EMAILJS_TEMPLATE_ID (same values as local `.env`), enable for Production, then Deployments → Redeploy. `.env` is not uploaded to git.'
           : 'Email is not configured yet. Add your EmailJS keys to a `.env` file in the project root (see README), save, and restart `npm run dev`.',
       })
       return

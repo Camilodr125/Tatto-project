@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 import { motion, useReducedMotion, AnimatePresence } from 'framer-motion'
 import { artists } from '../data/artists'
 
-/** One slide per portfolio image; footer credits the artist. */
+/** Up to two portfolio images per artist; footer credits the artist. */
 const slides = artists.flatMap((a) =>
-  (a.workImages ?? []).map((src) => ({
+  (a.workImages ?? []).slice(0, 2).map((src) => ({
     src,
     artistName: a.name,
     slug: a.slug,
