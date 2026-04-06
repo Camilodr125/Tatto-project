@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { motion, useReducedMotion } from 'framer-motion'
 import Hero from '../components/Hero'
 import Testimonials from '../components/Testimonials'
+import { FEATURE_MERCH } from '../constants'
 
 const explore = [
   {
@@ -19,11 +20,15 @@ const explore = [
     title: 'Gallery',
     desc: 'Selected work and studio atmosphere — click any image for a larger view.',
   },
-  {
-    to: '/merch',
-    title: 'Merch',
-    desc: 'Caps, tees, hoodies, and bags — email to order sizes and pickup or shipping.',
-  },
+  ...(FEATURE_MERCH
+    ? [
+        {
+          to: '/merch',
+          title: 'Merch',
+          desc: 'Caps, tees, hoodies, and bags — email to order sizes and pickup or shipping.',
+        },
+      ]
+    : []),
   {
     to: '/about',
     title: 'The studio',

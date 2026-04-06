@@ -4,7 +4,7 @@ import emailjs from '@emailjs/browser'
 import { motion, useReducedMotion } from 'framer-motion'
 import { artists } from '../data/artists'
 import { placementOptions, tattooStyleOptions } from '../data/booking'
-import { STUDIO_EMAIL } from '../constants'
+import { STUDIO_ADDRESS, STUDIO_EMAIL } from '../constants'
 import { emailJsEnvDiagnostics, readEmailJsEnv } from '../utils/emailjsEnv'
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -243,7 +243,11 @@ export default function ContactForm() {
               </div>
               <div>
                 <dt className="font-semibold text-zinc-300">Location</dt>
-                <dd>Downtown creative district — exact address after booking.</dd>
+                <dd className="leading-relaxed">
+                  {STUDIO_ADDRESS.line1}
+                  <br />
+                  {STUDIO_ADDRESS.line2}
+                </dd>
               </div>
             </dl>
           </div>

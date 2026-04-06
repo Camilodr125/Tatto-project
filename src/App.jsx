@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import RootLayout from './layouts/RootLayout'
 import HomePage from './pages/HomePage'
 import ServicesPage from './pages/ServicesPage'
@@ -22,7 +22,12 @@ export default function App() {
           <Route path="gallery" element={<GalleryPage />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="reviews" element={<ReviewsPage />} />
-          <Route path="merch" element={<MerchPage />} />
+          <Route
+            path="merch"
+            element={
+              FEATURE_MERCH ? <MerchPage /> : <Navigate to="/" replace />
+            }
+          />
           <Route path="book" element={<BookPage />} />
           <Route path="dev/emailjs-env" element={<EmailJsEnvDebugPage />} />
           <Route path="*" element={<NotFoundPage />} />

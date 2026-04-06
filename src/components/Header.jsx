@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import SocialLinks from './SocialLinks'
+import StudioLogo from './StudioLogo'
+import { FEATURE_MERCH } from '../constants'
 
 const galleryTo = { pathname: '/gallery', hash: '' }
 
@@ -9,7 +11,7 @@ const nav = [
   { to: '/services', label: 'Services' },
   { to: '/artists', label: 'Artists' },
   { to: galleryTo, label: 'Gallery' },
-  { to: '/merch', label: 'Merch' },
+  ...(FEATURE_MERCH ? [{ to: '/merch', label: 'Merch' }] : []),
   { to: '/about', label: 'About' },
   { to: '/reviews', label: 'Reviews' },
 ]
@@ -42,10 +44,13 @@ export default function Header() {
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-4 sm:gap-4 sm:px-6 lg:px-8">
         <Link
           to="/"
-          className="shrink-0 font-display text-xl tracking-[0.14em] text-zinc-100 transition-colors hover:text-white sm:text-2xl"
+          className="flex shrink-0 items-center gap-3 transition-opacity hover:opacity-90 sm:gap-3.5"
           aria-label="oneblood studio — home"
         >
-          ONEBLOOD<span className="text-zinc-500"> STUDIO</span>
+          <StudioLogo className="h-8 w-auto max-h-9 max-w-[120px] object-contain object-left sm:h-9 sm:max-w-[140px]" />
+          <span className="font-display text-lg tracking-[0.14em] text-zinc-100 sm:text-xl md:text-2xl">
+            ONEBLOOD<span className="text-zinc-500"> STUDIO</span>
+          </span>
         </Link>
 
         <div className="flex flex-1 items-center justify-end gap-2 sm:gap-3 md:gap-0">

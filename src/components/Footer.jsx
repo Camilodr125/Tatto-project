@@ -1,6 +1,12 @@
 import { Link } from 'react-router-dom'
-import { STUDIO_EMAIL } from '../constants'
+import {
+  FEATURE_MERCH,
+  STUDIO_ADDRESS,
+  STUDIO_EMAIL,
+  STUDIO_MAPS_URL,
+} from '../constants'
 import SocialLinks from './SocialLinks'
+import StudioLogo from './StudioLogo'
 
 const galleryTo = { pathname: '/gallery', hash: '' }
 
@@ -8,7 +14,7 @@ const links = [
   { to: '/services', label: 'Services' },
   { to: '/artists', label: 'Artists' },
   { to: galleryTo, label: 'Gallery' },
-  { to: '/merch', label: 'Merch' },
+  ...(FEATURE_MERCH ? [{ to: '/merch', label: 'Merch' }] : []),
   { to: '/about', label: 'About' },
   { to: '/reviews', label: 'Reviews' },
   { to: '/book', label: 'Book' },
@@ -24,9 +30,16 @@ export default function Footer() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div>
-            <p className="font-display text-lg tracking-[0.12em] text-zinc-100">
-              ONEBLOOD<span className="text-zinc-500"> STUDIO</span>
-            </p>
+            <Link
+              to="/"
+              className="inline-flex max-w-full flex-wrap items-center gap-2.5 sm:gap-3"
+              aria-label="oneblood studio — home"
+            >
+              <StudioLogo className="h-7 w-auto max-w-[100px] object-contain object-left sm:h-8 sm:max-w-[120px]" />
+              <span className="font-display text-base tracking-[0.12em] text-zinc-100 sm:text-lg">
+                ONEBLOOD<span className="text-zinc-500"> STUDIO</span>
+              </span>
+            </Link>
             <p className="mt-2 max-w-xs text-sm text-muted">
               Dedication, respect for the client, and love for the art.
             </p>
@@ -69,8 +82,16 @@ export default function Footer() {
                 </a>
               </li>
               <li className="leading-relaxed text-zinc-400">
-                123 Ink Avenue, Suite 4<br />
-                Los Angeles, CA 90001
+                <a
+                  href={STUDIO_MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-zinc-200 transition-colors hover:text-white"
+                >
+                  {STUDIO_ADDRESS.line1}
+                  <br />
+                  {STUDIO_ADDRESS.line2}
+                </a>
               </li>
             </ul>
           </div>

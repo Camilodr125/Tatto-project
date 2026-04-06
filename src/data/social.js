@@ -1,12 +1,11 @@
 /**
- * Replace with your real profile URLs before launch.
  * Icons open in a new tab (see Header / SocialLinks).
  */
 export const socialLinks = [
   {
     id: 'instagram',
     label: 'Instagram',
-    href: 'https://www.instagram.com/',
+    href: 'https://www.instagram.com/1bloodstudio/',
   },
   {
     id: 'tiktok',
