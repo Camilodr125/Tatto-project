@@ -25,7 +25,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <p className="font-display text-lg tracking-[0.12em] text-zinc-100">
-              1BLOOD<span className="text-zinc-500"> STUDIO</span>
+              ONEBLOOD<span className="text-zinc-500"> STUDIO</span>
             </p>
             <p className="mt-2 max-w-xs text-sm text-muted">
               Dedication, respect for the client, and love for the art.
@@ -77,7 +77,7 @@ export default function Footer() {
         </div>
 
         <p className="mt-10 border-t border-border pt-6 text-center text-xs text-zinc-600">
-          © {new Date().getFullYear()} 1blood studio. All rights reserved.
+          © {new Date().getFullYear()} oneblood studio. All rights reserved.
         </p>
       </div>
     </footer>

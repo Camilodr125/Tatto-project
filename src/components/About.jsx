@@ -39,7 +39,7 @@ export default function About() {
             The studio
           </h2>
           <p className="mt-6 text-muted">
-            1blood studio is a private appointment space built around focus:
+            oneblood studio is a private appointment space built around focus:
             one client block at a time, medical-grade hygiene, and drawings that
             respect how ink settles over years — not just how it photographs on
             day one.

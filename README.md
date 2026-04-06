@@ -1,6 +1,6 @@
-# 1blood studio — Tattoo Website
+# oneblood studio — Tattoo Website
 
-A production-ready marketing site for **1blood studio**: **React + Vite**, **Tailwind CSS v4**, **Framer Motion**, and a **working contact form** powered by [EmailJS](https://www.emailjs.com/) (no custom backend). Visual identity is **black, grey, and white** with light grey as the primary highlight on buttons and focus states.
+A production-ready marketing site for **oneblood studio**: **React + Vite**, **Tailwind CSS v4**, **Framer Motion**, and a **working contact form** powered by [EmailJS](https://www.emailjs.com/) (no custom backend). Visual identity is **black, grey, and white** with light grey as the primary highlight on buttons and focus states.
 
 Studio email shown sitewide: **`test@email.com`** — set in **`src/constants.js`** as `STUDIO_EMAIL`. Match this address in your EmailJS template **To** field (see below).
 

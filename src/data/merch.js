@@ -2,7 +2,7 @@
 export const merchItems = [
   {
     id: 'cap-1',
-    name: '1BLOOD snapback',
+    name: 'ONEBLOOD snapback',
     category: 'Cap',
     price: '$38',
     blurb: 'Structured crown, tonal embroidery, one-size adjuster.',

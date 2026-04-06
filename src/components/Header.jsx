@@ -43,9 +43,9 @@ export default function Header() {
         <Link
           to="/"
           className="shrink-0 font-display text-xl tracking-[0.14em] text-zinc-100 transition-colors hover:text-white sm:text-2xl"
-          aria-label="1blood studio — home"
+          aria-label="oneblood studio — home"
         >
-          1BLOOD<span className="text-zinc-500"> STUDIO</span>
+          ONEBLOOD<span className="text-zinc-500"> STUDIO</span>
         </Link>
 
         <div className="flex flex-1 items-center justify-end gap-2 sm:gap-3 md:gap-0">

@@ -1,8 +1,55 @@
+import { useCallback, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { motion, useReducedMotion } from 'framer-motion'
+import { motion, useReducedMotion, AnimatePresence } from 'framer-motion'
+import { artists } from '../data/artists'
+
+/** One slide per portfolio image; footer credits the artist. */
+const slides = artists.flatMap((a) =>
+  (a.workImages ?? []).map((src) => ({
+    src,
+    artistName: a.name,
+    slug: a.slug,
+    alt: `Tattoo work by ${a.name}`,
+  })),
+)
+
+const INTERVAL_MS = 5500
 
 export default function Hero() {
   const reduce = useReducedMotion()
+  const [index, setIndex] = useState(0)
+  const n = slides.length
+  const current = slides[index] ?? slides[0]
+
+  const go = useCallback(
+    (dir) => {
+      if (n <= 0) return
+      setIndex((i) => (i + dir + n) % n)
+    },
+    [n],
+  )
+
+  useEffect(() => {
+    if (reduce || n <= 1) return
+    const id = setInterval(() => go(1), INTERVAL_MS)
+    return () => clearInterval(id)
+  }, [reduce, go, n])
+
+  if (n === 0) {
+    return (
+      <section
+        className="relative overflow-hidden border-b border-border"
+        aria-labelledby="hero-heading"
+      >
+        <div className="relative mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
+          <p className="text-muted">
+            Add portfolio images in <code className="text-zinc-400">artists.js</code> to
+            populate the hero carousel.
+          </p>
+        </div>
+      </section>
+    )
+  }
 
   return (
     <section
@@ -23,7 +70,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            By appointment · Client-first studio
+            By appointment only · Calm, client-first sessions
           </motion.p>
           <motion.h1
             id="hero-heading"
@@ -36,14 +83,14 @@ export default function Hero() {
             <span className="block text-zinc-400">outlasts trends</span>
           </motion.h1>
           <motion.p
-            className="mt-6 max-w-xl text-lg text-muted"
+            className="mt-6 max-w-xl text-lg leading-relaxed text-muted"
             initial={reduce ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.12 }}
           >
-            Custom blackwork, fine line, and realism — sterile setup, clear
-            aftercare, and tattoos drawn to look right for years, not just on
-            day one.
+            Blackwork, fine line, and realism — sterile setup, honest aftercare,
+            and work composed to settle into skin over years, not just read
+            sharp for the first week.
           </motion.p>
           <motion.div
             className="mt-10 flex flex-wrap gap-4"
@@ -67,29 +114,107 @@ export default function Hero() {
         </div>
 
         <motion.div
-          className="relative flex flex-1 justify-center lg:justify-end"
+          className="relative flex w-full flex-1 justify-center lg:justify-end"
           initial={reduce ? false : { opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.15 }}
         >
-          <div className="relative aspect-[4/5] w-full max-w-md overflow-hidden rounded-sm border border-border shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_28px_60px_-14px_rgba(0,0,0,0.85)]">
-            <img
-              src="https://images.unsplash.com/photo-1590246814883-57c511ccc0a9?w=900&q=80&auto=format&fit=crop"
-              alt=""
-              width={720}
-              height={900}
-              loading="eager"
-              fetchPriority="high"
-              decoding="async"
-              className="h-full w-full object-cover"
-            />
+          <div
+            className="relative aspect-[4/5] w-full max-w-md overflow-hidden rounded-sm border border-border shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_28px_60px_-14px_rgba(0,0,0,0.85)]"
+            role="region"
+            aria-roledescription="carousel"
+            aria-label="Portfolio work from the team"
+          >
+            <div className="relative h-full w-full">
+              <AnimatePresence initial={false} mode="wait">
+                <motion.img
+                  key={current.src}
+                  src={current.src}
+                  alt={current.alt}
+                  width={720}
+                  height={900}
+                  loading={index === 0 ? 'eager' : 'lazy'}
+                  fetchPriority={index === 0 ? 'high' : 'low'}
+                  decoding="async"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: reduce ? 0 : 0.45 }}
+                  className="absolute inset-0 h-full w-full object-cover object-center"
+                />
+              </AnimatePresence>
+            </div>
             <div
               className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink via-transparent to-transparent opacity-90"
               aria-hidden="true"
             />
-            <p className="absolute bottom-4 left-4 right-4 font-display text-xl tracking-wide text-zinc-200">
-              PRECISION · PATIENCE · PERMANENCE
-            </p>
+
+            <div className="absolute bottom-0 left-0 right-0 flex flex-col gap-2 p-4 pt-10">
+              <p className="font-display text-lg tracking-wide text-zinc-200 sm:text-xl">
+                <span className="block text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-zinc-500">
+                  Made by
+                </span>
+                <span className="mt-1 block text-white">{current.artistName}</span>
+              </p>
+              <Link
+                to="/artists"
+                className="self-start text-xs font-bold uppercase tracking-wider text-zinc-400 transition-colors hover:text-white"
+              >
+                Meet the team →
+              </Link>
+              {n > 1 && (
+                <div className="flex justify-center pt-1">
+                  {n > 14 ? (
+                    <p className="text-[10px] font-semibold uppercase tracking-wider text-zinc-500">
+                      {index + 1} <span className="text-zinc-600">/</span> {n}
+                    </p>
+                  ) : (
+                    <div className="flex flex-wrap justify-center gap-1.5">
+                      {slides.map((s, i) => (
+                        <button
+                          key={`${i}-${s.src}`}
+                          type="button"
+                          aria-label={`Show image ${i + 1} of ${n}`}
+                          aria-current={i === index}
+                          onClick={() => setIndex(i)}
+                          className={[
+                            'h-1.5 shrink-0 rounded-full transition-all',
+                            i === index
+                              ? 'w-6 bg-zinc-200'
+                              : 'w-1.5 bg-zinc-600 hover:bg-zinc-500',
+                          ].join(' ')}
+                        />
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+
+            {n > 1 && (
+              <>
+                <button
+                  type="button"
+                  aria-label="Previous image"
+                  onClick={() => go(-1)}
+                  className="absolute left-2 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-sm border border-zinc-700/80 bg-ink/40 text-zinc-200 backdrop-blur-sm transition-colors hover:border-zinc-500 hover:bg-ink/60 hover:text-white"
+                >
+                  <span aria-hidden="true" className="text-lg leading-none">
+                    ‹
+                  </span>
+                </button>
+                <button
+                  type="button"
+                  aria-label="Next image"
+                  onClick={() => go(1)}
+                  className="absolute right-2 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-sm border border-zinc-700/80 bg-ink/40 text-zinc-200 backdrop-blur-sm transition-colors hover:border-zinc-500 hover:bg-ink/60 hover:text-white"
+                >
+                  <span aria-hidden="true" className="text-lg leading-none">
+                    ›
+                  </span>
+                </button>
+              </>
+            )}
           </div>
         </motion.div>
       </div>

@@ -24,7 +24,7 @@ export default function AboutPage() {
   return (
     <>
       <PageHeader
-        eyebrow="1blood studio"
+        eyebrow="oneblood studio"
         title="About the studio"
         subtitle="A private appointment studio built around focus: one client block at a time, medical-grade hygiene, and tattoos meant to age with you."
       />
