@@ -1,12 +1,14 @@
 import { useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import SocialLinks from './SocialLinks'
+
+const galleryTo = { pathname: '/gallery', hash: '' }
 
 const nav = [
   { to: '/services', label: 'Services' },
   { to: '/artists', label: 'Artists' },
-  { to: '/gallery', label: 'Gallery' },
+  { to: galleryTo, label: 'Gallery' },
   { to: '/merch', label: 'Merch' },
   { to: '/about', label: 'About' },
   { to: '/reviews', label: 'Reviews' },
@@ -27,6 +29,7 @@ const mobileLinkClass = ({ isActive }) =>
 export default function Header() {
   const [open, setOpen] = useState(false)
   const reduce = useReducedMotion()
+  const location = useLocation()
 
   return (
     <header
@@ -57,7 +60,17 @@ export default function Header() {
             aria-label="Primary"
           >
             {nav.map((item) => (
-              <NavLink key={item.to} to={item.to} className={linkClass}>
+              <NavLink
+                key={item.label}
+                to={item.to}
+                className={({ isActive }) =>
+                  linkClass({
+                    isActive:
+                      isActive ||
+                      (item.label === 'Gallery' && location.pathname === '/gallery'),
+                  })
+                }
+              >
                 {item.label}
               </NavLink>
             ))}
@@ -123,9 +136,15 @@ export default function Header() {
             >
               {nav.map((item) => (
                 <NavLink
-                  key={item.to}
+                  key={item.label}
                   to={item.to}
-                  className={mobileLinkClass}
+                  className={({ isActive }) =>
+                    mobileLinkClass({
+                      isActive:
+                        isActive ||
+                        (item.label === 'Gallery' && location.pathname === '/gallery'),
+                    })
+                  }
                   onClick={() => setOpen(false)}
                 >
                   {item.label}

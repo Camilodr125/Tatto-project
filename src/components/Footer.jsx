@@ -2,10 +2,12 @@ import { Link } from 'react-router-dom'
 import { STUDIO_EMAIL } from '../constants'
 import SocialLinks from './SocialLinks'
 
+const galleryTo = { pathname: '/gallery', hash: '' }
+
 const links = [
   { to: '/services', label: 'Services' },
   { to: '/artists', label: 'Artists' },
-  { to: '/gallery', label: 'Gallery' },
+  { to: galleryTo, label: 'Gallery' },
   { to: '/merch', label: 'Merch' },
   { to: '/about', label: 'About' },
   { to: '/reviews', label: 'Reviews' },
@@ -35,7 +37,7 @@ export default function Footer() {
           <nav className="flex flex-col gap-2" aria-label="Footer">
             {links.map((l) => (
               <Link
-                key={l.to}
+                key={l.label}
                 to={l.to}
                 className="text-sm text-muted transition-colors hover:text-white"
               >

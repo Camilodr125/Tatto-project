@@ -40,11 +40,22 @@ export default function ArtistsPage() {
                   <img
                     src={a.image}
                     alt={a.alt}
-                    width={600}
-                    height={750}
+                    width={a.profileIntrinsic?.w ?? 1081}
+                    height={a.profileIntrinsic?.h ?? 1351}
                     loading="lazy"
                     decoding="async"
-                    className="h-full w-full object-cover"
+                    className={[
+                      'h-full w-full',
+                      (a.profileObjectFit ?? 'cover') === 'contain'
+                        ? 'object-contain object-center'
+                        : 'object-cover object-center',
+                    ].join(' ')}
+                    style={
+                      (a.profileObjectFit ?? 'cover') !== 'contain' &&
+                      a.profileObjectPosition
+                        ? { objectPosition: a.profileObjectPosition }
+                        : undefined
+                    }
                   />
                 </div>
                 <div className="flex flex-1 flex-col p-6">
@@ -70,13 +81,23 @@ export default function ArtistsPage() {
                     </p>
                   )}
                   <p className="mt-4 flex-1 text-sm leading-relaxed text-muted">{a.bio}</p>
-                  <Link
-                    to="/book"
-                    state={{ artist: a.name }}
-                    className="mt-6 inline-flex items-center justify-center rounded-sm border border-zinc-600 bg-white/5 py-3 text-center text-xs font-bold uppercase tracking-wider text-zinc-200 transition-colors hover:border-zinc-500 hover:bg-white/10"
-                  >
-                    Request {a.name.split(' ')[0]}
-                  </Link>
+                  <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                    <Link
+                      to="/book"
+                      state={{ artist: a.name }}
+                      className="inline-flex flex-1 items-center justify-center rounded-sm border border-zinc-600 bg-white/5 py-3 text-center text-xs font-bold uppercase tracking-wider text-zinc-200 transition-colors hover:border-zinc-500 hover:bg-white/10"
+                    >
+                      Request {a.name.split(' ')[0]}
+                    </Link>
+                    {a.workImages?.length > 0 ? (
+                      <Link
+                        to={`/gallery#${a.slug}`}
+                        className="inline-flex flex-1 items-center justify-center rounded-sm border border-zinc-600 py-3 text-center text-xs font-bold uppercase tracking-wider text-zinc-300 transition-colors hover:border-zinc-500 hover:text-white"
+                      >
+                        Portfolio
+                      </Link>
+                    ) : null}
+                  </div>
                 </div>
               </motion.li>
             ))}

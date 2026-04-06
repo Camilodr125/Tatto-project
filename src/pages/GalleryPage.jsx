@@ -1,19 +1,39 @@
+import { Link, useLocation } from 'react-router-dom'
 import PageHeader from '../components/PageHeader'
 import Gallery from '../components/Gallery'
+import { getArtistGallerySections } from '../data/gallery'
+
+const sections = getArtistGallerySections()
 
 export default function GalleryPage() {
+  const { hash } = useLocation()
+  const slug = (hash || '').replace(/^#/, '').trim()
+  const single = slug ? sections.find((s) => s.slug === slug) : null
+
   return (
     <>
       <PageHeader
         eyebrow="Portfolio"
         title="Gallery"
-        subtitle="A mix of process shots and healed-friendly compositions. This grid is a starting point — your piece will be drawn specifically for you."
-      />
-      <Gallery
-        heading="Selected work"
-        subheading="Hover tiles on desktop, tap to preview. Images are representative of technique and studio mood."
-        className="border-b-0 py-12 sm:py-16"
-      />
+        subtitle={
+          single
+            ? `Showing ${single.name}'s portfolio only.`
+            : 'Work from our artists — open any image for a closer look.'
+        }
+      >
+        {single ? (
+          <p className="mt-5">
+            <Link
+              to={{ pathname: '/gallery', hash: '' }}
+              replace
+              className="text-sm font-semibold uppercase tracking-wider text-zinc-400 underline decoration-zinc-600 underline-offset-4 transition-colors hover:text-white hover:decoration-zinc-400"
+            >
+              View all artists
+            </Link>
+          </p>
+        ) : null}
+      </PageHeader>
+      <Gallery className="border-b-0" />
     </>
   )
 }

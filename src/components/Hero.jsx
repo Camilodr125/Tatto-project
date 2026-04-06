@@ -58,7 +58,7 @@ export default function Hero() {
               Request a consult
             </Link>
             <Link
-              to="/gallery"
+              to={{ pathname: '/gallery', hash: '' }}
               className="inline-flex items-center justify-center rounded-sm border border-zinc-600 px-8 py-3.5 text-sm font-semibold text-zinc-300 transition-colors hover:border-zinc-400 hover:text-white"
             >
               View work

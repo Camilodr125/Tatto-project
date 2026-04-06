@@ -15,7 +15,7 @@ const explore = [
     desc: 'Meet the resident team — specialties, booking rhythm, and guest spots.',
   },
   {
-    to: '/gallery',
+    to: { pathname: '/gallery', hash: '' },
     title: 'Gallery',
     desc: 'Selected work and studio atmosphere — click any image for a larger view.',
   },
@@ -64,7 +64,7 @@ export default function HomePage() {
           <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {explore.map((item, i) => (
               <motion.li
-                key={item.to}
+                key={item.title}
                 initial={reduce ? false : { opacity: 0, y: 14 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-30px' }}
