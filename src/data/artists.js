@@ -12,7 +12,7 @@ export const artists = [
     availableTo: '2026-06-30',
     styles: 'Black & grey realism · Portraits · High detail',
     bio: 'Daniel Avecilla is a Spanish tattoo artist known for refined black-and-grey realism. With several years in the industry, he has earned a strong reputation for high-detail portraits, smooth shading, and clean, lifelike compositions with depth and contrast. Based in Los Angeles, California, he works with clients from around the world. We are excited to welcome Daniel as a guest artist at oneblood studio this June—a rare chance to be tattooed by a specialist in modern black-and-grey realism.',
-    image: '/artists/daniel_avencilla/daniel_avencilla_profile.png',
+    image: '/artists/daniel_avencilla/daniel_avencilla_profile.jpeg',
     workImages: [
       '/artists/daniel_avencilla/daniel_avencilla_1.jpeg',
       '/artists/daniel_avencilla/daniel_avencilla_2.jpeg',
