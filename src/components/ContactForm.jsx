@@ -4,7 +4,13 @@ import emailjs from '@emailjs/browser'
 import { motion, useReducedMotion } from 'framer-motion'
 import { artists } from '../data/artists'
 import { placementOptions, tattooStyleOptions } from '../data/booking'
-import { STUDIO_ADDRESS, STUDIO_EMAIL } from '../constants'
+import {
+  STUDIO_ADDRESS,
+  STUDIO_EMAIL,
+  STUDIO_HOURS_NOTE,
+  STUDIO_PHONE_DISPLAY,
+  STUDIO_WALKIN_HOURS,
+} from '../constants'
 import { emailJsEnvDiagnostics, readEmailJsEnv } from '../utils/emailjsEnv'
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -238,8 +244,14 @@ export default function ContactForm() {
             </p>
             <dl className="mt-10 space-y-4 text-sm text-zinc-400">
               <div>
-                <dt className="font-semibold text-zinc-300">Studio hours</dt>
-                <dd>Tue — Sat · 11:00 — 19:00 (by appointment)</dd>
+                <dt className="font-semibold text-zinc-300">Hours</dt>
+                <dd className="leading-relaxed">
+                  <span className="block">{STUDIO_HOURS_NOTE}</span>
+                  <span className="mt-2 block text-zinc-400">
+                    <span className="font-semibold text-zinc-300">Walk-ins:</span>{' '}
+                    {STUDIO_WALKIN_HOURS}
+                  </span>
+                </dd>
               </div>
               <div>
                 <dt className="font-semibold text-zinc-300">Location</dt>
@@ -354,7 +366,7 @@ export default function ContactForm() {
                     value={phone}
                     onChange={(ev) => setPhone(ev.target.value)}
                     className={inputClass}
-                    placeholder="+1 · (555) 000-0000"
+                    placeholder={STUDIO_PHONE_DISPLAY}
                     aria-invalid={errors.phone ? 'true' : 'false'}
                     aria-describedby={errors.phone ? 'err-phone' : undefined}
                     disabled={sending}

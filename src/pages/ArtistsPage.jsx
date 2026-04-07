@@ -34,7 +34,7 @@ export default function ArtistsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 0.45, delay: i * 0.08 }}
-                className="flex flex-col overflow-hidden rounded-sm border border-border bg-surface-elevated"
+                className="flex h-full flex-col overflow-hidden rounded-sm border border-border bg-surface-elevated"
               >
                 <div className="aspect-[4/5] overflow-hidden bg-surface">
                   <img
@@ -58,7 +58,7 @@ export default function ArtistsPage() {
                     }
                   />
                 </div>
-                <div className="flex flex-1 flex-col p-6">
+                <div className="flex min-h-0 flex-1 flex-col p-6">
                   <div className="flex items-center gap-2">
                     <span
                       className={[
@@ -80,18 +80,22 @@ export default function ArtistsPage() {
                       Available {formatRange(a.availableFrom, a.availableTo)}
                     </p>
                   )}
-                  <div className="mt-4 flex-1 space-y-4 text-sm leading-relaxed text-muted">
-                    {a.bio
-                      .split(/\n\n+/)
-                      .map((block) => block.trim())
-                      .filter(Boolean)
-                      .map((para, j) => (
-                        <p key={j} className="text-pretty text-justify">
-                          {para}
-                        </p>
-                      ))}
+                  <div
+                    className="mt-4 h-[12.5rem] shrink-0 overflow-y-auto overflow-x-hidden pr-1 text-sm leading-relaxed text-muted [scrollbar-color:rgba(113,113,122,0.5)_transparent] [scrollbar-width:thin]"
+                  >
+                    <div className="space-y-3">
+                      {a.bio
+                        .split(/\n\n+/)
+                        .map((block) => block.trim())
+                        .filter(Boolean)
+                        .map((para, j) => (
+                          <p key={j} className="text-pretty text-justify last:mb-0">
+                            {para}
+                          </p>
+                        ))}
+                    </div>
                   </div>
-                  <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                  <div className="mt-auto flex flex-col gap-3 pt-6 sm:flex-row sm:flex-wrap">
                     <Link
                       to="/book"
                       state={{ artist: a.name }}

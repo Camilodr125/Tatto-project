@@ -4,6 +4,8 @@ import {
   STUDIO_ADDRESS,
   STUDIO_EMAIL,
   STUDIO_MAPS_URL,
+  STUDIO_PHONE_DISPLAY,
+  STUDIO_PHONE_TEL,
 } from '../constants'
 import SocialLinks from './SocialLinks'
 import StudioLogo from './StudioLogo'
@@ -75,10 +77,10 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="tel:+15551234567"
+                  href={`tel:${STUDIO_PHONE_TEL}`}
                   className="text-zinc-200 transition-colors hover:text-white"
                 >
-                  (555) 123-4567
+                  {STUDIO_PHONE_DISPLAY}
                 </a>
               </li>
               <li className="leading-relaxed text-zinc-400">

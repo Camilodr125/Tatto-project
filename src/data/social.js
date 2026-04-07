@@ -10,11 +10,11 @@ export const socialLinks = [
   {
     id: 'tiktok',
     label: 'TikTok',
-    href: 'https://www.tiktok.com/',
+    href: 'https://www.tiktok.com/@1blood.studio',
   },
   {
     id: 'facebook',
     label: 'Facebook',
-    href: 'https://www.facebook.com/',
+    href: 'https://www.facebook.com/share/1DoP5cnGMW/',
   },
 ]
