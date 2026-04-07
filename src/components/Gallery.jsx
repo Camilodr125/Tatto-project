@@ -1,9 +1,210 @@
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react'
 import { useLocation } from 'react-router-dom'
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import { getArtistGallerySections } from '../data/gallery'
 
 const artistGallerySections = getArtistGallerySections()
+
+function ChevronLeft({ className = '' }) {
+  return (
+    <svg
+      className={className}
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.25"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M15 18l-6-6 6-6" />
+    </svg>
+  )
+}
+
+function ChevronRight({ className = '' }) {
+  return (
+    <svg
+      className={className}
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.25"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M9 18l6-6-6-6" />
+    </svg>
+  )
+}
+
+function GallerySectionCarousel({
+  section,
+  sectionIndex,
+  reduce,
+  onOpenImage,
+}) {
+  const n = section.items.length
+  const scrollerRef = useRef(null)
+  const [atStart, setAtStart] = useState(true)
+  const [atEnd, setAtEnd] = useState(false)
+
+  const updateScrollState = useCallback(() => {
+    const el = scrollerRef.current
+    if (!el) return
+    const { scrollLeft, scrollWidth, clientWidth } = el
+    const max = scrollWidth - clientWidth
+    setAtStart(scrollLeft <= 2)
+    setAtEnd(max <= 2 || scrollLeft >= max - 2)
+  }, [])
+
+  useEffect(() => {
+    updateScrollState()
+  }, [section.slug, n, updateScrollState])
+
+  useLayoutEffect(() => {
+    const el = scrollerRef.current
+    if (!el || typeof ResizeObserver === 'undefined') return undefined
+    const ro = new ResizeObserver(() => updateScrollState())
+    ro.observe(el)
+    return () => ro.disconnect()
+  }, [updateScrollState, section.slug])
+
+  const scrollByDir = useCallback(
+    (dir) => {
+      const el = scrollerRef.current
+      if (!el) return
+      const first = el.querySelector('[data-gallery-card]')
+      const gap =
+        typeof window !== 'undefined'
+          ? parseFloat(getComputedStyle(el).gap) || 16
+          : 16
+      const step = first
+        ? first.getBoundingClientRect().width + gap
+        : el.clientWidth * 0.85
+      const behavior = reduce ? 'auto' : 'smooth'
+      el.scrollBy({ left: dir * step, behavior })
+      requestAnimationFrame(() => updateScrollState())
+    },
+    [reduce, updateScrollState],
+  )
+
+  const onScrollerScroll = useCallback(() => {
+    updateScrollState()
+  }, [updateScrollState])
+
+  const onKeyDown = (e) => {
+    if (n <= 1) return
+    if (e.key === 'ArrowLeft') {
+      e.preventDefault()
+      scrollByDir(-1)
+    }
+    if (e.key === 'ArrowRight') {
+      e.preventDefault()
+      scrollByDir(1)
+    }
+  }
+
+  return (
+    <div className="mt-8 w-full">
+      {n > 1 ? (
+        <div className="mb-4 flex gap-2">
+          <button
+            type="button"
+            aria-label="Scroll portfolio left"
+            disabled={atStart}
+            onClick={() => scrollByDir(-1)}
+            className="flex h-11 w-11 touch-manipulation items-center justify-center rounded-full bg-zinc-800 text-zinc-100 shadow-sm transition-[opacity,transform] hover:bg-zinc-700 hover:text-white disabled:pointer-events-none disabled:opacity-35"
+          >
+            <ChevronLeft />
+          </button>
+          <button
+            type="button"
+            aria-label="Scroll portfolio right"
+            disabled={atEnd}
+            onClick={() => scrollByDir(1)}
+            className="flex h-11 w-11 touch-manipulation items-center justify-center rounded-full bg-zinc-800 text-zinc-100 shadow-sm transition-[opacity,transform] hover:bg-zinc-700 hover:text-white disabled:pointer-events-none disabled:opacity-35"
+          >
+            <ChevronRight />
+          </button>
+        </div>
+      ) : null}
+
+      <div
+        className="relative"
+        onKeyDown={onKeyDown}
+        role="region"
+        aria-roledescription="carousel"
+        aria-label={`${section.name} portfolio`}
+        tabIndex={0}
+      >
+        {!atStart ? (
+          <div
+            className="pointer-events-none absolute left-0 top-0 z-[1] h-full w-10 bg-gradient-to-r from-ink to-transparent sm:w-14"
+            aria-hidden
+          />
+        ) : null}
+        {!atEnd ? (
+          <div
+            className="pointer-events-none absolute right-0 top-0 z-[1] h-full w-10 bg-gradient-to-r from-transparent to-ink sm:w-14"
+            aria-hidden
+          />
+        ) : null}
+
+        <div
+          ref={scrollerRef}
+          onScroll={onScrollerScroll}
+          className="flex gap-4 overflow-x-auto scroll-smooth pb-1 [-ms-overflow-style:none] [scrollbar-width:none] snap-x snap-mandatory [&::-webkit-scrollbar]:hidden"
+        >
+          {section.items.map((item, i) => {
+            const eager = sectionIndex === 0 && i < 3
+            return (
+              <motion.button
+                key={item.id}
+                type="button"
+                data-gallery-card
+                className="group relative aspect-[4/5] w-[min(280px,calc(85vw-2rem))] shrink-0 snap-start overflow-hidden rounded-2xl border border-border/80 bg-zinc-900/40 text-left outline-none ring-offset-2 ring-offset-surface focus-visible:ring-2 focus-visible:ring-zinc-400 sm:w-[min(300px,calc(45vw-1.5rem))] md:w-[min(320px,calc((100%-2rem)/2.4))] lg:w-[min(320px,calc((100%-3rem)/3))]"
+                onClick={() => onOpenImage(item)}
+                whileHover={reduce ? undefined : { y: -2 }}
+                whileTap={reduce ? undefined : { scale: 0.99 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 28 }}
+                aria-haspopup="dialog"
+                aria-label={`Open preview: ${item.alt}`}
+              >
+                <img
+                  src={item.thumb}
+                  alt=""
+                  width={640}
+                  height={800}
+                  loading={eager ? 'eager' : 'lazy'}
+                  decoding="async"
+                  className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
+                />
+                <span className="sr-only">{item.alt}</span>
+                <span
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent opacity-70 transition-opacity group-hover:opacity-90"
+                  aria-hidden="true"
+                />
+              </motion.button>
+            )
+          })}
+        </div>
+      </div>
+    </div>
+  )
+}
 
 export default function Gallery({ className = '' }) {
   const [active, setActive] = useState(null)
@@ -71,38 +272,6 @@ export default function Gallery({ className = '' }) {
     }
   }, [active])
 
-  const renderTile = (g, eagerFirst) => (
-    <motion.button
-      type="button"
-      className="group relative aspect-[4/5] w-full overflow-hidden rounded-lg border border-border/80 bg-zinc-900/40 text-left outline-none ring-offset-2 ring-offset-surface transition-[border-color,box-shadow,transform] hover:border-zinc-600 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-zinc-400"
-      onClick={() => setActive(g)}
-      whileHover={reduce ? undefined : { scale: 1.015 }}
-      whileTap={reduce ? undefined : { scale: 0.995 }}
-      transition={{ type: 'spring', stiffness: 400, damping: 28 }}
-      aria-haspopup="dialog"
-      aria-expanded={active?.id === g.id}
-      aria-label={`Open preview: ${g.alt}`}
-    >
-      <img
-        src={g.thumb}
-        alt=""
-        width={600}
-        height={750}
-        loading={eagerFirst ? 'eager' : 'lazy'}
-        decoding="async"
-        className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
-      />
-      <span className="sr-only">{g.alt}</span>
-      <span
-        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/75 via-transparent to-transparent opacity-70 transition-opacity group-hover:opacity-90"
-        aria-hidden="true"
-      />
-      <span className="pointer-events-none absolute bottom-3 left-3 right-3 text-xs font-semibold uppercase tracking-wider text-zinc-200 opacity-0 transition-opacity group-hover:opacity-100">
-        Enlarge
-      </span>
-    </motion.button>
-  )
-
   return (
     <section
       className={`border-b border-border py-12 sm:py-16 ${className}`.trim()}
@@ -128,18 +297,25 @@ export default function Gallery({ className = '' }) {
                   <h2 className="font-display text-3xl tracking-wide text-zinc-50 sm:text-4xl">
                     {section.name}
                   </h2>
-                  <p className="mt-2 text-sm leading-relaxed text-muted">
-                    Tap an image to enlarge. Swipe or scroll the lightbox on small screens.
+                  {section.intro ? (
+                    <p className="mt-3 text-base leading-relaxed text-zinc-400 sm:text-lg">
+                      {section.intro}
+                    </p>
+                  ) : null}
+                  <p
+                    className={`text-sm leading-relaxed text-muted ${section.intro ? 'mt-3' : 'mt-2'}`}
+                  >
+                    Use the arrows or swipe the row to browse; tap an image to enlarge. In the
+                    lightbox, swipe or scroll on small screens.
                   </p>
                 </header>
 
-                <ul className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 lg:gap-5">
-                  {section.items.map((g, i) => (
-                    <li key={g.id} className="min-w-0">
-                      {renderTile(g, idx === 0 && i < 3)}
-                    </li>
-                  ))}
-                </ul>
+                <GallerySectionCarousel
+                  section={section}
+                  sectionIndex={idx}
+                  reduce={reduce}
+                  onOpenImage={setActive}
+                />
               </article>
             ))}
           </div>

@@ -74,7 +74,6 @@ export default function ArtistsPage() {
                   <h2 className="mt-3 font-display text-2xl tracking-wide text-zinc-100">
                     {a.name}
                   </h2>
-                  <p className="mt-1 text-sm text-zinc-500">{a.styles}</p>
                   {a.status === 'temporary' && a.availableFrom && a.availableTo && (
                     <p className="mt-2 text-xs text-amber-400/80">
                       Available {formatRange(a.availableFrom, a.availableTo)}

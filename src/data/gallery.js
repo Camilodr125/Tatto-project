@@ -7,6 +7,8 @@ export function getArtistGallerySections() {
     .map((a) => ({
       slug: a.slug,
       name: a.name,
+      intro:
+        typeof a.portfolioIntro === 'string' ? a.portfolioIntro.trim() : '',
       items: a.workImages.map((src, i) => ({
         id: `${a.slug}-work-${i}`,
         src,
