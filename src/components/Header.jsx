@@ -35,7 +35,7 @@ export default function Header() {
 
   return (
     <header
-      className="sticky top-0 z-40 border-b border-white/[0.06] bg-ink/85 backdrop-blur-xl"
+      className="sticky top-0 z-40 border-b border-white/[0.06] bg-ink/95 md:bg-ink/85 md:backdrop-blur-xl"
       role="banner"
     >
       <a href="#main-content" className="skip-link">
@@ -129,11 +129,11 @@ export default function Header() {
         {open && (
           <motion.div
             id="mobile-nav"
-            className="border-t border-white/[0.06] bg-surface/95 backdrop-blur-lg md:hidden"
-            initial={reduce ? false : { height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={reduce ? undefined : { height: 0, opacity: 0 }}
-            transition={{ duration: 0.25 }}
+            className="border-t border-white/[0.06] bg-surface md:hidden"
+            initial={reduce ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={reduce ? undefined : { opacity: 0 }}
+            transition={{ duration: reduce ? 0 : 0.12, ease: 'easeOut' }}
           >
             <nav
               className="flex flex-col gap-0 px-4 py-2"
