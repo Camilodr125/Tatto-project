@@ -119,29 +119,6 @@ function GallerySectionCarousel({
 
   return (
     <div className="mt-8 w-full">
-      {n > 1 ? (
-        <div className="mb-4 flex gap-2">
-          <button
-            type="button"
-            aria-label="Scroll portfolio left"
-            disabled={atStart}
-            onClick={() => scrollByDir(-1)}
-            className="flex h-11 w-11 touch-manipulation items-center justify-center rounded-full bg-zinc-800 text-zinc-100 shadow-sm transition-[opacity,transform] hover:bg-zinc-700 hover:text-white disabled:pointer-events-none disabled:opacity-35"
-          >
-            <ChevronLeft />
-          </button>
-          <button
-            type="button"
-            aria-label="Scroll portfolio right"
-            disabled={atEnd}
-            onClick={() => scrollByDir(1)}
-            className="flex h-11 w-11 touch-manipulation items-center justify-center rounded-full bg-zinc-800 text-zinc-100 shadow-sm transition-[opacity,transform] hover:bg-zinc-700 hover:text-white disabled:pointer-events-none disabled:opacity-35"
-          >
-            <ChevronRight />
-          </button>
-        </div>
-      ) : null}
-
       <div
         className="relative"
         onKeyDown={onKeyDown}
@@ -166,7 +143,7 @@ function GallerySectionCarousel({
         <div
           ref={scrollerRef}
           onScroll={onScrollerScroll}
-          className="flex gap-4 overflow-x-auto scroll-smooth pb-1 [-ms-overflow-style:none] [scrollbar-width:none] snap-x snap-mandatory [&::-webkit-scrollbar]:hidden"
+          className="flex min-h-0 gap-4 overflow-x-auto overflow-y-hidden scroll-smooth pb-1 [-ms-overflow-style:none] [scrollbar-width:none] snap-x snap-mandatory [&::-webkit-scrollbar]:hidden"
         >
           {section.items.map((item, i) => {
             const eager = sectionIndex === 0 && i < 3
@@ -175,7 +152,7 @@ function GallerySectionCarousel({
                 key={item.id}
                 type="button"
                 data-gallery-card
-                className="group relative aspect-[4/5] w-[min(280px,calc(85vw-2rem))] shrink-0 snap-start overflow-hidden rounded-2xl border border-border/80 bg-zinc-900/40 text-left outline-none ring-offset-2 ring-offset-surface focus-visible:ring-2 focus-visible:ring-zinc-400 sm:w-[min(300px,calc(45vw-1.5rem))] md:w-[min(320px,calc((100%-2rem)/2.4))] lg:w-[min(320px,calc((100%-3rem)/3))]"
+                className="group relative aspect-[4/5] min-h-[12rem] w-[min(280px,calc(85vw-2rem))] shrink-0 snap-start overflow-hidden rounded-2xl border border-border/80 bg-zinc-900/40 text-left outline-none ring-offset-2 ring-offset-surface focus-visible:ring-2 focus-visible:ring-zinc-400 sm:min-h-0 sm:w-[min(300px,calc(45vw-1.5rem))] md:w-[min(320px,calc((100%-2rem)/2.4))] lg:w-[min(320px,calc((100%-3rem)/3))]"
                 onClick={() => onOpenImage(item)}
                 whileHover={reduce ? undefined : { y: -2 }}
                 whileTap={reduce ? undefined : { scale: 0.99 }}
@@ -201,6 +178,29 @@ function GallerySectionCarousel({
             )
           })}
         </div>
+
+        {n > 1 ? (
+          <div className="pointer-events-none absolute inset-0 z-[2] flex items-center justify-between px-2 sm:px-4">
+            <button
+              type="button"
+              aria-label="Scroll portfolio left"
+              disabled={atStart}
+              onClick={() => scrollByDir(-1)}
+              className="pointer-events-auto flex h-11 w-11 shrink-0 touch-manipulation items-center justify-center rounded-full border border-white/10 bg-zinc-800/95 text-zinc-100 shadow-lg backdrop-blur-sm transition-[opacity,transform,background-color] hover:bg-zinc-700 hover:text-white disabled:pointer-events-none disabled:opacity-30 sm:h-12 sm:w-12"
+            >
+              <ChevronLeft className="sm:scale-110" />
+            </button>
+            <button
+              type="button"
+              aria-label="Scroll portfolio right"
+              disabled={atEnd}
+              onClick={() => scrollByDir(1)}
+              className="pointer-events-auto flex h-11 w-11 shrink-0 touch-manipulation items-center justify-center rounded-full border border-white/10 bg-zinc-800/95 text-zinc-100 shadow-lg backdrop-blur-sm transition-[opacity,transform,background-color] hover:bg-zinc-700 hover:text-white disabled:pointer-events-none disabled:opacity-30 sm:h-12 sm:w-12"
+            >
+              <ChevronRight className="sm:scale-110" />
+            </button>
+          </div>
+        ) : null}
       </div>
     </div>
   )
@@ -294,8 +294,14 @@ export default function Gallery({ className = '' }) {
                 }`}
               >
                 <header className="max-w-2xl">
-                  <h2 className="font-display text-3xl tracking-wide text-zinc-50 sm:text-4xl">
-                    {section.name}
+                  <h2 className="font-display text-3xl font-semibold tracking-tight text-zinc-50 sm:text-4xl">
+                    <span className="relative inline-block">
+                      {section.name}
+                      <span
+                        className="absolute -bottom-0.5 left-0 h-px w-10 rounded-full bg-gradient-to-r from-studio-gold/70 to-transparent sm:w-12"
+                        aria-hidden="true"
+                      />
+                    </span>
                   </h2>
                   {section.intro ? (
                     <p className="mt-3 text-base leading-relaxed text-zinc-400 sm:text-lg">

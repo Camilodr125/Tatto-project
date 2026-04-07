@@ -45,11 +45,11 @@ export default function Header() {
         <Link
           to="/"
           className="flex min-w-0 flex-1 flex-col gap-0.5 transition-opacity hover:opacity-90 sm:flex-row sm:items-center sm:gap-3 md:gap-3.5"
-          aria-label="oneblood studio — home"
+          aria-label="oneblood tattoo studio — home"
         >
           <StudioLogo className="h-7 w-auto max-w-[min(112px,32vw)] shrink-0 object-contain object-left sm:h-9 sm:max-w-[min(150px,40vw)]" />
-          <span className="min-w-0 font-display text-[0.9375rem] leading-tight tracking-[0.1em] text-zinc-100 sm:text-lg sm:tracking-[0.14em] md:text-xl lg:text-2xl">
-            ONEBLOOD<span className="text-zinc-500"> STUDIO</span>
+          <span className="min-w-0 font-display text-[0.9375rem] font-semibold leading-tight tracking-tight text-zinc-100 sm:text-lg md:text-xl lg:text-2xl">
+            ONEBLOOD<span className="font-medium text-zinc-500"> TATTOO STUDIO</span>
           </span>
         </Link>
 
@@ -90,7 +90,7 @@ export default function Header() {
 
           <Link
             to="/book"
-            className="ml-1 hidden rounded-sm border border-white/20 bg-white/[0.04] px-4 py-2.5 text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-100 transition-colors hover:border-white/40 hover:bg-white/10 hover:text-white md:ml-2 md:inline-flex"
+            className="ml-1 hidden rounded-sm border border-white/20 bg-white/[0.04] px-4 py-2.5 text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-100 shadow-[0_0_28px_-8px_rgba(196,165,116,0.15)] transition-[border-color,background-color,box-shadow,color] hover:border-studio-gold/50 hover:bg-white/10 hover:text-white hover:shadow-[0_0_36px_-6px_rgba(196,165,116,0.28)] md:ml-2 md:inline-flex"
           >
             Book
           </Link>

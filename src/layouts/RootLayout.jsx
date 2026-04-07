@@ -7,9 +7,16 @@ export default function RootLayout() {
   return (
     <>
       <ScrollToTop />
-      <div className="flex min-h-screen flex-col overflow-x-hidden bg-ink text-zinc-100">
+      <div className="relative flex min-h-screen flex-col overflow-x-hidden bg-ink text-zinc-100">
+        <div
+          className="pointer-events-none absolute inset-0 overflow-hidden"
+          aria-hidden="true"
+        >
+          <div className="studio-vignette" />
+          <div className="studio-grain" />
+        </div>
         <Header />
-        <main id="main-content" className="flex-1">
+        <main id="main-content" className="relative flex-1">
           <Outlet />
         </main>
         <Footer />

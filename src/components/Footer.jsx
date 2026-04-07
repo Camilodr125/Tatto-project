@@ -8,7 +8,7 @@ import {
   STUDIO_PHONE_TEL,
 } from '../constants'
 import SocialLinks from './SocialLinks'
-import StudioLogo from './StudioLogo'
+import StudioBrand from './StudioBrand'
 
 const galleryTo = { pathname: '/gallery', hash: '' }
 
@@ -29,27 +29,27 @@ export default function Footer() {
       role="contentinfo"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="flex flex-col gap-10 lg:flex-row lg:justify-between lg:gap-8 xl:gap-12">
           {/* Brand */}
-          <div>
+          <div className="flex flex-col items-center text-center lg:flex-1 lg:min-w-0">
             <Link
               to="/"
-              className="inline-flex max-w-full flex-col gap-1.5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-2.5 md:gap-3"
+              className="inline-flex max-w-full justify-center"
               aria-label="oneblood studio — home"
             >
-              <StudioLogo className="h-7 w-auto max-w-[min(120px,55vw)] object-contain object-left sm:h-8 sm:max-w-[130px]" />
-              <span className="font-display text-base leading-tight tracking-[0.1em] text-zinc-100 sm:text-lg sm:tracking-[0.12em]">
-                ONEBLOOD<span className="text-zinc-500"> STUDIO</span>
-              </span>
+              <StudioBrand logoClassName="h-8 w-auto max-w-[min(140px,55vw)] object-contain sm:h-9 sm:max-w-[150px]" />
             </Link>
             <p className="mt-2 max-w-xs text-sm text-muted">
               Dedication, respect for the client, and love for the art.
             </p>
-            <SocialLinks className="mt-4" />
+            <SocialLinks className="mt-4 justify-center" />
           </div>
 
           {/* Nav */}
-          <nav className="flex flex-col gap-2" aria-label="Footer">
+          <nav
+            className="flex flex-col items-center gap-2 sm:items-start lg:flex-1 lg:min-w-0 lg:items-start"
+            aria-label="Footer"
+          >
             {links.map((l) => (
               <Link
                 key={l.label}
@@ -62,11 +62,11 @@ export default function Footer() {
           </nav>
 
           {/* Contact info */}
-          <div className="text-sm text-muted lg:col-span-2">
+          <div className="text-center text-sm text-muted lg:flex-1 lg:min-w-0 lg:text-right">
             <h3 className="mb-3 text-xs font-bold uppercase tracking-widest text-zinc-400">
               Contact
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2 lg:ml-auto lg:max-w-sm">
               <li>
                 <a
                   href={`mailto:${STUDIO_EMAIL}`}

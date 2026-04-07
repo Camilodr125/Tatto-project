@@ -60,12 +60,16 @@ export default function Hero() {
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_85%_55%_at_50%_-25%,rgba(255,255,255,0.06),transparent)]"
         aria-hidden="true"
       />
+      <div
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_55%_45%_at_15%_20%,rgba(196,165,116,0.09),transparent_50%)]"
+        aria-hidden="true"
+      />
       <div className="pointer-events-none absolute inset-0 opacity-[0.04] [background-image:linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:56px_56px]" />
 
       <div className="relative mx-auto flex max-w-6xl flex-col gap-10 px-4 py-16 sm:gap-12 sm:px-6 sm:py-28 lg:flex-row lg:items-center lg:gap-16 lg:px-8 lg:py-32">
         <div className="min-w-0 flex-1 text-left">
           <motion.p
-            className="mb-3 text-xs font-semibold uppercase leading-relaxed tracking-[0.2em] text-zinc-500 sm:text-sm sm:tracking-[0.25em]"
+            className="mb-3 text-xs font-semibold uppercase leading-relaxed tracking-[0.2em] text-studio-gold-muted sm:text-sm sm:tracking-[0.25em]"
             initial={reduce ? false : { opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -74,7 +78,7 @@ export default function Hero() {
           </motion.p>
           <motion.h1
             id="hero-heading"
-            className="font-display text-[clamp(2.25rem,8vw,3.75rem)] leading-[0.95] tracking-wide text-white sm:text-6xl lg:text-7xl"
+            className="font-display text-[clamp(2.25rem,8vw,3.75rem)] font-semibold leading-[0.95] tracking-tight text-white sm:text-6xl lg:text-7xl"
             initial={reduce ? false : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.05 }}
@@ -100,13 +104,13 @@ export default function Hero() {
           >
             <Link
               to="/book"
-              className="inline-flex w-full items-center justify-center rounded-sm bg-accent px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-ink transition-colors hover:bg-accent-hot sm:w-auto sm:px-8"
+              className="inline-flex w-full items-center justify-center rounded-sm bg-accent px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-ink shadow-[0_0_42px_-10px_rgba(196,165,116,0.35)] transition-[background-color,box-shadow,color] hover:bg-accent-hot hover:shadow-[0_0_52px_-6px_rgba(196,165,116,0.45)] sm:w-auto sm:px-8"
             >
               Request a consult
             </Link>
             <Link
               to={{ pathname: '/gallery', hash: '' }}
-              className="inline-flex w-full items-center justify-center rounded-sm border border-zinc-600 px-6 py-3.5 text-sm font-semibold text-zinc-300 transition-colors hover:border-zinc-400 hover:text-white sm:w-auto sm:px-8"
+              className="inline-flex w-full items-center justify-center rounded-sm border border-zinc-600 px-6 py-3.5 text-sm font-semibold text-zinc-300 transition-[border-color,box-shadow,color] hover:border-studio-gold/45 hover:text-white hover:shadow-[0_0_32px_-12px_rgba(196,165,116,0.2)] sm:w-auto sm:px-8"
             >
               View work
             </Link>
@@ -120,7 +124,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.15 }}
         >
           <div
-            className="relative aspect-[4/5] w-full max-w-md overflow-hidden rounded-sm border border-border shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_28px_60px_-14px_rgba(0,0,0,0.85)]"
+            className="relative aspect-[4/5] w-full max-w-md overflow-hidden rounded-sm border border-border shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_28px_60px_-14px_rgba(0,0,0,0.85),0_0_80px_-24px_rgba(196,165,116,0.18)] ring-1 ring-inset ring-studio-gold/15"
             role="region"
             aria-roledescription="carousel"
             aria-label="Portfolio work from the team"
@@ -180,7 +184,7 @@ export default function Hero() {
                           className={[
                             'h-1.5 shrink-0 rounded-full transition-all',
                             i === index
-                              ? 'w-6 bg-zinc-200'
+                              ? 'w-6 bg-studio-gold'
                               : 'w-1.5 bg-zinc-600 hover:bg-zinc-500',
                           ].join(' ')}
                         />

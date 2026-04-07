@@ -1,10 +1,10 @@
 @import 'tailwindcss';
 
 @theme {
-  --font-family-display: 'Bebas Neue', ui-sans-serif, system-ui, sans-serif;
+  /* Oswald: poster / shop-board presence; DM Sans: clean body */
+  --font-family-display: 'Oswald', ui-sans-serif, system-ui, sans-serif;
   --font-family-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
-
-  /* Monochrome: black, greys, white — accent = highlight (white) */
+  /* Monochrome + muted antique gold (needles / foil flash, not loud UI gold) */
   --color-ink: #050505;
   --color-surface: #0a0a0a;
   --color-surface-elevated: #141414;
@@ -13,6 +13,8 @@
   --color-accent: #f5f5f5;
   --color-accent-hot: #ffffff;
   --color-accent-dim: #404040;
+  --color-studio-gold: #c4a574;
+  --color-studio-gold-muted: #8a7355;
 }
 
 html {
@@ -32,6 +34,34 @@ body {
   color: #e5e5e5;
   -webkit-font-smoothing: antialiased;
   color-scheme: dark;
+}
+
+/* Subtle paper / film grain — parent should be `absolute inset-0` (see RootLayout) */
+.studio-grain {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  opacity: 0.045;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .studio-grain {
+    opacity: 0.028;
+  }
+}
+
+/* Soft vignette — corners fall off toward ink */
+.studio-vignette {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 85% 70% at 50% 45%,
+    transparent 35%,
+    color-mix(in srgb, var(--color-ink) 72%, transparent) 100%
+  );
 }
 
 ::selection {
