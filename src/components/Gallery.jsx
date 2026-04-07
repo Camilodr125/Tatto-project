@@ -8,9 +8,49 @@ import {
 } from 'react'
 import { useLocation } from 'react-router-dom'
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
+import { GALLERY_SHOWREEL_VIDEO_SRC } from '../constants'
 import { getArtistGallerySections } from '../data/gallery'
 
 const artistGallerySections = getArtistGallerySections()
+
+function GalleryStudioShowreel() {
+  return (
+    <article
+      className="border-b border-border pb-14 md:pb-16"
+      aria-labelledby="gallery-showreel-heading"
+    >
+      <header className="mx-auto max-w-2xl text-center">
+        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-zinc-500">
+          All artists
+        </p>
+        <h2
+          id="gallery-showreel-heading"
+          className="mt-2 font-display text-3xl font-semibold tracking-tight text-zinc-50 sm:text-4xl"
+        >
+          Studio reel
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-zinc-400 sm:text-lg">
+          A look at work from across our team—styles, scale, and the kind of sessions you can
+          expect when you step into oneblood studio. Scroll down for each artist&apos;s portfolio.
+        </p>
+      </header>
+      <div className="relative mx-auto mt-8 max-w-5xl">
+        <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-border/90 bg-zinc-950 shadow-[0_0_0_1px_rgba(255,255,255,0.06),0_24px_64px_-20px_rgba(0,0,0,0.75),0_0_80px_-30px_rgba(196,165,116,0.12)] ring-1 ring-inset ring-studio-gold/20">
+          <video
+            className="absolute inset-0 h-full w-full object-cover object-center"
+            controls
+            playsInline
+            preload="metadata"
+            src={GALLERY_SHOWREEL_VIDEO_SRC}
+          />
+        </div>
+        <p className="mt-3 text-center text-xs text-zinc-600">
+          On mobile, use fullscreen for the best playback.
+        </p>
+      </div>
+    </article>
+  )
+}
 
 function ChevronLeft({ className = '' }) {
   return (
@@ -160,16 +200,35 @@ function GallerySectionCarousel({
                 aria-haspopup="dialog"
                 aria-label={`Open preview: ${item.alt}`}
               >
-                <img
-                  src={item.thumb}
-                  alt=""
-                  width={640}
-                  height={800}
-                  loading={eager ? 'eager' : 'lazy'}
-                  decoding="async"
-                  className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
-                />
+                {item.mediaType === 'video' ? (
+                  <video
+                    src={item.thumb}
+                    muted
+                    playsInline
+                    preload="metadata"
+                    className="pointer-events-none h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
+                    aria-hidden="true"
+                  />
+                ) : (
+                  <img
+                    src={item.thumb}
+                    alt=""
+                    width={640}
+                    height={800}
+                    loading={eager ? 'eager' : 'lazy'}
+                    decoding="async"
+                    className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                )}
                 <span className="sr-only">{item.alt}</span>
+                {item.mediaType === 'video' ? (
+                  <span
+                    className="pointer-events-none absolute bottom-2 right-2 rounded bg-ink/75 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-zinc-200"
+                    aria-hidden
+                  >
+                    Video
+                  </span>
+                ) : null}
                 <span
                   className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent opacity-70 transition-opacity group-hover:opacity-90"
                   aria-hidden="true"
@@ -218,6 +277,11 @@ export default function Gallery({ className = '' }) {
     const match = artistGallerySections.find((s) => s.slug === raw)
     return match ? [match] : artistGallerySections
   }, [location.hash])
+
+  const showStudioShowreel = useMemo(() => {
+    const raw = location.hash?.replace(/^#/, '').trim()
+    return !raw && visibleSections.length > 0
+  }, [location.hash, visibleSections.length])
 
   useLayoutEffect(() => {
     const raw = location.hash?.replace(/^#/, '')
@@ -285,6 +349,7 @@ export default function Gallery({ className = '' }) {
           </p>
         ) : (
           <div className="flex flex-col gap-16 md:gap-20">
+            {showStudioShowreel ? <GalleryStudioShowreel /> : null}
             {visibleSections.map((section, idx) => (
               <article
                 key={section.slug}
@@ -371,15 +436,25 @@ export default function Gallery({ className = '' }) {
                 </button>
               </div>
               <div className="max-h-[calc(92vh-4rem)] overflow-auto bg-ink/50">
-                <img
-                  src={active.src}
-                  alt={active.alt}
-                  width={1600}
-                  height={1600}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full object-contain"
-                />
+                {active.mediaType === 'video' ? (
+                  <video
+                    key={active.src}
+                    src={active.src}
+                    controls
+                    playsInline
+                    className="max-h-[min(80vh,calc(92vh-5rem))] w-full object-contain"
+                  />
+                ) : (
+                  <img
+                    src={active.src}
+                    alt={active.alt}
+                    width={1600}
+                    height={1600}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full object-contain"
+                  />
+                )}
               </div>
             </motion.div>
           </motion.div>

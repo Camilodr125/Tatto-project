@@ -32,9 +32,15 @@ export const artists = [
     slug: 'drex',
     name: 'Drex',
     status: 'permanent',
-    styles: 'Add styles here',
-    bio: 'Bio coming soon — update this text in src/data/artists.js.',
-    portfolioIntro: '',
+    styles:
+      'Bold style fusion · Black & grey realism · Neo-traditional · Asian & anime-inspired',
+    bio: `Drex is a Colombian tattoo artist with over seven years of experience, specializing in bold style fusion. His work moves between soft black-and-grey realism and striking neo-traditional compositions—often blending both to create pieces that feel unique, intentional, and visually powerful.
+
+This versatility has led him to develop a signature approach—often blending styles or incorporating solid, striking color accents into black-and-grey compositions, creating pieces that feel both dynamic and balanced.
+
+Deeply inspired by Asian art and anime since the beginning of his career, Drex naturally gravitates toward these themes in his work. Whether you're drawn to Asian folklore or you're an anime enthusiast, his style offers a unique way to bring those influences to life on skin.`,
+    portfolioIntro:
+      'Bold fusion of black-and-grey realism and neo-traditional with optional striking color accents—dynamic, balanced pieces rooted in Asian art and anime influences.',
     image: '/artists/drex/drex_profile.png',
     workImages: [
       '/artists/drex/drex_1.jpeg',
