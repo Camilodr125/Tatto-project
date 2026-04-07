@@ -41,19 +41,19 @@ export default function Header() {
       <a href="#main-content" className="skip-link">
         Skip to main content
       </a>
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-4 sm:gap-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-6xl items-center gap-2 px-3 py-3 sm:gap-4 sm:px-6 sm:py-4 lg:px-8">
         <Link
           to="/"
-          className="flex shrink-0 items-center gap-3 transition-opacity hover:opacity-90 sm:gap-3.5"
+          className="flex min-w-0 flex-1 flex-col gap-0.5 transition-opacity hover:opacity-90 sm:flex-row sm:items-center sm:gap-3 md:gap-3.5"
           aria-label="oneblood studio — home"
         >
-          <StudioLogo className="h-8 w-auto max-h-9 max-w-[120px] object-contain object-left sm:h-9 sm:max-w-[140px]" />
-          <span className="font-display text-lg tracking-[0.14em] text-zinc-100 sm:text-xl md:text-2xl">
+          <StudioLogo className="h-7 w-auto max-w-[min(112px,32vw)] shrink-0 object-contain object-left sm:h-9 sm:max-w-[min(150px,40vw)]" />
+          <span className="min-w-0 font-display text-[0.9375rem] leading-tight tracking-[0.1em] text-zinc-100 sm:text-lg sm:tracking-[0.14em] md:text-xl lg:text-2xl">
             ONEBLOOD<span className="text-zinc-500"> STUDIO</span>
           </span>
         </Link>
 
-        <div className="flex flex-1 items-center justify-end gap-2 sm:gap-3 md:gap-0">
+        <div className="flex shrink-0 items-center justify-end gap-1.5 sm:gap-3 md:gap-0">
           <SocialLinks
             className="md:hidden"
             linkClassName="h-9 w-9"

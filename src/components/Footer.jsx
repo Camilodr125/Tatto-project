@@ -32,11 +32,11 @@ export default function Footer() {
           <div>
             <Link
               to="/"
-              className="inline-flex max-w-full flex-wrap items-center gap-2.5 sm:gap-3"
+              className="inline-flex max-w-full flex-col gap-1.5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-2.5 md:gap-3"
               aria-label="oneblood studio — home"
             >
-              <StudioLogo className="h-7 w-auto max-w-[100px] object-contain object-left sm:h-8 sm:max-w-[120px]" />
-              <span className="font-display text-base tracking-[0.12em] text-zinc-100 sm:text-lg">
+              <StudioLogo className="h-7 w-auto max-w-[min(120px,55vw)] object-contain object-left sm:h-8 sm:max-w-[130px]" />
+              <span className="font-display text-base leading-tight tracking-[0.1em] text-zinc-100 sm:text-lg sm:tracking-[0.12em]">
                 ONEBLOOD<span className="text-zinc-500"> STUDIO</span>
               </span>
             </Link>

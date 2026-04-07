@@ -62,10 +62,10 @@ export default function Hero() {
       />
       <div className="pointer-events-none absolute inset-0 opacity-[0.04] [background-image:linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:56px_56px]" />
 
-      <div className="relative mx-auto flex max-w-6xl flex-col gap-12 px-4 py-20 sm:px-6 sm:py-28 lg:flex-row lg:items-center lg:gap-16 lg:px-8 lg:py-32">
-        <div className="flex-1 text-left">
+      <div className="relative mx-auto flex max-w-6xl flex-col gap-10 px-4 py-16 sm:gap-12 sm:px-6 sm:py-28 lg:flex-row lg:items-center lg:gap-16 lg:px-8 lg:py-32">
+        <div className="min-w-0 flex-1 text-left">
           <motion.p
-            className="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-zinc-500"
+            className="mb-3 text-xs font-semibold uppercase leading-relaxed tracking-[0.2em] text-zinc-500 sm:text-sm sm:tracking-[0.25em]"
             initial={reduce ? false : { opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -74,7 +74,7 @@ export default function Hero() {
           </motion.p>
           <motion.h1
             id="hero-heading"
-            className="font-display text-5xl leading-[0.95] tracking-wide text-white sm:text-6xl lg:text-7xl"
+            className="font-display text-[clamp(2.25rem,8vw,3.75rem)] leading-[0.95] tracking-wide text-white sm:text-6xl lg:text-7xl"
             initial={reduce ? false : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.05 }}
@@ -83,7 +83,7 @@ export default function Hero() {
             <span className="block text-zinc-400">outlasts trends</span>
           </motion.h1>
           <motion.p
-            className="mt-6 max-w-xl text-lg leading-relaxed text-muted"
+            className="mt-5 max-w-xl text-base leading-relaxed text-muted sm:mt-6 sm:text-lg"
             initial={reduce ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.12 }}
@@ -93,20 +93,20 @@ export default function Hero() {
             sharp for the first week.
           </motion.p>
           <motion.div
-            className="mt-10 flex flex-wrap gap-4"
+            className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-4"
             initial={reduce ? false : { opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, delay: 0.2 }}
           >
             <Link
               to="/book"
-              className="inline-flex items-center justify-center rounded-sm bg-accent px-8 py-3.5 text-sm font-bold uppercase tracking-wider text-ink transition-colors hover:bg-accent-hot"
+              className="inline-flex w-full items-center justify-center rounded-sm bg-accent px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-ink transition-colors hover:bg-accent-hot sm:w-auto sm:px-8"
             >
               Request a consult
             </Link>
             <Link
               to={{ pathname: '/gallery', hash: '' }}
-              className="inline-flex items-center justify-center rounded-sm border border-zinc-600 px-8 py-3.5 text-sm font-semibold text-zinc-300 transition-colors hover:border-zinc-400 hover:text-white"
+              className="inline-flex w-full items-center justify-center rounded-sm border border-zinc-600 px-6 py-3.5 text-sm font-semibold text-zinc-300 transition-colors hover:border-zinc-400 hover:text-white sm:w-auto sm:px-8"
             >
               View work
             </Link>
@@ -114,7 +114,7 @@ export default function Hero() {
         </div>
 
         <motion.div
-          className="relative flex w-full flex-1 justify-center lg:justify-end"
+          className="relative flex w-full min-w-0 flex-1 justify-center lg:justify-end"
           initial={reduce ? false : { opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.15 }}
@@ -149,8 +149,8 @@ export default function Hero() {
               aria-hidden="true"
             />
 
-            <div className="absolute bottom-0 left-0 right-0 flex flex-col gap-2 p-4 pt-10">
-              <p className="font-display text-lg tracking-wide text-zinc-200 sm:text-xl">
+            <div className="absolute bottom-0 left-0 right-0 flex flex-col gap-1.5 p-3 pt-8 sm:gap-2 sm:p-4 sm:pt-10">
+              <p className="font-display text-base tracking-wide text-zinc-200 sm:text-lg md:text-xl">
                 <span className="block text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-zinc-500">
                   Made by
                 </span>
@@ -197,9 +197,9 @@ export default function Hero() {
                   type="button"
                   aria-label="Previous image"
                   onClick={() => go(-1)}
-                  className="absolute left-2 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-sm border border-zinc-700/80 bg-ink/40 text-zinc-200 backdrop-blur-sm transition-colors hover:border-zinc-500 hover:bg-ink/60 hover:text-white"
+                  className="absolute left-1.5 top-1/2 flex h-9 w-9 -translate-y-1/2 touch-manipulation items-center justify-center rounded-sm border border-zinc-700/80 bg-ink/40 text-zinc-200 backdrop-blur-sm transition-colors hover:border-zinc-500 hover:bg-ink/60 hover:text-white sm:left-2 sm:h-10 sm:w-10"
                 >
-                  <span aria-hidden="true" className="text-lg leading-none">
+                  <span aria-hidden="true" className="text-base leading-none sm:text-lg">
                     ‹
                   </span>
                 </button>
@@ -207,9 +207,9 @@ export default function Hero() {
                   type="button"
                   aria-label="Next image"
                   onClick={() => go(1)}
-                  className="absolute right-2 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-sm border border-zinc-700/80 bg-ink/40 text-zinc-200 backdrop-blur-sm transition-colors hover:border-zinc-500 hover:bg-ink/60 hover:text-white"
+                  className="absolute right-1.5 top-1/2 flex h-9 w-9 -translate-y-1/2 touch-manipulation items-center justify-center rounded-sm border border-zinc-700/80 bg-ink/40 text-zinc-200 backdrop-blur-sm transition-colors hover:border-zinc-500 hover:bg-ink/60 hover:text-white sm:right-2 sm:h-10 sm:w-10"
                 >
-                  <span aria-hidden="true" className="text-lg leading-none">
+                  <span aria-hidden="true" className="text-base leading-none sm:text-lg">
                     ›
                   </span>
                 </button>

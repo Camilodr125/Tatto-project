@@ -80,7 +80,17 @@ export default function ArtistsPage() {
                       Available {formatRange(a.availableFrom, a.availableTo)}
                     </p>
                   )}
-                  <p className="mt-4 flex-1 text-sm leading-relaxed text-muted">{a.bio}</p>
+                  <div className="mt-4 flex-1 space-y-4 text-sm leading-relaxed text-muted">
+                    {a.bio
+                      .split(/\n\n+/)
+                      .map((block) => block.trim())
+                      .filter(Boolean)
+                      .map((para, j) => (
+                        <p key={j} className="text-pretty text-justify">
+                          {para}
+                        </p>
+                      ))}
+                  </div>
                   <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                     <Link
                       to="/book"

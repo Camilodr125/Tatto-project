@@ -47,8 +47,14 @@ export const artists = [
     slug: 'juan_haka',
     name: 'Juan Haka',
     status: 'permanent',
-    styles: 'Add styles here',
-    bio: 'Bio coming soon — update this text in src/data/artists.js.',
+    styles: 'Black & grey realism · Portraiture · Surrealism',
+    bio: `Originally from Medellín, Colombia, Juan Haka is an accomplished tattoo artist with over 16 years of experience in the industry. In 2024, he moved to the United States to explore new opportunities and continue evolving both personally and artistically.
+
+Throughout his career, Juan has traveled extensively, working in more than 30 countries around the world. This global experience has deeply influenced his artistic perspective, allowing him to blend different cultural elements into his work and develop a unique, refined style.
+
+He specializes in black and grey realism and portraiture, with a strong focus on surrealism—his true signature style. His work is known for its depth, creativity, and ability to transform concepts into powerful, visually striking compositions that flow naturally with the body.
+
+Currently, Juan is traveling across the United States, immersing himself in different cultures and artistic environments while tattooing in various cities. At oneblood studio, he brings a high level of experience, versatility, and a distinctive artistic approach to every project.`,
     image: '/artists/juan_haka/juan_haka_profile.png',
     workImages: [
       '/artists/juan_haka/juan_haka_1.jpeg',
