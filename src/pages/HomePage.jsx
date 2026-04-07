@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { motion, useReducedMotion } from 'framer-motion'
 import Hero from '../components/Hero'
+import StudioShowreel from '../components/StudioShowreel'
 import Testimonials from '../components/Testimonials'
 import { FEATURE_MERCH } from '../constants'
 
@@ -66,6 +67,7 @@ export default function HomePage() {
           <p className="mt-3 max-w-2xl text-muted">
             Each section lives on its own page — jump in wherever you need detail.
           </p>
+          <StudioShowreel className="mt-12 sm:mt-14" />
           <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {explore.map((item, i) => (
               <motion.li

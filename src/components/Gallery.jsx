@@ -8,49 +8,9 @@ import {
 } from 'react'
 import { useLocation } from 'react-router-dom'
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
-import { GALLERY_SHOWREEL_VIDEO_SRC } from '../constants'
 import { getArtistGallerySections } from '../data/gallery'
 
 const artistGallerySections = getArtistGallerySections()
-
-function GalleryStudioShowreel() {
-  return (
-    <article
-      className="border-b border-border pb-14 md:pb-16"
-      aria-labelledby="gallery-showreel-heading"
-    >
-      <header className="mx-auto max-w-2xl text-center">
-        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-zinc-500">
-          All artists
-        </p>
-        <h2
-          id="gallery-showreel-heading"
-          className="mt-2 font-display text-3xl font-semibold tracking-tight text-zinc-50 sm:text-4xl"
-        >
-          Studio reel
-        </h2>
-        <p className="mt-4 text-base leading-relaxed text-zinc-400 sm:text-lg">
-          A look at work from across our team—styles, scale, and the kind of sessions you can
-          expect when you step into oneblood studio. Scroll down for each artist&apos;s portfolio.
-        </p>
-      </header>
-      <div className="relative mx-auto mt-8 max-w-5xl">
-        <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-border/90 bg-zinc-950 shadow-[0_0_0_1px_rgba(255,255,255,0.06),0_24px_64px_-20px_rgba(0,0,0,0.75),0_0_80px_-30px_rgba(196,165,116,0.12)] ring-1 ring-inset ring-studio-gold/20">
-          <video
-            className="absolute inset-0 h-full w-full object-cover object-center"
-            controls
-            playsInline
-            preload="metadata"
-            src={GALLERY_SHOWREEL_VIDEO_SRC}
-          />
-        </div>
-        <p className="mt-3 text-center text-xs text-zinc-600">
-          On mobile, use fullscreen for the best playback.
-        </p>
-      </div>
-    </article>
-  )
-}
 
 function ChevronLeft({ className = '' }) {
   return (
@@ -278,11 +238,6 @@ export default function Gallery({ className = '' }) {
     return match ? [match] : artistGallerySections
   }, [location.hash])
 
-  const showStudioShowreel = useMemo(() => {
-    const raw = location.hash?.replace(/^#/, '').trim()
-    return !raw && visibleSections.length > 0
-  }, [location.hash, visibleSections.length])
-
   useLayoutEffect(() => {
     const raw = location.hash?.replace(/^#/, '')
     if (!raw) return
@@ -349,7 +304,6 @@ export default function Gallery({ className = '' }) {
           </p>
         ) : (
           <div className="flex flex-col gap-16 md:gap-20">
-            {showStudioShowreel ? <GalleryStudioShowreel /> : null}
             {visibleSections.map((section, idx) => (
               <article
                 key={section.slug}

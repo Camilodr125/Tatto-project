@@ -30,7 +30,6 @@ export const STUDIO_WALKIN_HOURS = 'Tue — Sun · 12 PM — 8 PM'
 export const FEATURE_MERCH = false
 
 /**
- * Studio showreel on the Gallery page (work from all artists).
- * Place the file at `public/gallery/showreel.mov` (or change the path below).
+ * Studio showreel (Home page). Place the file at `public/gallery/showreel.mov`.
  */
-export const GALLERY_SHOWREEL_VIDEO_SRC = '/gallery/showreel.mov'
+export const STUDIO_SHOWREEL_VIDEO_SRC = '/gallery/showreel.mov'
