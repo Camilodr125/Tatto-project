@@ -59,7 +59,10 @@ export default function HomePage() {
       >
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-10 md:flex-row md:items-start md:gap-8 lg:gap-10 xl:gap-14">
-            <div className="min-w-0 flex-1 md:pt-0.5 lg:pt-1">
+            <div className="order-2 w-full md:order-1 md:max-w-[min(100%,440px)] md:flex-shrink-0 lg:max-w-[min(100%,460px)] xl:max-w-[min(100%,500px)]">
+              <StudioShowreel variant="split" className="md:mt-0" />
+            </div>
+            <div className="order-1 min-w-0 flex-1 md:order-2 md:pt-0.5 lg:pt-1">
               <h2
                 id="explore-heading"
                 className="font-display text-3xl tracking-wide text-zinc-50 sm:text-4xl"
@@ -84,9 +87,6 @@ export default function HomePage() {
                   business days.
                 </p>
               </div>
-            </div>
-            <div className="w-full md:max-w-[min(100%,440px)] md:flex-shrink-0 lg:max-w-[min(100%,460px)] xl:max-w-[min(100%,500px)]">
-              <StudioShowreel variant="split" className="md:mt-0" />
             </div>
           </div>
           <ul className="mt-14 grid gap-4 sm:mt-16 sm:grid-cols-2 lg:grid-cols-3">
