@@ -1,5 +1,5 @@
 /** Studio contact email — used in UI, mailto links, and README */
-export const STUDIO_EMAIL = 'sadekyt8@gmail.com'
+export const STUDIO_EMAIL = 'onebloodtattoostudio@gmail.com'
 
 /** Studio phone — footer `tel:` link; E.164 for href */
 export const STUDIO_PHONE_DISPLAY = '469-438-9491'

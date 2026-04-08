@@ -39,9 +39,6 @@ export default function Footer() {
             >
               <StudioBrand logoClassName="h-8 w-auto max-w-[min(140px,55vw)] object-contain sm:h-9 sm:max-w-[150px]" />
             </Link>
-            <p className="mt-2 max-w-xs text-sm text-muted">
-              Dedication, respect for the client, and love for the art.
-            </p>
             <SocialLinks className="mt-4 justify-center" />
           </div>
 
