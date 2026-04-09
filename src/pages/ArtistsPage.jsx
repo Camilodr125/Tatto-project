@@ -59,7 +59,7 @@ export default function ArtistsPage() {
                   />
                 </div>
                 <div className="flex min-h-0 flex-1 flex-col p-6">
-                  <div className="flex items-center gap-2">
+                  <div className="flex flex-wrap items-center gap-2">
                     <span
                       className={[
                         'inline-block rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-widest',
@@ -68,7 +68,7 @@ export default function ArtistsPage() {
                           : 'bg-amber-900/40 text-amber-400',
                       ].join(' ')}
                     >
-                      {a.status === 'permanent' ? 'Permanent' : 'Guest'}
+                      {a.status === 'permanent' ? 'Resident' : 'Guest'}
                     </span>
                   </div>
                   <h2 className="mt-3 font-display text-2xl tracking-wide text-zinc-100">
@@ -77,6 +77,11 @@ export default function ArtistsPage() {
                   {a.status === 'temporary' && a.availableFrom && a.availableTo && (
                     <p className="mt-2 text-xs text-amber-400/80">
                       Available {formatRange(a.availableFrom, a.availableTo)}
+                    </p>
+                  )}
+                  {a.status === 'temporary' && (!a.availableFrom || !a.availableTo) && (
+                    <p className="mt-2 text-xs text-amber-400/80">
+                      Guest — visit dates announced on socials.
                     </p>
                   )}
                   <div

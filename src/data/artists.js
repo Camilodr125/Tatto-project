@@ -5,6 +5,31 @@
 export const artists = [
   {
     id: '1',
+    slug: 'alejandro',
+    name: 'David Bonilla',
+    status: 'permanent',
+    styles: 'Micro realism · Meaningful pieces · Fine detail',
+    portfolioIntro:
+      'Micro realism and tattoos built to carry meaning — story-driven pieces rooted in drawing and a calm, intentional approach.',
+    bio: `Meet David Bonilla, a tattoo artist specializing in micro realism.
+
+With 3 years of experience, David focuses on creating tattoos that carry meaning — pieces that tell a story, hold a purpose, and represent something deeper than just a good tattoo.
+
+His passion for tattooing comes from his love for drawing. He has been drawing since childhood, and being able to continue creating art as an adult is one of the things he enjoys most.
+
+For David, the purpose of each day is simple: to be happy and at peace — and that mindset is reflected in every piece he creates.`,
+    image: '/artists/alejandro/alejandro_profile.jpeg',
+    workImages: [
+      '/artists/alejandro/alejandro_1.jpeg',
+      '/artists/alejandro/alejandro_2.jpeg',
+      '/artists/alejandro/alejandro_3.jpeg',
+      '/artists/alejandro/alejandro_4.jpeg',
+      '/artists/alejandro/alejandro_5.jpeg',
+    ],
+    alt: 'Portrait of tattoo artist David Bonilla',
+  },
+  {
+    id: '2',
     slug: 'daniel_avencilla',
     name: 'Daniel Avecilla',
     status: 'temporary',
@@ -13,7 +38,11 @@ export const artists = [
     styles: 'Black & grey realism · Portraits · High detail',
     portfolioIntro:
       'Refined black-and-grey realism with high-detail portraits, smooth shading, and lifelike compositions with depth and contrast—modern black-and-grey specialist.',
-    bio: 'Daniel Avecilla is a Spanish tattoo artist known for refined black-and-grey realism. With several years in the industry, he has earned a strong reputation for high-detail portraits, smooth shading, and clean, lifelike compositions with depth and contrast. Based in Los Angeles, California, he works with clients from around the world. We are excited to welcome Daniel as a guest artist at oneblood studio this June—a rare chance to be tattooed by a specialist in modern black-and-grey realism.',
+    bio: `Daniel Avecilla is a Spanish tattoo artist known for his refined black and grey realism. With several years of experience in the industry, he has developed a strong reputation for high-detail portraits, smooth shading, and clean, lifelike compositions with depth and contrast.
+
+Daniel is currently based in Los Angeles, California, and continues to work with clients from around the world.
+
+We're excited to welcome Daniel Avecilla as a guest artist at One Blood Tattoo Studio this June, offering a unique opportunity to get tattooed by a specialist in modern black and grey realism.`,
     image: '/artists/daniel_avencilla/daniel_avencilla_profile.jpeg',
     workImages: [
       '/artists/daniel_avencilla/daniel_avencilla_1.jpeg',
@@ -21,6 +50,8 @@ export const artists = [
       '/artists/daniel_avencilla/daniel_avencilla_3.webp',
       '/artists/daniel_avencilla/daniel_avencilla_4.webp',
       '/artists/daniel_avencilla/daniel_avencilla_5.webp',
+      '/artists/daniel_avencilla/daniel_avencilla_6.jpeg',
+      '/artists/daniel_avencilla/daniel_avencilla_7.jpeg',
     ],
     alt: 'Portrait of tattoo artist Daniel Avecilla',
     // 1081×1921 is much taller than ~1081×1351: object-cover zooms to fill width and crops top/bottom (nameplate). contain shows the full poster like other cards; gutters match bg-surface. For full-bleed, re-export profile at ~1081×1351.
@@ -28,10 +59,10 @@ export const artists = [
     profileObjectFit: 'contain',
   },
   {
-    id: '2',
+    id: '3',
     slug: 'drex',
     name: 'Drex',
-    status: 'permanent',
+    status: 'temporary',
     styles:
       'Bold style fusion · Black & grey realism · Neo-traditional · Asian & anime-inspired',
     bio: `Drex is a Colombian tattoo artist with over seven years of experience, specializing in bold style fusion. His work moves between soft black-and-grey realism and striking neo-traditional compositions—often blending both to create pieces that feel unique, intentional, and visually powerful.
@@ -52,10 +83,10 @@ Deeply inspired by Asian art and anime since the beginning of his career, Drex n
     alt: 'Portrait of tattoo artist Drex',
   },
   {
-    id: '3',
+    id: '4',
     slug: 'juan_haka',
     name: 'Juan Haka',
-    status: 'permanent',
+    status: 'temporary',
     styles: 'Black & grey realism · Portraiture · Surrealism',
     portfolioIntro:
       'Black & grey realism and portraiture with a strong surrealist signature—depth, creativity, and compositions shaped by years of work across 30+ countries.',
@@ -78,10 +109,10 @@ Currently, Juan is traveling across the United States, immersing himself in diff
     alt: 'Portrait of tattoo artist Juan Haka',
   },
   {
-    id: '4',
+    id: '5',
     slug: 'korthe',
     name: 'Korthe',
-    status: 'permanent',
+    status: 'temporary',
     styles: 'Add styles here',
     bio: 'Bio coming soon — update this text in src/data/artists.js.',
     portfolioIntro: '',
@@ -98,7 +129,7 @@ Currently, Juan is traveling across the United States, immersing himself in diff
     alt: 'Portrait of tattoo artist Korthe',
   },
   {
-    id: '5',
+    id: '6',
     slug: 'robert_hernandez',
     name: 'Robert Hernandez',
     status: 'temporary',
@@ -107,7 +138,9 @@ Currently, Juan is traveling across the United States, immersing himself in diff
     styles: 'Black & grey realism · Surreal · Fine-art finish',
     portfolioIntro:
       "Exceptional black-and-grey realism and dark surreal compositions—depth, precision, and a fine-art finish from one of the genre's pioneers.",
-    bio: 'Robert Hernandez is an internationally recognized tattoo artist known for exceptional black-and-grey realism and dark, surreal compositions. With more than three decades of experience, his work is celebrated for its depth, precision, and artistic approach—often reading like fine art on skin. Based in Madrid, Spain, he has influenced the global tattoo industry and continues to push the boundaries of realism through his distinctive style. We are excited to welcome Robert as a guest artist at oneblood studio this July—a rare opportunity to be tattooed by one of the pioneers of black-and-grey realism.',
+    bio: `Robert Hernandez is an internationally recognized tattoo artist known for his exceptional black and grey realism and dark, surreal compositions. With over three decades of experience, his work stands out for its depth, precision, and artistic approach, often resembling fine art on skin. Based in Madrid, Spain, Robert has influenced the global tattoo industry and continues to push the boundaries of realism through his unique style.
+
+We're excited to announce that Robert Hernandez will be joining One Blood Tattoo Studio as a guest artist this July. This is a rare opportunity to get tattooed by one of the pioneers of black and grey realism.`,
     image: '/artists/robert_hernandez/robert_hernandez_profile.png',
     workImages: [
       '/artists/robert_hernandez/robert_hernandez_1.jpeg',

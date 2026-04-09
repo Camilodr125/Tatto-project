@@ -418,9 +418,7 @@ export default function ContactForm() {
                   {artists.map((a) => (
                     <option key={a.id} value={a.name}>
                       {a.name}
-                      {a.status === 'temporary' && a.availableFrom && a.availableTo
-                        ? ` (guest)`
-                        : ''}
+                      {a.status === 'temporary' ? ' (guest)' : ''}
                     </option>
                   ))}
                 </select>
