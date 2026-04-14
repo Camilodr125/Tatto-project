@@ -42,7 +42,7 @@ For David, the purpose of each day is simple: to be happy and at peace — and t
 
 Daniel is currently based in Los Angeles, California, and continues to work with clients from around the world.
 
-We're excited to welcome Daniel Avecilla as a guest artist at One Blood Tattoo Studio this June, offering a unique opportunity to get tattooed by a specialist in modern black and grey realism.`,
+We're excited to welcome Daniel Avecilla as a guest artist at Oneblood Tattoo Studio this June, offering a unique opportunity to get tattooed by a specialist in modern black and grey realism.`,
     image: '/artists/daniel_avencilla/daniel_avencilla_profile.jpeg',
     workImages: [
       '/artists/daniel_avencilla/daniel_avencilla_1.jpeg',
@@ -63,6 +63,7 @@ We're excited to welcome Daniel Avecilla as a guest artist at One Blood Tattoo S
     slug: 'drex',
     name: 'Drex',
     status: 'temporary',
+    availabilityLabel: 'Now booking',
     styles:
       'Bold style fusion · Black & grey realism · Neo-traditional · Asian & anime-inspired',
     bio: `Drex is a Colombian tattoo artist with over seven years of experience, specializing in bold style fusion. His work moves between soft black-and-grey realism and striking neo-traditional compositions—often blending both to create pieces that feel unique, intentional, and visually powerful.
@@ -87,7 +88,7 @@ Deeply inspired by Asian art and anime since the beginning of his career, Drex n
     slug: 'juan_haka',
     name: 'Juan Haka',
     status: 'temporary',
-    styles: 'Black & grey realism · Portraiture · Surrealism',
+    styles: 'Black & grey realism · Portraits · Surrealism',
     portfolioIntro:
       'Black & grey realism and portraiture with a strong surrealist signature—depth, creativity, and compositions shaped by years of work across 30+ countries.',
     bio: `Originally from Medellín, Colombia, Juan Haka is an accomplished tattoo artist with over 16 years of experience in the industry. In 2024, he moved to the United States to explore new opportunities and continue evolving both personally and artistically.
@@ -96,7 +97,7 @@ Throughout his career, Juan has traveled extensively, working in more than 30 co
 
 He specializes in black and grey realism and portraiture, with a strong focus on surrealism—his true signature style. His work is known for its depth, creativity, and ability to transform concepts into powerful, visually striking compositions that flow naturally with the body.
 
-Currently, Juan is traveling across the United States, immersing himself in different cultures and artistic environments while tattooing in various cities. At oneblood studio, he brings a high level of experience, versatility, and a distinctive artistic approach to every project.`,
+Currently, Juan is traveling across the United States, immersing himself in different cultures and artistic environments while tattooing in various cities. At Oneblood studio, he brings a high level of experience, versatility, and a distinctive artistic approach to every project.`,
     image: '/artists/juan_haka/juan_haka_profile.png',
     workImages: [
       '/artists/juan_haka/juan_haka_1.jpeg',
@@ -113,6 +114,8 @@ Currently, Juan is traveling across the United States, immersing himself in diff
     slug: 'korthe',
     name: 'Korthe',
     status: 'temporary',
+    availableFrom: '2026-07-01',
+    availableTo: '2026-07-31',
     styles: 'Add styles here',
     bio: 'Bio coming soon — update this text in src/data/artists.js.',
     portfolioIntro: '',
@@ -135,12 +138,12 @@ Currently, Juan is traveling across the United States, immersing himself in diff
     status: 'temporary',
     availableFrom: '2026-07-01',
     availableTo: '2026-07-31',
-    styles: 'Black & grey realism · Surreal · Fine-art finish',
+    styles: 'Black & grey realism · Surrealism · Fine-art finish',
     portfolioIntro:
       "Exceptional black-and-grey realism and dark surreal compositions—depth, precision, and a fine-art finish from one of the genre's pioneers.",
     bio: `Robert Hernandez is an internationally recognized tattoo artist known for his exceptional black and grey realism and dark, surreal compositions. With over three decades of experience, his work stands out for its depth, precision, and artistic approach, often resembling fine art on skin. Based in Madrid, Spain, Robert has influenced the global tattoo industry and continues to push the boundaries of realism through his unique style.
 
-We're excited to announce that Robert Hernandez will be joining One Blood Tattoo Studio as a guest artist this July. This is a rare opportunity to get tattooed by one of the pioneers of black and grey realism.`,
+We're excited to announce that Robert Hernandez will be joining Oneblood Tattoo Studio as a guest artist this July. This is a rare opportunity to get tattooed by one of the pioneers of black and grey realism.`,
     image: '/artists/robert_hernandez/robert_hernandez_profile.png',
     workImages: [
       '/artists/robert_hernandez/robert_hernandez_1.jpeg',

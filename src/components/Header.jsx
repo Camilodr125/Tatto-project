@@ -8,12 +8,12 @@ import { FEATURE_MERCH } from '../constants'
 const galleryTo = { pathname: '/gallery', hash: '' }
 
 const nav = [
-  { to: '/services', label: 'Services' },
   { to: '/artists', label: 'Artists' },
   { to: galleryTo, label: 'Gallery' },
-  ...(FEATURE_MERCH ? [{ to: '/merch', label: 'Merch' }] : []),
-  { to: '/about', label: 'About' },
+  { to: '/about', label: 'Studio' },
+  { to: '/services', label: 'Services' },
   { to: '/reviews', label: 'Reviews' },
+  ...(FEATURE_MERCH ? [{ to: '/merch', label: 'Merch' }] : []),
 ]
 
 const linkClass = ({ isActive }) =>

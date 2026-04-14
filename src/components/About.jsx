@@ -1,4 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion'
+import StudioPhotosPlaceholder from './StudioPhotosPlaceholder'
 
 export default function About() {
   const reduce = useReducedMotion()
@@ -10,25 +11,12 @@ export default function About() {
     >
       <div className="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-8">
         <motion.div
-          className="relative aspect-[4/3] overflow-hidden rounded-sm border border-border"
           initial={reduce ? false : { opacity: 0, x: -16 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.5 }}
         >
-          <img
-            src="https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?w=1000&q=80&auto=format&fit=crop"
-            alt="Artist refining a custom tattoo design at the studio desk"
-            width={1000}
-            height={750}
-            loading="lazy"
-            decoding="async"
-            className="h-full w-full object-cover"
-          />
-          <div
-            className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/10"
-            aria-hidden="true"
-          />
+          <StudioPhotosPlaceholder />
         </motion.div>
 
         <div>
@@ -39,7 +27,7 @@ export default function About() {
             The studio
           </h2>
           <p className="mt-6 text-muted">
-            oneblood studio is a private appointment space built around focus:
+            Oneblood studio is a private appointment space built around focus:
             one client block at a time, medical-grade hygiene, and drawings that
             respect how ink settles over years — not just how it photographs on
             day one.

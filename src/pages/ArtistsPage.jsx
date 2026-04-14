@@ -74,16 +74,24 @@ export default function ArtistsPage() {
                   <h2 className="mt-3 font-display text-2xl tracking-wide text-zinc-100">
                     {a.name}
                   </h2>
-                  {a.status === 'temporary' && a.availableFrom && a.availableTo && (
-                    <p className="mt-2 text-xs text-amber-400/80">
-                      Available {formatRange(a.availableFrom, a.availableTo)}
-                    </p>
+                  {a.status === 'temporary' && a.availabilityLabel && (
+                    <p className="mt-2 text-xs text-amber-400/80">{a.availabilityLabel}</p>
                   )}
-                  {a.status === 'temporary' && (!a.availableFrom || !a.availableTo) && (
-                    <p className="mt-2 text-xs text-amber-400/80">
-                      Guest — visit dates announced on socials.
-                    </p>
-                  )}
+                  {a.status === 'temporary' &&
+                    !a.availabilityLabel &&
+                    a.availableFrom &&
+                    a.availableTo && (
+                      <p className="mt-2 text-xs text-amber-400/80">
+                        Available {formatRange(a.availableFrom, a.availableTo)}
+                      </p>
+                    )}
+                  {a.status === 'temporary' &&
+                    !a.availabilityLabel &&
+                    (!a.availableFrom || !a.availableTo) && (
+                      <p className="mt-2 text-xs text-amber-400/80">
+                        Guest — visit dates announced on socials.
+                      </p>
+                    )}
                   <div
                     className="mt-4 h-[12.5rem] shrink-0 overflow-y-auto overflow-x-hidden pr-1 text-sm leading-relaxed text-muted [scrollbar-color:rgba(113,113,122,0.5)_transparent] [scrollbar-width:thin]"
                   >

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { motion, useReducedMotion } from 'framer-motion'
 import Hero from '../components/Hero'
+import InstagramSection from '../components/InstagramSection'
 import StudioShowreel from '../components/StudioShowreel'
 import Testimonials from '../components/Testimonials'
 import { FEATURE_MERCH } from '../constants'
@@ -76,7 +77,7 @@ export default function HomePage() {
                   and gallery of work from the team.
                 </p>
                 <p className="text-zinc-400">
-                  oneblood studio is a private appointment-based shop in Dallas. We focus on
+                  Oneblood studio is a private appointment-based shop in Dallas. We focus on
                   clear consults, sterile setup, and tattoos composed to age well — from black and
                   grey to color, fine line, and larger pieces. Use the links below for services,
                   artist bios, portfolios, studio standards, client reviews, and booking.
@@ -117,6 +118,7 @@ export default function HomePage() {
           </ul>
         </div>
       </section>
+      <InstagramSection />
       <Testimonials />
       <section className="border-b border-border bg-surface py-10 text-center" aria-label="More reviews">
         <Link
