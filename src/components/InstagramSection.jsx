@@ -1,13 +1,20 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { socialLinks } from '../data/social'
-import { instagramPostEmbeds, instagramEmbedSrc } from '../data/instagram'
+import { instagramHighlights } from '../data/instagram'
 
 const ig = socialLinks.find((s) => s.id === 'instagram')
+
+function postImageSrc(post) {
+  const u = post.imageUrl?.trim()
+  if (u) return u
+  const p = post.image?.trim()
+  return p || null
+}
 
 export default function InstagramSection() {
   const reduce = useReducedMotion()
   const href = ig?.href ?? 'https://www.instagram.com/1bloodstudio/'
-  const embeds = instagramPostEmbeds.filter((e) => e?.shortcode?.trim())
+  const posts = instagramHighlights.filter((p) => p?.postUrl?.trim())
 
   return (
     <section
@@ -26,8 +33,7 @@ export default function InstagramSection() {
             Follow us on Instagram
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
-            See more fresh work, guest artist drops, and studio updates — posts and reels straight
-            from the shop.
+            Photos live on this site; tap any tile to open the matching post on Instagram.
           </p>
           <a
             href={href}
@@ -40,31 +46,69 @@ export default function InstagramSection() {
           </a>
         </div>
 
-        {embeds.length > 0 ? (
+        {posts.length > 0 ? (
           <ul className="mt-12 grid list-none gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {embeds.map((post, i) => (
-              <motion.li
-                key={`${post.kind ?? 'p'}-${post.shortcode}`}
-                initial={reduce ? false : { opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-40px' }}
-                transition={{ duration: 0.45, delay: i * 0.06 }}
-                className="flex justify-center"
-              >
-                <div className="w-full max-w-[340px] overflow-hidden rounded-sm border border-border bg-surface shadow-[0_0_0_1px_rgba(255,255,255,0.04)]">
-                  <iframe
-                    src={instagramEmbedSrc({
-                      shortcode: post.shortcode.trim(),
-                      kind: post.kind === 'reel' ? 'reel' : 'p',
-                    })}
-                    title={`Instagram ${post.kind === 'reel' ? 'reel' : 'post'} ${post.shortcode}`}
-                    className="h-[480px] w-full border-0"
-                    loading="lazy"
-                    referrerPolicy="strict-origin-when-cross-origin"
-                  />
-                </div>
-              </motion.li>
-            ))}
+            {posts.map((post, i) => {
+              const src = postImageSrc(post)
+              const label = post.alt?.trim() || 'Publicación de Instagram'
+
+              return (
+                <motion.li
+                  key={post.image || post.imageUrl || `${post.postUrl}-${i}`}
+                  initial={reduce ? false : { opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-40px' }}
+                  transition={{ duration: 0.45, delay: i * 0.06 }}
+                >
+                  <a
+                    href={post.postUrl.trim()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex h-full flex-col overflow-hidden rounded-sm border border-border bg-surface-elevated shadow-[0_0_0_1px_rgba(255,255,255,0.04)] transition-[border-color,box-shadow] hover:border-zinc-600 hover:shadow-[0_0_48px_-12px_rgba(196,165,116,0.15)]"
+                  >
+                    <div className="relative aspect-[4/5] w-full overflow-hidden bg-zinc-900">
+                      {src ? (
+                        <img
+                          src={src}
+                          alt={label}
+                          width={720}
+                          height={900}
+                          loading="lazy"
+                          decoding="async"
+                          className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
+                        />
+                      ) : (
+                        <div className="flex h-full w-full flex-col items-center justify-end bg-[linear-gradient(160deg,#1c1c22_0%,#0a0a0c_45%,#14141a_100%)] px-5 pb-8 pt-12 text-center">
+                          <span className="inline-flex h-16 w-16 items-center justify-center rounded-full border border-white/10 bg-white/[0.05]">
+                            <InstagramGlyph className="h-9 w-9 text-zinc-500" />
+                          </span>
+                          <p className="mt-6 text-xs leading-relaxed text-zinc-500">
+                            Save the post photo to{' '}
+                            <span className="text-zinc-400">public/instagram/</span> and set{' '}
+                            <span className="text-zinc-400">image</span> in{' '}
+                            <span className="text-zinc-400">instagram.js</span> so it appears here.
+                          </p>
+                        </div>
+                      )}
+                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+                      <span className="absolute bottom-0 left-0 right-0 flex items-center justify-between gap-2 border-t border-white/10 bg-black/55 px-4 py-3 backdrop-blur-sm">
+                        <span className="truncate text-[11px] font-bold uppercase tracking-[0.15em] text-zinc-200">
+                          Open on Instagram
+                        </span>
+                        <span className="shrink-0 text-sm text-zinc-300" aria-hidden="true">
+                          ↗
+                        </span>
+                      </span>
+                    </div>
+                    {post.caption ? (
+                      <p className="border-t border-border/80 p-4 text-sm leading-relaxed text-muted">
+                        {post.caption}
+                      </p>
+                    ) : null}
+                  </a>
+                </motion.li>
+              )
+            })}
           </ul>
         ) : (
           <motion.p
@@ -74,8 +118,7 @@ export default function InstagramSection() {
             transition={{ duration: 0.45 }}
             className="mx-auto mt-12 max-w-md text-center text-sm leading-relaxed text-muted"
           >
-            Recent posts from our feed can be featured below — use the Instagram button for the
-            full gallery until then.
+            Add highlights in the site data file, or use the button above for the full feed.
           </motion.p>
         )}
       </div>
