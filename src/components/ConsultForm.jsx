@@ -15,6 +15,14 @@ import { emailJsEnvDiagnostics, readEmailJsEnv } from '../utils/emailjsEnv'
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
+function todayISODate() {
+  const d = new Date()
+  const y = d.getFullYear()
+  const m = String(d.getMonth() + 1).padStart(2, '0')
+  const day = String(d.getDate()).padStart(2, '0')
+  return `${y}-${m}-${day}`
+}
+
 function digitsOnly(s) {
   return s.replace(/\D/g, '')
 }
@@ -42,6 +50,7 @@ export default function ConsultForm({ embeddedInBookPage = false }) {
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
   const [preferredArtist, setPreferredArtist] = useState('')
+  const [preferredConsultDate, setPreferredConsultDate] = useState('')
   const [preferredTiming, setPreferredTiming] = useState('')
   const [topic, setTopic] = useState('')
   const [is18, setIs18] = useState(false)
@@ -66,6 +75,7 @@ export default function ConsultForm({ embeddedInBookPage = false }) {
     if (!phone.trim()) next.phone = 'Please enter your phone number.'
     else if (phoneDigits.length < 10) next.phone = 'Enter a valid phone number (at least 10 digits).'
     if (!topic.trim()) next.topic = 'Tell us what you want to discuss in the consult.'
+    if (!preferredConsultDate) next.preferredConsultDate = 'Pick a preferred day for the consult.'
     if (!is18) next.is18 = 'You must confirm you are 18 or older.'
     setErrors(next)
     return Object.keys(next).length === 0
@@ -79,6 +89,7 @@ export default function ConsultForm({ embeddedInBookPage = false }) {
       `Email: ${email.trim()}`,
       `Phone: ${phone.trim()}`,
       `Preferred artist: ${preferredArtist || 'No preference'}`,
+      `Preferred date: ${preferredConsultDate}`,
       preferredTiming.trim() ? `Preferred timing: ${preferredTiming.trim()}` : null,
       '18+: Yes (confirmed)',
       '',
@@ -143,6 +154,8 @@ export default function ConsultForm({ embeddedInBookPage = false }) {
           to_email: STUDIO_EMAIL,
           phone: phone.trim(),
           preferred_artist: preferredArtist || 'Not specified',
+          preferred_consult_date: preferredConsultDate,
+          preferred_date: preferredConsultDate,
           preferred_timing: preferredTiming.trim() || 'Not specified',
           consultation_topic: topic.trim(),
           request_type: 'Short consultation',
@@ -161,6 +174,7 @@ export default function ConsultForm({ embeddedInBookPage = false }) {
       setEmail('')
       setPhone('')
       setPreferredArtist('')
+      setPreferredConsultDate('')
       setPreferredTiming('')
       setTopic('')
       setIs18(false)
@@ -394,6 +408,32 @@ export default function ConsultForm({ embeddedInBookPage = false }) {
                 </select>
                 <p className="mt-1.5 text-xs text-zinc-500">
                   Pre-filled when you open this page from an artist profile.
+                </p>
+              </div>
+
+              <div className="sm:max-w-xs">
+                <label htmlFor="consult-date" className={labelClass}>
+                  Preferred date {req}
+                </label>
+                <input
+                  id="consult-date"
+                  name="preferred_consult_date"
+                  type="date"
+                  min={todayISODate()}
+                  value={preferredConsultDate}
+                  onChange={(ev) => setPreferredConsultDate(ev.target.value)}
+                  className={inputClass}
+                  aria-invalid={errors.preferredConsultDate ? 'true' : 'false'}
+                  aria-describedby={errors.preferredConsultDate ? 'err-consult-date' : undefined}
+                  disabled={sending}
+                />
+                {errors.preferredConsultDate && (
+                  <p id="err-consult-date" className="mt-1.5 text-sm text-red-400" role="alert">
+                    {errors.preferredConsultDate}
+                  </p>
+                )}
+                <p className="mt-1.5 text-xs text-zinc-500">
+                  First choice — we&apos;ll confirm or suggest another slot by email.
                 </p>
               </div>
 
