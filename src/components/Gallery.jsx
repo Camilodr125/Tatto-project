@@ -322,17 +322,23 @@ export default function Gallery({ className = '' }) {
                       />
                     </span>
                   </h2>
+                  {section.roleLabel ? (
+                    <p className="mt-2 text-xs font-bold uppercase tracking-[0.2em] text-studio-gold-muted">
+                      {section.roleLabel} artist
+                    </p>
+                  ) : null}
+                  {section.roleLabel === 'Guest' && section.guestAvailabilityLine ? (
+                    <p className="mt-2 text-sm text-amber-400/90">{section.guestAvailabilityLine}</p>
+                  ) : null}
                   {section.intro ? (
-                    <p className="mt-3 text-base leading-relaxed text-zinc-400 sm:text-lg">
+                    <p
+                      className={`text-base leading-relaxed text-zinc-400 sm:text-lg ${
+                        section.roleLabel || section.guestAvailabilityLine ? 'mt-3' : 'mt-2'
+                      }`}
+                    >
                       {section.intro}
                     </p>
                   ) : null}
-                  <p
-                    className={`text-sm leading-relaxed text-muted ${section.intro ? 'mt-3' : 'mt-2'}`}
-                  >
-                    Use the arrows or swipe the row to browse; tap an image to enlarge. In the
-                    lightbox, swipe or scroll on small screens.
-                  </p>
                 </header>
 
                 <GallerySectionCarousel

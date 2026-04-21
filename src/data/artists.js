@@ -5,6 +5,35 @@
 export const artists = [
   {
     id: '1',
+    slug: 'ale',
+    name: 'Alejandro Montilla',
+    status: 'permanent',
+    styles: 'Black & grey realism · Portraits · People & animals',
+    portfolioIntro:
+      'Black-and-grey realism with a strong focus on detail, composition, and lasting quality—especially portrait work for people and animals.',
+    bio: `Meet our founder and resident artist, Alejandro Montilla. Alejandro Montilla is a tattoo artist specializing in black & grey realism, bringing over 12 years of experience to every piece he creates. His work is defined by a strong focus on detail, composition, and overall quality, ensuring each tattoo stands the test of time.
+
+He is especially passionate about portrait tattoos — both people and animals — where he emphasizes emotion, precision, and timeless realism in every project.
+
+As the founder and owner of One Blood Tattoo Studio, Alejandro's vision is to create a space where art, technique, and client experience come together at an exceptional level. His work reflects not only high-end realism, but also a deep respect for the craft of tattooing.`,
+    image: '/artists/ale/ale_profile.jpeg',
+    workImages: [
+      '/artists/ale/ale1.jpeg',
+      '/artists/ale/ale2.jpeg',
+      '/artists/ale/ale3.jpeg',
+      '/artists/ale/ale4.jpeg',
+      '/artists/ale/ale5.jpeg',
+      '/artists/ale/ale6.jpeg',
+      '/artists/ale/ale7.jpeg',
+      '/artists/ale/ale8.jpeg',
+      '/artists/ale/ale9.jpeg',
+      '/artists/ale/ale10.jpeg',
+      '/artists/ale/ale11.jpeg',
+    ],
+    alt: 'Portrait of tattoo artist Alejandro Montilla',
+  },
+  {
+    id: '2',
     slug: 'alejandro',
     name: 'David Bonilla',
     status: 'permanent',
@@ -29,7 +58,28 @@ For David, the purpose of each day is simple: to be happy and at peace — and t
     alt: 'Portrait of tattoo artist David Bonilla',
   },
   {
-    id: '2',
+    id: '3',
+    slug: 'carlos',
+    name: 'Carlos Bravo',
+    status: 'permanent',
+    styles: 'Drag dotwork · Detail & precision · Controlled linework',
+    portfolioIntro:
+      'Drag dotwork that rewards patience and control—focused on growth, consistency, and a strong, recognizable style.',
+    bio: `Meet Carlos Bravo, a dedicated tattoo artist with one year of experience in the industry. Focused on growth and precision, Carlos specializes in drag dotwork, a technique that highlights detail, patience, and control in every piece.
+
+His approach is rooted in consistency and continuous improvement, always aiming to elevate the quality of his work. Driven to evolve as an artist, Carlos is committed to refining his craft and developing a strong, recognizable style with every tattoo he creates.`,
+    image: '/artists/carlos/carlos_profile.jpeg',
+    workImages: [
+      '/artists/carlos/carlos1.jpeg',
+      '/artists/carlos/carlos2.jpeg',
+      '/artists/carlos/carlos3.jpeg',
+      '/artists/carlos/carlos4.jpeg',
+      '/artists/carlos/carlos5.jpeg',
+    ],
+    alt: 'Portrait of tattoo artist Carlos Bravo',
+  },
+  {
+    id: '4',
     slug: 'daniel_avencilla',
     name: 'Daniel Avecilla',
     status: 'temporary',
@@ -59,7 +109,7 @@ We're excited to welcome Daniel Avecilla as a guest artist at Oneblood Tattoo St
     profileObjectFit: 'contain',
   },
   {
-    id: '3',
+    id: '5',
     slug: 'drex',
     name: 'Drex',
     status: 'temporary',
@@ -84,7 +134,7 @@ Deeply inspired by Asian art and anime since the beginning of his career, Drex n
     alt: 'Portrait of tattoo artist Drex',
   },
   {
-    id: '4',
+    id: '6',
     slug: 'juan_haka',
     name: 'Juan Haka',
     status: 'temporary',
@@ -110,7 +160,7 @@ Currently, Juan is traveling across the United States, immersing himself in diff
     alt: 'Portrait of tattoo artist Juan Haka',
   },
   {
-    id: '5',
+    id: '7',
     slug: 'korthe',
     name: 'Korthe',
     status: 'temporary',
@@ -132,7 +182,7 @@ Currently, Juan is traveling across the United States, immersing himself in diff
     alt: 'Portrait of tattoo artist Korthe',
   },
   {
-    id: '6',
+    id: '8',
     slug: 'robert_hernandez',
     name: 'Robert Hernandez',
     status: 'temporary',
