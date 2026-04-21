@@ -27,16 +27,19 @@ export function readEmailJsEnv(env) {
     publicKey: normalizeEnvValue(env.VITE_EMAILJS_PUBLIC_KEY),
     serviceId: normalizeEnvValue(env.VITE_EMAILJS_SERVICE_ID),
     templateId: normalizeEnvValue(env.VITE_EMAILJS_TEMPLATE_ID),
+    /** Optional — if empty, consultation form uses `templateId` */
+    consultTemplateId: normalizeEnvValue(env.VITE_EMAILJS_CONSULT_TEMPLATE_ID),
   }
 }
 
 /** Safe summary for debugging (no secret values). */
 export function emailJsEnvDiagnostics(env) {
-  const { publicKey, serviceId, templateId } = readEmailJsEnv(env)
+  const { publicKey, serviceId, templateId, consultTemplateId } = readEmailJsEnv(env)
   return {
     publicKey: fieldDiag(publicKey, 'VITE_EMAILJS_PUBLIC_KEY'),
     serviceId: fieldDiag(serviceId, 'VITE_EMAILJS_SERVICE_ID'),
     templateId: fieldDiag(templateId, 'VITE_EMAILJS_TEMPLATE_ID'),
+    consultTemplateId: fieldDiag(consultTemplateId, 'VITE_EMAILJS_CONSULT_TEMPLATE_ID'),
     allPresent: Boolean(publicKey && serviceId && templateId),
   }
 }

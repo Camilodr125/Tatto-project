@@ -7,12 +7,15 @@ import { FEATURE_MERCH } from '../constants'
 
 const galleryTo = { pathname: '/gallery', hash: '' }
 
+const faqTo = { pathname: '/', hash: 'faq' }
+
 const nav = [
+  { to: '/services', label: 'Services' },
   { to: '/artists', label: 'Artists' },
   { to: galleryTo, label: 'Gallery' },
   { to: '/about', label: 'Studio' },
-  { to: '/services', label: 'Services' },
   { to: '/reviews', label: 'Reviews' },
+  { to: faqTo, label: 'FAQ' },
   ...(FEATURE_MERCH ? [{ to: '/merch', label: 'Merch' }] : []),
 ]
 
@@ -41,19 +44,19 @@ export default function Header() {
       <a href="#main-content" className="skip-link">
         Skip to main content
       </a>
-      <div className="mx-auto flex max-w-6xl items-center gap-2 px-3 py-3 sm:gap-4 sm:px-6 sm:py-4 lg:px-8">
+      <div className="mx-auto flex max-w-6xl items-center gap-2 px-3 py-2 sm:gap-3 sm:px-6 sm:py-2.5 lg:px-8">
         <Link
           to="/"
-          className="flex min-w-0 flex-1 flex-col gap-0.5 transition-opacity hover:opacity-90 sm:flex-row sm:items-center sm:gap-3 md:gap-3.5"
+          className="flex min-w-0 flex-1 flex-col gap-0.5 transition-opacity hover:opacity-90 sm:flex-row sm:items-center sm:gap-2.5 md:gap-3"
           aria-label="oneblood tattoo studio — home"
         >
-          <StudioLogo className="h-7 w-auto max-w-[min(112px,32vw)] shrink-0 object-contain object-left sm:h-9 sm:max-w-[min(150px,40vw)]" />
-          <span className="min-w-0 font-display text-[0.9375rem] font-semibold leading-tight tracking-tight text-zinc-100 sm:text-lg md:text-xl lg:text-2xl">
+          <StudioLogo className="h-6 w-auto max-w-[min(104px,32vw)] shrink-0 object-contain object-left sm:h-8 sm:max-w-[min(140px,40vw)]" />
+          <span className="min-w-0 font-display text-[0.875rem] font-semibold leading-snug tracking-tight text-zinc-100 sm:text-base md:text-lg lg:text-xl">
             ONEBLOOD<span className="font-medium text-zinc-500"> TATTOO STUDIO</span>
           </span>
         </Link>
 
-        <div className="flex shrink-0 items-center justify-end gap-1.5 sm:gap-3 md:gap-0">
+        <div className="flex shrink-0 items-center justify-end gap-1.5 sm:gap-2.5 md:gap-0">
           <SocialLinks
             className="md:hidden"
             linkClassName="h-9 w-9"
@@ -61,7 +64,7 @@ export default function Header() {
           />
 
           <nav
-            className="hidden items-center gap-6 lg:gap-7 xl:gap-8 md:flex"
+            className="hidden items-center gap-4 lg:gap-5 xl:gap-6 md:flex"
             aria-label="Primary"
           >
             {nav.map((item) => (
@@ -71,8 +74,10 @@ export default function Header() {
                 className={({ isActive }) =>
                   linkClass({
                     isActive:
-                      isActive ||
-                      (item.label === 'Gallery' && location.pathname === '/gallery'),
+                      item.label === 'FAQ'
+                        ? location.pathname === '/' && location.hash === '#faq'
+                        : isActive ||
+                          (item.label === 'Gallery' && location.pathname === '/gallery'),
                   })
                 }
               >
@@ -82,22 +87,26 @@ export default function Header() {
           </nav>
 
           <span
-            className="mx-2 hidden h-6 w-px bg-white/10 md:block lg:mx-3"
+            className="mx-1.5 hidden h-5 w-px bg-white/10 md:block lg:mx-2"
             aria-hidden="true"
           />
 
-          <SocialLinks className="hidden md:flex" />
+          <SocialLinks
+            className="hidden md:flex"
+            linkClassName="h-8 w-8"
+            iconClassName="h-[15px] w-[15px]"
+          />
 
           <Link
             to="/book"
-            className="ml-1 hidden rounded-sm border border-white/20 bg-white/[0.04] px-4 py-2.5 text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-100 shadow-[0_0_28px_-8px_rgba(196,165,116,0.15)] transition-[border-color,background-color,box-shadow,color] hover:border-studio-gold/50 hover:bg-white/10 hover:text-white hover:shadow-[0_0_36px_-6px_rgba(196,165,116,0.28)] md:ml-2 md:inline-flex"
+            className="ml-1 hidden rounded-sm border border-white/20 bg-white/[0.04] px-3 py-2 text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-100 shadow-[0_0_28px_-8px_rgba(196,165,116,0.15)] transition-[border-color,background-color,box-shadow,color] hover:border-studio-gold/50 hover:bg-white/10 hover:text-white hover:shadow-[0_0_36px_-6px_rgba(196,165,116,0.28)] md:ml-1.5 md:inline-flex"
           >
             Book
           </Link>
 
           <button
             type="button"
-            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm border border-white/15 text-zinc-200 transition-colors hover:border-white/35 hover:text-white md:hidden"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-sm border border-white/15 text-zinc-200 transition-colors hover:border-white/35 hover:text-white md:hidden"
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? 'Close menu' : 'Open menu'}
@@ -146,8 +155,10 @@ export default function Header() {
                   className={({ isActive }) =>
                     mobileLinkClass({
                       isActive:
-                        isActive ||
-                        (item.label === 'Gallery' && location.pathname === '/gallery'),
+                        item.label === 'FAQ'
+                          ? location.pathname === '/' && location.hash === '#faq'
+                          : isActive ||
+                            (item.label === 'Gallery' && location.pathname === '/gallery'),
                     })
                   }
                   onClick={() => setOpen(false)}

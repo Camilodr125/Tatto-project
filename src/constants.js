@@ -13,13 +13,13 @@ export const STUDIO_LOGO_SRC = '/logo.png'
 
 /** Physical address — footer, booking sidebar */
 export const STUDIO_ADDRESS = {
-  line1: '4101 Bryan Avenue, Suite 120',
+  line1: '4101 Bryan St, Suite 120',
   line2: 'Dallas, Texas 75204',
 }
 
 /** Google Maps search for the studio (open in new tab from footer) */
 export const STUDIO_MAPS_URL =
-  'https://www.google.com/maps/search/?api=1&query=4101+Bryan+Ave+Suite+120%2C+Dallas%2C+TX+75204'
+  'https://www.google.com/maps/search/?api=1&query=4101+Bryan+St+Suite+120%2C+Dallas%2C+TX+75204'
 
 /** General hours depend on each artist; walk-in window (Tue–Sun, 12–8) */
 export const STUDIO_HOURS_NOTE =

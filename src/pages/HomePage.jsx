@@ -4,13 +4,14 @@ import Hero from '../components/Hero'
 import InstagramSection from '../components/InstagramSection'
 import StudioShowreel from '../components/StudioShowreel'
 import Testimonials from '../components/Testimonials'
+import FaqSection from '../components/FaqSection'
 import { FEATURE_MERCH } from '../constants'
 
 const explore = [
   {
     to: '/services',
     title: 'Services',
-    desc: 'Styles we tattoo, how sessions work, and what to expect from a consult.',
+    desc: 'Custom and flash tattoos, seminars, short consults — including the consultation form.',
   },
   {
     to: '/artists',
@@ -44,7 +45,7 @@ const explore = [
   {
     to: '/book',
     title: 'Book',
-    desc: 'Send your idea, placement, and timing. We reply within a few business days.',
+    desc: 'Full booking request: idea, placement, timing, and budget. We reply within a few business days.',
   },
 ]
 
@@ -119,6 +120,7 @@ export default function HomePage() {
         </div>
       </section>
       <InstagramSection />
+      <FaqSection />
       <Testimonials />
       <section className="border-b border-border bg-surface py-10 text-center" aria-label="More reviews">
         <Link

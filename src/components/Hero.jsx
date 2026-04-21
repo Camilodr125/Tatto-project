@@ -107,7 +107,7 @@ export default function Hero() {
               to="/book"
               className="inline-flex w-full items-center justify-center rounded-sm bg-accent px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-ink shadow-[0_0_42px_-10px_rgba(196,165,116,0.35)] transition-[background-color,box-shadow,color] hover:bg-accent-hot hover:shadow-[0_0_52px_-6px_rgba(196,165,116,0.45)] sm:w-auto sm:px-8"
             >
-              Request a consult
+              Book an appointment
             </Link>
             <Link
               to={{ pathname: '/gallery', hash: '' }}

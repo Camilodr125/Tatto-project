@@ -18,86 +18,86 @@ export function getStudioStyleKeywords() {
   return out
 }
 
-/** Styles & services — used on Services page (and grid where needed). */
-export const services = [
+/** Two tattoo paths under “Tattoos” on Services — custom vs flash / pre-made */
+export const tattooCategoryServices = [
   {
-    title: 'Blackwork & ornamental',
+    title: 'Custom tattoos',
     summary:
-      'Bold saturation, ornamental geometry, and large-scale composition — in line with the bold fusion and neo-traditional work guests like Drex bring to the chair.',
+      'The full process with your artist: you share a design or strong references, and we develop the piece together — drawing, revisions, stencil, and sessions — until it fits your body and how you want it to read long-term.',
     detail:
-      'We map flow across muscle groups so large pieces read from a distance and stay balanced as they heal. Ornamental work is drafted with stencil checks and spacing rules tuned to your skin tone and lifestyle.',
+      'Nothing is one-size-fits-all. You can send art or mood boards ahead of time; your artist adapts the idea for placement, scale, and how ink heals on your skin. Expect clear communication about timeline, sittings, and aftercare before needle time.',
     bullets: [
-      'Sleeves, back pieces, and chest panels with clear hierarchy',
-      'Geometry and patterning aligned to body curves',
-      'Healing-forward ink loads — no muddy saturation',
+      'Share your design or references; the artist builds on your idea (not a generic stencil)',
+      'Collaborative drawing and adjustments before we lock the stencil',
+      'Sessions booked once the design and placement are set',
     ],
-    image: '/artists/drex/drex_1.jpeg',
-    imageAlt: 'Bold black and grey tattoo composition',
-    teamStyles: ['Bold style fusion', 'Neo-traditional', 'Asian & anime-inspired'],
+    teamStyles: [],
   },
   {
-    title: 'Fine line & micro realism',
+    title: 'Flash & pre-made tattoos',
     summary:
-      'Delicate linework and micro-scale realism — the same attention to detail our resident artist applies to story-driven, meaningful pieces.',
+      'Pre-drawn designs our artists already offer — pick a piece from their flash or pre-made books, then we size it for you and book the session. Faster than a full custom build when you love a design that’s already finished.',
     detail:
-      'Fine line and micro work need room to breathe. We design with post-heal spread in mind, use stable needle groupings for your piece size, and avoid overcrowding that turns crisp lines into soft halos.',
+      'What’s available depends on the artist. Ask in consult, at the desk, or follow their socials for new drops. Placement and sizing are still tailored to you; you’re choosing a finished design rather than inventing one from scratch.',
     bullets: [
-      'Micro realism, botanicals, and micro compositions',
-      'Touch-up policy discussed upfront',
-      'Aftercare tailored to placement (hands, ribs, etc.)',
+      'Choose from designs the artist has already created',
+      'Ideal when you want a clear look without a long custom process',
+      'Availability varies — check with your artist or the studio',
     ],
-    image: '/artists/alejandro/alejandro_2.jpeg',
-    imageAlt: 'Fine detail tattoo work',
-    teamStyles: ['Micro realism', 'Meaningful pieces', 'Fine detail'],
-  },
-  {
-    title: 'Black & grey realism & portraits',
-    summary:
-      'High-contrast realism and portrait studies — aligned with how Daniel, Juan, Robert, and our guests approach black and grey, surreal themes, and fine-art finish.',
-    detail:
-      'Reference photos are a starting point, not a trace. We redesign contrast for skin, adjust focal points for the body, and set expectations for sittings, scale, and long-term contrast retention.',
-    bullets: [
-      'Black & grey realism, portraiture, and surreal compositions',
-      'Portrait composition and facial readability checks',
-      'Multi-session planning for large work',
-    ],
-    image: '/artists/daniel_avencilla/daniel_avencilla_1.jpeg',
-    imageAlt: 'Black and grey realism tattoo',
-    teamStyles: [
-      'Black & grey realism',
-      'Portraits',
-      'Surrealism',
-      'Fine-art finish',
-    ],
-  },
-  {
-    title: 'Cover-ups & rework',
-    summary:
-      'Strategic redesign sessions to transform older work — planned with the same realism and contrast discipline our artists use on fresh pieces.',
-    detail:
-      'Cover-ups are chemistry, contrast, and honesty. We measure existing ink, explain what can and cannot be hidden in one pass, and propose directions that age better than a quick dark blast.',
-    bullets: [
-      'Laser fade consults when needed (we partner with local clinics)',
-      'Stencil tests before commitment',
-      'Reworks that respect scar tissue and older linework',
-    ],
-    image: '/artists/robert_hernandez/robert_hernandez_2.jpeg',
-    imageAlt: 'Tattoo rework and contrast study',
-    teamStyles: ['Black & grey realism', 'High detail', 'Fine-art finish'],
+    teamStyles: [],
   },
 ]
 
-export const sessionInfo = [
+export const seminarsService = {
+  title: 'Seminars',
+  summary:
+    'Focused blocks for artists and apprentices — technique, theory, and studio practice when we schedule them.',
+  detail:
+    'Topics and dates rotate. We announce upcoming seminars on the studio’s social channels and at the shop — ask at the desk or message us if you want to be notified when the next block opens.',
+  bullets: [
+    'Announced on Instagram and in-studio',
+    'Small groups when we run a class',
+    'Email or DM the studio to get on the interest list',
+  ],
+  teamStyles: [],
+}
+
+export const shortConsultationService = {
+  title: 'Artist consults',
+  summary:
+    'A conversation with an artist about your idea, placement, references, and timing — not a tattoo session.',
+  detail:
+    'These are short sit-downs — usually about 10–15 minutes — with no needle time. Book when you want to talk things through before committing to a full session. We listen, sketch rough directions, and point you toward the right artist or a follow-up booking.',
+  bullets: [
+    'Not a tattoo appointment — talk and planning only',
+    'Bring references and questions',
+    'Full tattoo sessions are booked separately after you’re ready',
+  ],
+  teamStyles: [],
+}
+
+/** Ordered sections for Services page: tattoos → seminars → short consultations */
+export const serviceSections = [
   {
-    title: 'Consultations',
-    text: 'First meetings cover placement, size, skin history, and timeline. Bring references — we translate them into a tattoo plan, not a copy-paste.',
+    id: 'tattoos',
+    title: 'Tattoos',
+    description:
+      'Custom work is built with your artist from your idea; flash and pre-made are designs the team already has ready to book. Specialty tags below show what our artists focus on for custom projects.',
+    items: tattooCategoryServices,
   },
   {
-    title: 'Hygiene & safety',
-    text: 'Single-use needles and barriers, documented setup, and a calm pace so nothing is rushed mid-session.',
+    id: 'seminars',
+    title: 'Seminars',
+    description: null,
+    items: [seminarsService],
   },
   {
-    title: 'Deposits & scheduling',
-    text: 'A deposit holds your date and applies to the final session. Reschedule windows are communicated clearly so both sides stay protected.',
+    id: 'short-consults',
+    title: 'Short consultations',
+    description: null,
+    items: [shortConsultationService],
   },
 ]
+
+/** Flat list (tattoo styles + seminars + short consults) for anything that needs one array */
+export const services = serviceSections.flatMap((s) => s.items)

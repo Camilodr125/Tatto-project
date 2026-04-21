@@ -13,11 +13,12 @@ import StudioBrand from './StudioBrand'
 const galleryTo = { pathname: '/gallery', hash: '' }
 
 const links = [
+  { to: '/services', label: 'Services' },
   { to: '/artists', label: 'Artists' },
   { to: galleryTo, label: 'Gallery' },
   { to: '/about', label: 'Studio' },
-  { to: '/services', label: 'Services' },
   { to: '/reviews', label: 'Reviews' },
+  { to: '/#faq', label: 'FAQ' },
   ...(FEATURE_MERCH ? [{ to: '/merch', label: 'Merch' }] : []),
   { to: '/book', label: 'Book' },
 ]

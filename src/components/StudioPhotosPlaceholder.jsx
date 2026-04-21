@@ -53,7 +53,7 @@ const slides = [
         </p>
         <p className="mt-5">
           <Link
-            to="/book"
+            to={{ pathname: '/book', search: '?type=consult' }}
             className="text-xs font-bold uppercase tracking-wider text-studio-gold-muted transition-colors hover:text-studio-gold"
           >
             Book a consult →

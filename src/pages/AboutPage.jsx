@@ -2,6 +2,7 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import PageHeader from '../components/PageHeader'
 import About from '../components/About'
+import FaqSection from '../components/FaqSection'
 
 const values = [
   {
@@ -10,7 +11,7 @@ const values = [
   },
   {
     title: 'Respect',
-    text: 'Clear timelines, honest coverage expectations for cover-ups, and no pressure to size up a design.',
+    text: 'Clear timelines, honest expectations for tricky placements, and no pressure to size up a design.',
   },
   {
     title: 'Longevity',
@@ -64,12 +65,20 @@ export default function AboutPage() {
               Read client reviews
             </Link>
             {' · '}
-            <Link to="/book" className="text-zinc-500 hover:text-zinc-300">
+            <Link
+              to={{ pathname: '/book', search: '?type=consult' }}
+              className="text-zinc-500 hover:text-zinc-300"
+            >
               Book a consult
+            </Link>
+            {' · '}
+            <Link to="/about#faq" className="text-zinc-500 hover:text-zinc-300">
+              FAQ
             </Link>
           </p>
         </div>
       </section>
+      <FaqSection />
     </>
   )
 }

@@ -45,6 +45,7 @@ describe('readEmailJsEnv', () => {
       publicKey: 'pk_test',
       serviceId: 'service_1',
       templateId: 'template_1',
+      consultTemplateId: '',
     })
   })
 
@@ -53,6 +54,7 @@ describe('readEmailJsEnv', () => {
       publicKey: '',
       serviceId: '',
       templateId: '',
+      consultTemplateId: '',
     })
   })
 
@@ -67,6 +69,7 @@ describe('readEmailJsEnv', () => {
       publicKey: 'abc',
       serviceId: 'svc',
       templateId: 'tpl',
+      consultTemplateId: '',
     })
   })
 })

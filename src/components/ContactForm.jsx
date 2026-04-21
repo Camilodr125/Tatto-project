@@ -238,9 +238,8 @@ export default function ContactForm() {
                 className="text-zinc-300 underline decoration-zinc-600 underline-offset-4 hover:text-white hover:decoration-zinc-400"
               >
                 {STUDIO_EMAIL}
-              </a>{' '}
-              when EmailJS is configured. We will confirm date availability and next steps
-              by email.
+              </a>
+              . We will confirm date availability and next steps by email.
             </p>
             <dl className="mt-10 space-y-4 text-sm text-zinc-400">
               <div>

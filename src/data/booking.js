@@ -21,7 +21,6 @@ export const tattooStyleOptions = [
   { value: 'Blackwork & ornamental', label: 'Blackwork & ornamental' },
   { value: 'Fine line & single needle', label: 'Fine line & single needle' },
   { value: 'Realism & portraits', label: 'Realism & portraits' },
-  { value: 'Cover-up / rework', label: 'Cover-up / rework' },
   { value: 'Black & grey realism', label: 'Black & grey realism' },
   { value: 'Traditional / neotraditional', label: 'Traditional / neotraditional' },
   { value: 'Japanese / irezumi-inspired', label: 'Japanese / irezumi-inspired' },

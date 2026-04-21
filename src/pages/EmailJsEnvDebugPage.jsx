@@ -32,7 +32,7 @@ export default function EmailJsEnvDebugPage() {
       </p>
 
       <ul className="mt-8 space-y-4 rounded-sm border border-border bg-surface-elevated p-6 font-mono text-sm">
-        {[diag.publicKey, diag.serviceId, diag.templateId].map((f) => (
+        {[diag.publicKey, diag.serviceId, diag.templateId, diag.consultTemplateId].map((f) => (
           <li key={f.name} className="border-b border-border pb-4 last:border-0 last:pb-0">
             <div className="text-zinc-400">{f.name}</div>
             <div className="mt-1 text-zinc-200">
@@ -80,9 +80,15 @@ export default function EmailJsEnvDebugPage() {
         and public key are from the <em>same</em> account.
       </p>
 
-      <p className="mt-6">
+      <p className="mt-6 flex flex-wrap gap-x-4 gap-y-2 text-sm">
         <Link to="/book" className="text-zinc-400 hover:text-white">
-          ← Back to booking form
+          ← Booking form
+        </Link>
+        <Link
+          to={{ pathname: '/book', search: '?type=consult' }}
+          className="text-zinc-400 hover:text-white"
+        >
+          Consult form
         </Link>
       </p>
     </div>
