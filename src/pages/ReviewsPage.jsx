@@ -9,7 +9,7 @@ export default function ReviewsPage() {
       <PageHeader
         eyebrow="Social proof"
         title="Reviews & stories"
-        subtitle="Sample feedback written in the tone of real studio reviews — replace with quotes from Google, Instagram DMs, or your booking app whenever you are ready."
+        subtitle="Hear from clients about sessions, aftercare, and how the work healed — we’re proud of the trust people place in the studio."
       />
 
       <section className="border-b border-border bg-surface/40 py-10" aria-label="Summary">
@@ -17,7 +17,7 @@ export default function ReviewsPage() {
           <div className="text-center">
             <p className="font-display text-4xl text-white sm:text-5xl">5.0</p>
             <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-muted">
-              Target average
+              What we strive for
             </p>
           </div>
           <div className="text-center">
@@ -27,9 +27,9 @@ export default function ReviewsPage() {
             </p>
           </div>
           <div className="text-center">
-            <p className="font-display text-4xl text-zinc-100 sm:text-5xl">6+</p>
+            <p className="font-display text-4xl text-zinc-100 sm:text-5xl">6</p>
             <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-muted">
-              Sample reviews below
+              Client stories below
             </p>
           </div>
         </div>

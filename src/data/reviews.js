@@ -1,4 +1,4 @@
-/** Client reviews — replace with real quotes or link to Google. */
+/** Client reviews — edit text here or add a Google link in the UI when you wire it. */
 export const reviewsShort = [
   {
     name: 'Mira K.',

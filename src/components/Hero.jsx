@@ -74,7 +74,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            By appointment only · Calm, client-first sessions
+            By appointment · Calm, client-first sessions
           </motion.p>
           <motion.h1
             id="hero-heading"
@@ -92,9 +92,10 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.12 }}
           >
-            Blackwork, fine line, and realism — sterile setup, honest aftercare,
-            and work composed to settle into skin over years, not just read
-            sharp for the first week.
+            From blackwork and fine line to black-and-grey realism, our resident
+            and guest artists work by appointment — sterile setup, honest
+            aftercare, and tattoos composed to settle into skin over years, not
+            just read sharp for the first week.
           </motion.p>
           <motion.div
             className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-4"

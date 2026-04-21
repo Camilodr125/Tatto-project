@@ -18,7 +18,7 @@ export default function GalleryPage() {
         subtitle={
           single
             ? `Showing ${single.name}'s portfolio only.`
-            : 'Work from our artists — open any image for a closer look.'
+            : 'Work from our artists — see their dedication, their pieces, and the range of styles we work with at the studio. Guest artists may rotate throughout the year. Tap an image to enlarge.'
         }
       >
         {single ? (

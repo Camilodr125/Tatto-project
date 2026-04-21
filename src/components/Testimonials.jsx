@@ -26,8 +26,8 @@ export default function Testimonials({
               Client stories
             </h2>
             <p className="mt-3 max-w-xl text-muted">
-              Fictionalized composite feedback styled like real studio reviews — replace
-              with your own testimonials anytime.
+              Sessions, healing, and how the work held up — the kind of feedback we’re
+              grateful to hear.
             </p>
           </>
         )}

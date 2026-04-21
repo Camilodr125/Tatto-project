@@ -21,7 +21,7 @@ export default function ArtistsPage() {
       <PageHeader
         eyebrow="Team"
         title="Artists"
-        subtitle="Resident artists work in focused blocks so drawings get real time — not a rushed stencil five minutes before the needle. Guest artists are announced on socials."
+        subtitle="Here you’ll see our resident artists and guest artists — the guest lineup can change throughout the year. Resident artists work in focused blocks so drawings get real time — not a rushed stencil five minutes before the needle. Guest artists are announced on socials."
       />
 
       <section className="py-16 sm:py-20" aria-label="Artist profiles">

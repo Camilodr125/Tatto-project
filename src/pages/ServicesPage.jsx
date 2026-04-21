@@ -22,7 +22,7 @@ export default function ServicesPage() {
       <PageHeader
         eyebrow="What we do"
         title="Services & styles"
-        subtitle="No flash walls — every tattoo is drawn for your body, your skin tone, and how you want it to read in five years, not just under ring light."
+        subtitle="Custom work only — we don’t run flash walls. Every tattoo is drawn for your body, your skin tone, and how you want it to read in five years, not just under ring light."
       />
 
       <section

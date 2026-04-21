@@ -39,7 +39,7 @@ const explore = [
   {
     to: '/reviews',
     title: 'Reviews',
-    desc: 'Client experiences — healing, communication, and long-term results.',
+    desc: 'What clients say about sessions, healing, and how the work held up.',
   },
   {
     to: '/book',
