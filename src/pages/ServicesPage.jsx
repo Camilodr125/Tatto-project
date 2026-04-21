@@ -1,6 +1,7 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import PageHeader from '../components/PageHeader'
+import CustomWorkCarousel from '../components/CustomWorkCarousel'
 import { getStudioStyleKeywords, serviceSections } from '../data/services'
 
 const container = {
@@ -137,6 +138,7 @@ export default function ServicesPage() {
                         </li>
                       ))}
                     </ul>
+                    {s.title === 'Custom tattoos' ? <CustomWorkCarousel /> : null}
                     {section.id === 'short-consults' ? (
                       <div className="mt-8 border-t border-border/80 pt-6">
                         <p className="text-sm leading-relaxed text-muted">

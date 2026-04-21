@@ -1,21 +1,19 @@
-import { artists } from './artists'
+/**
+ * Curated tags for the Services page (short list for mobile). Each artist profile
+ * still lists their full specialties.
+ */
+const SERVICES_PUBLIC_STYLE_TAGS = [
+  'Black & grey realism',
+  'Portraits',
+  'Micro realism',
+  'Neo-traditional',
+  'Surrealism',
+  'Drag dotwork',
+]
 
-/** Unique style phrases from artist profiles (skips placeholders). */
+/** Style pills on Services — curated subset; not every artist line item. */
 export function getStudioStyleKeywords() {
-  const out = []
-  const seen = new Set()
-  for (const a of artists) {
-    if (!a.styles || /add styles here/i.test(a.styles)) continue
-    for (const part of a.styles.split('·')) {
-      const t = part.trim()
-      const key = t.toLowerCase()
-      if (t && !seen.has(key)) {
-        seen.add(key)
-        out.push(t)
-      }
-    }
-  }
-  return out
+  return SERVICES_PUBLIC_STYLE_TAGS
 }
 
 /** Two tattoo paths under “Tattoos” on Services — custom vs flash / pre-made */
