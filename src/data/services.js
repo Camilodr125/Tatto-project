@@ -74,7 +74,7 @@ export const shortConsultationService = {
   teamStyles: [],
 }
 
-/** Ordered sections for Services page: tattoos → seminars → short consultations */
+/** Ordered sections for Services page: tattoos → short consultations → seminars */
 export const serviceSections = [
   {
     id: 'tattoos',
@@ -84,16 +84,16 @@ export const serviceSections = [
     items: tattooCategoryServices,
   },
   {
-    id: 'seminars',
-    title: 'Seminars',
-    description: null,
-    items: [seminarsService],
-  },
-  {
     id: 'short-consults',
     title: 'Short consultations',
     description: null,
     items: [shortConsultationService],
+  },
+  {
+    id: 'seminars',
+    title: 'Seminars',
+    description: null,
+    items: [seminarsService],
   },
 ]
 
