@@ -1,33 +1,57 @@
-/** FAQ copy — generic placeholders; replace with studio policy when ready. */
+/** FAQ — studio policy copy */
 export const faqItems = [
   {
-    id: 'which-artist',
-    question: 'What artist should I book with?',
+    id: 'secure-appointment',
+    question: 'What is required to secure an appointment?',
     answer:
-      'Browse the Artists page for specialties and portfolios. If you are unsure, send a short consult request or note your style and placement on the booking form — we can suggest who fits your idea and timeline.',
+      'A non-refundable deposit is required to book. This ensures your spot and goes toward the final price of your tattoo.',
   },
   {
-    id: 'when-design',
-    question: 'When will I see the design?',
+    id: 'reschedule',
+    question: 'What happens if I need to reschedule?',
     answer:
-      'Timing varies by artist and project size. Many designs are refined after a consult or closer to your session. Ask your artist what to expect for your piece — larger or custom work may need an extra review before the appointment.',
+      'We understand things happen. You may reschedule with proper notice, but last-minute changes or cancellations will result in losing the deposit due to the time reserved for you.',
   },
   {
-    id: 'deposit-reschedule',
-    question: 'What is your deposit / reschedule policy?',
+    id: 'small-tattoos',
+    question: 'Do you accept small or quick tattoos?',
     answer:
-      'Deposits and reschedule rules depend on the artist and the booking. We will confirm the exact policy when we reply to your request. Read any agreement or message from the studio carefully before your session.',
+      'We offer options for smaller tattoos through selected artists, depending on the design.',
   },
   {
-    id: 'talk-before-booking',
-    question: 'Will I talk to my artist before booking?',
+    id: 'appointment-length',
+    question: 'How long should I expect to be at my appointment?',
     answer:
-      'Often yes — many clients use a short consult or messages through the studio to align on idea, placement, and scheduling before a full session is locked in. Say on the form if you want a consult first.',
+      'Tattoo sessions are a full-day experience. This includes design time, placement and stencil, and several hours of tattooing. Our sessions are structured to prioritize quality and focus — we do not rush the process.',
+  },
+  {
+    id: 'recreate-online',
+    question: 'Can you recreate a tattoo I found online?',
+    answer:
+      'We use references for inspiration, but we don’t replicate tattoos. Every piece is redesigned to fit your body properly, maintain long-term quality, and stay true to our style.',
+  },
+  {
+    id: 'existing-tattoos',
+    question: 'Do you work over existing tattoos?',
+    answer:
+      'Sometimes — but not always. Cover-ups are considered case by case. Due to the complexity involved, not all tattoos can be covered while maintaining high-quality results. An in-person evaluation may be required.',
+  },
+  {
+    id: 'design-process',
+    question: 'How does the design process work?',
+    answer:
+      'Your design is created the day of your appointment, directly with the artist. This allows us to adjust the composition to your anatomy, prioritize details that will hold over time, and make sure you’re fully comfortable before we begin. If you want extra time to develop your idea, we also offer a dedicated design session.',
   },
   {
     id: 'pricing',
-    question: 'How much do you charge?',
+    question: 'How is pricing determined?',
     answer:
-      'Rates depend on the artist, size, complexity, and session length. Share your idea, placement, and budget on the booking form so we can give a realistic range. Final pricing is confirmed with your artist before the needle.',
+      'Pricing is based on size, placement, detail level, and the number of sessions required.',
+  },
+  {
+    id: 'quote-info',
+    question: 'What do I need to send to get a quote?',
+    answer:
+      'To give you an accurate estimate, we’ll need: the area of the body, approximate size, reference images, a photo of your skin with the area marked, and whether the area is tattooed already or not. Without this, we can only give rough estimates.',
   },
 ]

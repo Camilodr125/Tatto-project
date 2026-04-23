@@ -35,7 +35,7 @@ const explore = [
   {
     to: '/about',
     title: 'The studio',
-    desc: 'Hygiene standards, how we plan pieces, and why we work by appointment.',
+    desc: 'Hygiene standards, how we plan pieces, walk-ins and appointments.',
   },
   {
     to: '/reviews',
@@ -78,7 +78,7 @@ export default function HomePage() {
                   and gallery of work from the team.
                 </p>
                 <p className="text-zinc-400">
-                  Oneblood studio is a private appointment-based shop in Dallas. We focus on
+                  Oneblood studio in Dallas welcomes walk-ins and takes bookings. We focus on
                   clear consults, sterile setup, and tattoos composed to age well — from black and
                   grey to color, fine line, and larger pieces. Use the links below for services,
                   artist bios, portfolios, studio standards, client reviews, and booking.

@@ -27,7 +27,7 @@ export default function AboutPage() {
       <PageHeader
         eyebrow="oneblood studio"
         title="About the studio"
-        subtitle="A private appointment studio in Dallas, built around focus — one client block at a time, medical-grade hygiene, and tattoos meant to age with you."
+        subtitle="A Dallas tattoo studio that welcomes walk-ins and appointments — built around focus in the chair, medical-grade hygiene, and tattoos meant to age with you."
       />
       <About />
       <section

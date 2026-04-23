@@ -21,9 +21,9 @@ export const STUDIO_ADDRESS = {
 export const STUDIO_MAPS_URL =
   'https://www.google.com/maps/search/?api=1&query=4101+Bryan+St+Suite+120%2C+Dallas%2C+TX+75204'
 
-/** General hours depend on each artist; walk-in window (Tue–Sun, 12–8) */
+/** Walk-in window (Tue–Sun, 12–8); bookings use artist-specific timing */
 export const STUDIO_HOURS_NOTE =
-  'Hours vary by artist — your confirmation will reflect your artist’s schedule.'
+  'Walk-ins are welcome during walk-in hours. Booked sessions follow your artist’s schedule — confirmations are sent by email.'
 export const STUDIO_WALKIN_HOURS = 'Tue — Sun · 12 PM — 8 PM'
 
 /** Merch page + nav links — set `true` when the line is ready to show publicly */

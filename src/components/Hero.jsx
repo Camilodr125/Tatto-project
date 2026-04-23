@@ -74,7 +74,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            By appointment · Calm, client-first sessions
+            Walk-ins & appointments · Calm, client-first sessions
           </motion.p>
           <motion.h1
             id="hero-heading"
@@ -93,7 +93,7 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.12 }}
           >
             From blackwork and fine line to black-and-grey realism, our resident
-            and guest artists work by appointment — sterile setup, honest
+            and guest artists take walk-ins and bookings — sterile setup, honest
             aftercare, and tattoos composed to settle into skin over years, not
             just read sharp for the first week.
           </motion.p>

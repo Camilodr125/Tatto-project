@@ -45,10 +45,10 @@ export default function FaqSection({ className = '' }) {
             id="faq-heading"
             className="mt-6 text-center font-display text-3xl tracking-wide text-zinc-50 sm:text-4xl"
           >
-            Frequently asked
+            Before You Book
           </h2>
           <p className="mt-3 text-center text-base leading-relaxed text-muted sm:text-lg">
-            Everything you need to know before your session.
+            What to know before getting tattooed at One Blood
           </p>
 
           <ul className="mt-12 border-t border-border">

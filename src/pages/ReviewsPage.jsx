@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import PageHeader from '../components/PageHeader'
 import Testimonials from '../components/Testimonials'
+import { STUDIO_WALKIN_HOURS } from '../constants'
 import { reviewsExtended } from '../data/reviews'
 
 export default function ReviewsPage() {
@@ -21,9 +22,9 @@ export default function ReviewsPage() {
             </p>
           </div>
           <div className="text-center">
-            <p className="font-display text-4xl text-zinc-100 sm:text-5xl">100%</p>
+            <p className="font-display text-3xl text-zinc-100 sm:text-4xl">Walk-ins</p>
             <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-muted">
-              By appointment
+              {STUDIO_WALKIN_HOURS}
             </p>
           </div>
           <div className="text-center">
