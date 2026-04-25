@@ -27,7 +27,7 @@ export default function AboutPage() {
       <PageHeader
         eyebrow="oneblood studio"
         title="About the studio"
-        subtitle="A Dallas tattoo studio that welcomes walk-ins and appointments — built around focus in the chair, medical-grade hygiene, and tattoos meant to age with you."
+        subtitle="Dallas-based, founded by Alejandro Montilla — quality, intention, and respect for the craft. Walk-ins and appointments welcome when availability allows."
       />
       <About />
       <section

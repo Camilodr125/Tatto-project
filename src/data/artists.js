@@ -109,6 +109,29 @@ We're excited to welcome Daniel Avecilla as a guest artist at Oneblood Tattoo St
     profileObjectFit: 'contain',
   },
   {
+    id: '8',
+    slug: 'robert_hernandez',
+    name: 'Robert Hernandez',
+    status: 'temporary',
+    availableFrom: '2026-07-01',
+    availableTo: '2026-07-31',
+    styles: 'Black & grey realism · Surrealism · Fine-art finish',
+    portfolioIntro:
+      "Exceptional black-and-grey realism and dark surreal compositions—depth, precision, and a fine-art finish from one of the genre's pioneers.",
+    bio: `Robert Hernandez is an internationally recognized tattoo artist known for his exceptional black and grey realism and dark, surreal compositions. With over three decades of experience, his work stands out for its depth, precision, and artistic approach, often resembling fine art on skin. Based in Madrid, Spain, Robert has influenced the global tattoo industry and continues to push the boundaries of realism through his unique style.
+
+We're excited to announce that Robert Hernandez will be joining Oneblood Tattoo Studio as a guest artist this July. This is a rare opportunity to get tattooed by one of the pioneers of black and grey realism.`,
+    image: '/artists/robert_hernandez/robert_hernandez_profile.png',
+    workImages: [
+      '/artists/robert_hernandez/robert_hernandez_1.jpeg',
+      '/artists/robert_hernandez/robert_hernandez_2.jpeg',
+      '/artists/robert_hernandez/robert_hernandez_3.jpeg',
+      '/artists/robert_hernandez/robert_hernandez_4.jpeg',
+      '/artists/robert_hernandez/robert_hernandez_5.jpeg',
+    ],
+    alt: 'Portrait of tattoo artist Robert Hernandez',
+  },
+  {
     id: '5',
     slug: 'drex',
     name: 'Drex',
@@ -180,28 +203,5 @@ Currently, Juan is traveling across the United States, immersing himself in diff
       '/artists/korthe/korthe_7.jpeg',
     ],
     alt: 'Portrait of tattoo artist Korthe',
-  },
-  {
-    id: '8',
-    slug: 'robert_hernandez',
-    name: 'Robert Hernandez',
-    status: 'temporary',
-    availableFrom: '2026-07-01',
-    availableTo: '2026-07-31',
-    styles: 'Black & grey realism · Surrealism · Fine-art finish',
-    portfolioIntro:
-      "Exceptional black-and-grey realism and dark surreal compositions—depth, precision, and a fine-art finish from one of the genre's pioneers.",
-    bio: `Robert Hernandez is an internationally recognized tattoo artist known for his exceptional black and grey realism and dark, surreal compositions. With over three decades of experience, his work stands out for its depth, precision, and artistic approach, often resembling fine art on skin. Based in Madrid, Spain, Robert has influenced the global tattoo industry and continues to push the boundaries of realism through his unique style.
-
-We're excited to announce that Robert Hernandez will be joining Oneblood Tattoo Studio as a guest artist this July. This is a rare opportunity to get tattooed by one of the pioneers of black and grey realism.`,
-    image: '/artists/robert_hernandez/robert_hernandez_profile.png',
-    workImages: [
-      '/artists/robert_hernandez/robert_hernandez_1.jpeg',
-      '/artists/robert_hernandez/robert_hernandez_2.jpeg',
-      '/artists/robert_hernandez/robert_hernandez_3.jpeg',
-      '/artists/robert_hernandez/robert_hernandez_4.jpeg',
-      '/artists/robert_hernandez/robert_hernandez_5.jpeg',
-    ],
-    alt: 'Portrait of tattoo artist Robert Hernandez',
   },
 ]

@@ -1,11 +1,15 @@
-export default function PageHeader({ eyebrow, title, subtitle, children }) {
+export default function PageHeader({ eyebrow, title, subtitle, children, compact = false }) {
+  const contentPad = compact
+    ? 'pt-10 pb-5 sm:pt-12 sm:pb-6'
+    : 'py-14 sm:py-20'
+
   return (
     <header className="relative overflow-hidden border-b border-border bg-surface/60">
       <div
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-40%,rgba(196,165,116,0.07),transparent_55%)]"
         aria-hidden="true"
       />
-      <div className="relative mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
+      <div className={`relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 ${contentPad}`}>
         {eyebrow && (
           <p className="text-sm font-semibold uppercase tracking-[0.22em] text-zinc-500">
             {eyebrow}
@@ -21,7 +25,9 @@ export default function PageHeader({ eyebrow, title, subtitle, children }) {
           </span>
         </h1>
         {subtitle && (
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+          <p
+            className={`max-w-2xl text-base leading-relaxed text-muted sm:text-lg ${compact ? 'mt-4' : 'mt-5'}`}
+          >
             {subtitle}
           </p>
         )}

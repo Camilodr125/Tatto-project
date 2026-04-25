@@ -19,36 +19,43 @@ export default function About() {
           <StudioPhotosPlaceholder />
         </motion.div>
 
-        <div>
+        <div className="min-w-0 max-w-prose lg:max-w-none">
           <h2
             id="about-heading"
             className="font-display text-4xl tracking-wide text-zinc-50 sm:text-5xl"
           >
             The studio
           </h2>
-          <p className="mt-6 text-muted">
-            Oneblood studio welcomes walk-ins and booked appointments — built
-            around focus in the chair, medical-grade hygiene, and drawings that
-            respect how ink settles over years — not just how it photographs on
-            day one.
-          </p>
-          <ul className="mt-8 space-y-3 text-sm text-zinc-300">
-            <li className="flex gap-3">
-              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-zinc-500" />
-              Sterile setup, single-use consumables, and clear aftercare you can
-              actually follow.
-            </li>
-            <li className="flex gap-3">
-              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-zinc-500" />
-              Consultations for placement, flow, and skin tone — before needles
-              touch skin.
-            </li>
-            <li className="flex gap-3">
-              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-zinc-500" />
-              Inclusive booking — we work at a sustainable pace to protect your
-              piece and our hands.
-            </li>
-          </ul>
+          <div className="mt-6 space-y-4 text-base leading-relaxed text-muted sm:text-lg">
+            <p>
+              One Blood Tattoo Studio is a Dallas-based tattoo studio built around quality,
+              intention, and respect for the craft.
+            </p>
+            <p>
+              Founded by artist Alejandro Montilla, the studio brings together a team of
+              artists working under one standard: precision, professionalism, and long-term
+              quality in every piece.
+            </p>
+            <p>
+              We don&apos;t rush work, we don&apos;t replicate designs, and we don&apos;t cut
+              corners. Every tattoo is created to fit your body, your skin, and your idea —
+              ensuring it not only looks good today, but ages the right way over time.
+            </p>
+            <p>
+              Our process is collaborative. Designs are developed with your input, making
+              sure each piece flows naturally with your anatomy while maintaining a strong
+              artistic direction.
+            </p>
+            <p>
+              We welcome both appointments and walk-ins, depending on availability. Whether
+              you&apos;re starting a large project or coming in for something smaller,
+              you&apos;ll receive the same level of attention and care.
+            </p>
+            <p className="text-zinc-300">
+              At One Blood, the goal is simple: create tattoos that last — in quality, in
+              meaning, and in experience.
+            </p>
+          </div>
         </div>
       </div>
     </section>
