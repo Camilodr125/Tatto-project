@@ -293,7 +293,7 @@ export default function Gallery({ className = '' }) {
 
   return (
     <section
-      className={`border-b border-border py-12 sm:py-16 ${className}`.trim()}
+      className={`border-b border-border pt-4 pb-12 sm:pt-5 sm:pb-16 ${className}`.trim()}
       aria-label="Artist portfolios"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">

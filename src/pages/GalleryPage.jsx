@@ -13,6 +13,7 @@ export default function GalleryPage() {
   return (
     <>
       <PageHeader
+        compact
         eyebrow="Portfolio"
         title="Gallery"
         subtitle={
@@ -22,7 +23,7 @@ export default function GalleryPage() {
         }
       >
         {single ? (
-          <p className="mt-5">
+          <p className="mt-4">
             <Link
               to={{ pathname: '/gallery', hash: '' }}
               replace

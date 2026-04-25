@@ -30,9 +30,12 @@ export default function ServicesPage() {
 
   return (
     <>
-      <PageHeader eyebrow="What we do" title="Services" />
+      <PageHeader compact eyebrow="What we do" title="Services" />
 
-      <section className="border-b border-border py-14 sm:py-20" aria-label="Services we offer">
+      <section
+        className="border-b border-border pt-4 pb-14 sm:pt-5 sm:pb-20"
+        aria-label="Services we offer"
+      >
         <div className="mx-auto max-w-6xl space-y-14 px-4 sm:space-y-16 sm:px-6 lg:px-8">
           {serviceSections.map((section, idx) => (
             <div
