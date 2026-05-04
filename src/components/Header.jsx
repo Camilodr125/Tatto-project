@@ -25,12 +25,6 @@ const linkClass = ({ isActive }) =>
     isActive ? 'text-white' : 'text-zinc-500 hover:text-zinc-200',
   ].join(' ')
 
-const mobileLinkClass = ({ isActive }) =>
-  [
-    'border-b border-white/[0.06] px-1 py-4 text-sm font-semibold uppercase tracking-[0.18em] last:border-b-0',
-    isActive ? 'text-white' : 'text-zinc-400 hover:text-zinc-100',
-  ].join(' ')
-
 export default function Header() {
   const [open, setOpen] = useState(false)
   const reduce = useReducedMotion()
@@ -57,12 +51,6 @@ export default function Header() {
         </Link>
 
         <div className="flex shrink-0 items-center justify-end gap-1.5 sm:gap-2.5 md:gap-0">
-          <SocialLinks
-            className="md:hidden"
-            linkClassName="h-9 w-9"
-            iconClassName="h-[15px] w-[15px]"
-          />
-
           <nav
             className="hidden items-center gap-4 lg:gap-5 xl:gap-6 md:flex"
             aria-label="Primary"
@@ -99,9 +87,10 @@ export default function Header() {
 
           <Link
             to="/book"
-            className="ml-1 hidden rounded-sm border border-white/20 bg-white/[0.04] px-3 py-2 text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-100 shadow-[0_0_28px_-8px_rgba(196,165,116,0.15)] transition-[border-color,background-color,box-shadow,color] hover:border-studio-gold/50 hover:bg-white/10 hover:text-white hover:shadow-[0_0_36px_-6px_rgba(196,165,116,0.28)] md:ml-1.5 md:inline-flex"
+            onClick={() => setOpen(false)}
+            className="inline-flex h-9 shrink-0 items-center justify-center rounded-sm border border-white/25 bg-white/[0.04] px-3 text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-100 shadow-[0_0_28px_-8px_rgba(196,165,116,0.15)] transition-[border-color,background-color,box-shadow,color] hover:border-studio-gold/50 hover:bg-white/10 hover:text-white hover:shadow-[0_0_36px_-6px_rgba(196,165,116,0.28)] sm:px-3.5 sm:text-xs md:ml-1.5"
           >
-            Book
+            Book now
           </Link>
 
           <button
@@ -148,31 +137,34 @@ export default function Header() {
               className="flex flex-col gap-0 px-4 py-2"
               aria-label="Mobile primary"
             >
-              {nav.map((item) => (
+              {nav.map((item, i) => (
                 <NavLink
                   key={item.label}
                   to={item.to}
-                  className={({ isActive }) =>
-                    mobileLinkClass({
-                      isActive:
-                        item.label === 'FAQ'
-                          ? location.pathname === '/' && location.hash === '#faq'
-                          : isActive ||
-                            (item.label === 'Gallery' && location.pathname === '/gallery'),
-                    })
-                  }
+                  className={({ isActive }) => {
+                    const active =
+                      item.label === 'FAQ'
+                        ? location.pathname === '/' && location.hash === '#faq'
+                        : isActive ||
+                          (item.label === 'Gallery' && location.pathname === '/gallery')
+                    return [
+                      'px-1 py-4 text-sm font-semibold uppercase tracking-[0.18em]',
+                      i < nav.length - 1 ? 'border-b border-white/[0.06]' : '',
+                      active ? 'text-white' : 'text-zinc-400 hover:text-zinc-100',
+                    ].join(' ')
+                  }}
                   onClick={() => setOpen(false)}
                 >
                   {item.label}
                 </NavLink>
               ))}
-              <Link
-                to="/book"
-                className="mt-3 mb-4 rounded-sm border border-white/25 bg-white/5 py-3.5 text-center text-xs font-bold uppercase tracking-[0.2em] text-zinc-100"
-                onClick={() => setOpen(false)}
-              >
-                Book now
-              </Link>
+              <div className="mt-2 border-t border-white/[0.06] py-5">
+                <SocialLinks
+                  className="justify-center gap-1"
+                  linkClassName="h-10 w-10"
+                  iconClassName="h-[16px] w-[16px]"
+                />
+              </div>
             </nav>
           </motion.div>
         )}

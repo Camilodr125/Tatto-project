@@ -20,7 +20,6 @@ const links = [
   { to: '/reviews', label: 'Reviews' },
   { to: '/#faq', label: 'FAQ' },
   ...(FEATURE_MERCH ? [{ to: '/merch', label: 'Merch' }] : []),
-  { to: '/book', label: 'Book' },
 ]
 
 export default function Footer() {
@@ -41,6 +40,12 @@ export default function Footer() {
               <StudioBrand logoClassName="h-8 w-auto max-w-[min(140px,55vw)] object-contain sm:h-9 sm:max-w-[150px]" />
             </Link>
             <SocialLinks className="mt-4 justify-center" />
+            <Link
+              to="/book"
+              className="mt-5 inline-flex h-10 w-full max-w-[200px] items-center justify-center rounded-sm border border-white/25 bg-white/[0.04] px-4 text-xs font-bold uppercase tracking-[0.2em] text-zinc-100 shadow-[0_0_28px_-8px_rgba(196,165,116,0.15)] transition-[border-color,background-color,box-shadow,color] hover:border-studio-gold/50 hover:bg-white/10 hover:text-white hover:shadow-[0_0_36px_-6px_rgba(196,165,116,0.28)] sm:max-w-[220px] sm:px-5"
+            >
+              Book now
+            </Link>
           </div>
 
           {/* Nav */}
