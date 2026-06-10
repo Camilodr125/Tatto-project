@@ -113,8 +113,8 @@ We're excited to welcome Daniel Avecilla as a guest artist at Oneblood Tattoo St
     slug: 'robert_hernandez',
     name: 'Robert Hernandez',
     status: 'temporary',
-    availableFrom: '2026-07-01',
-    availableTo: '2026-07-31',
+    availableFrom: '2026-06-19',
+    availableTo: '2026-06-24',
     styles: 'Black & grey realism · Surrealism · Fine-art finish',
     portfolioIntro:
       "Exceptional black-and-grey realism and dark surreal compositions—depth, precision, and a fine-art finish from one of the genre's pioneers.",
