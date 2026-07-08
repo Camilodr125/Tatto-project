@@ -58,33 +58,12 @@ For David, the purpose of each day is simple: to be happy and at peace — and t
     alt: 'Portrait of tattoo artist David Bonilla',
   },
   {
-    id: '3',
-    slug: 'carlos',
-    name: 'Carlos Bravo',
-    status: 'permanent',
-    styles: 'Drag dotwork · Detail & precision · Controlled linework',
-    portfolioIntro:
-      'Drag dotwork that rewards patience and control—focused on growth, consistency, and a strong, recognizable style.',
-    bio: `Meet Carlos Bravo, a dedicated tattoo artist with one year of experience in the industry. Focused on growth and precision, Carlos specializes in drag dotwork, a technique that highlights detail, patience, and control in every piece.
-
-His approach is rooted in consistency and continuous improvement, always aiming to elevate the quality of his work. Driven to evolve as an artist, Carlos is committed to refining his craft and developing a strong, recognizable style with every tattoo he creates.`,
-    image: '/artists/carlos/carlos_profile.jpeg',
-    workImages: [
-      '/artists/carlos/carlos1.jpeg',
-      '/artists/carlos/carlos2.jpeg',
-      '/artists/carlos/carlos3.jpeg',
-      '/artists/carlos/carlos4.jpeg',
-      '/artists/carlos/carlos5.jpeg',
-    ],
-    alt: 'Portrait of tattoo artist Carlos Bravo',
-  },
-  {
     id: '4',
     slug: 'daniel_avencilla',
     name: 'Daniel Avecilla',
     status: 'temporary',
-    availableFrom: '2026-06-01',
-    availableTo: '2026-06-30',
+    availableFrom: '2026-07-20',
+    availableTo: '2026-07-27',
     styles: 'Black & grey realism · Portraits · High detail',
     portfolioIntro:
       'Refined black-and-grey realism with high-detail portraits, smooth shading, and lifelike compositions with depth and contrast—modern black-and-grey specialist.',
@@ -92,7 +71,7 @@ His approach is rooted in consistency and continuous improvement, always aiming 
 
 Daniel is currently based in Los Angeles, California, and continues to work with clients from around the world.
 
-We're excited to welcome Daniel Avecilla as a guest artist at Oneblood Tattoo Studio this June, offering a unique opportunity to get tattooed by a specialist in modern black and grey realism.`,
+We're excited to welcome Daniel Avecilla as a guest artist at Oneblood Tattoo Studio this July, offering a unique opportunity to get tattooed by a specialist in modern black and grey realism.`,
     image: '/artists/daniel_avencilla/daniel_avencilla_profile.jpeg',
     workImages: [
       '/artists/daniel_avencilla/daniel_avencilla_1.jpeg',
