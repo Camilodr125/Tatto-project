@@ -4,9 +4,9 @@ import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 const INTERVAL_MS = 6500
 
 const photos = [
-  { src: '/studio/1.jpeg', alt: 'One Blood Tattoo Studio interior' },
-  { src: '/studio/2.jpeg', alt: 'One Blood Tattoo Studio workspace' },
-  { src: '/studio/3.jpeg', alt: 'One Blood Tattoo Studio space' },
+  { src: '/studio/1.webp', alt: 'One Blood Tattoo Studio interior' },
+  { src: '/studio/2.webp', alt: 'One Blood Tattoo Studio workspace' },
+  { src: '/studio/3.webp', alt: 'One Blood Tattoo Studio space' },
 ]
 
 function ChevronLeft({ className = '' }) {
