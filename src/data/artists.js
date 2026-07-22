@@ -63,9 +63,12 @@ For David, the purpose of each day is simple: to be happy and at peace — and t
     slug: 'bulyorvis',
     name: 'Bulyorvis Colmenarez',
     status: 'permanent',
-    styles: 'Add styles here',
-    portfolioIntro: '',
-    bio: 'Bio coming soon — update this text in src/data/artists.js.',
+    styles: 'Black & grey & color realism · Vibrant color · Custom personalized work',
+    portfolioIntro:
+      'Black & grey and color realism with vibrant color, smooth shading, and strong composition—custom pieces that blend each client’s vision with a personal artistic style.',
+    bio: `Meet our resident artist, Bulyorvis Colmenarez. Bulyorvis is a tattoo artist specializing in black & grey and color realism, bringing over 9 years of experience to every piece he creates. His work is defined by vibrant color, smooth shading, strong composition, and a personalized approach to every project.
+
+By combining each client’s vision with his own artistic style, Bulyorvis creates custom tattoos that are unique, timeless, and built to complement the body’s natural flow. His passion for art and dedication to quality are reflected in every tattoo he produces.`,
     image: '/artists/bulyorvis/Profile.jpeg',
     workImages: [
       '/artists/bulyorvis/1.jpeg',
