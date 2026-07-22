@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { motion, useReducedMotion } from 'framer-motion'
 import Hero from '../components/Hero'
+import HiringBanner from '../components/HiringBanner'
 import InstagramSection from '../components/InstagramSection'
 import StudioShowreel from '../components/StudioShowreel'
 import Testimonials from '../components/Testimonials'
@@ -54,6 +55,7 @@ export default function HomePage() {
 
   return (
     <>
+      <HiringBanner />
       <Hero />
       <section
         className="border-b border-border bg-surface py-16 sm:py-20"
