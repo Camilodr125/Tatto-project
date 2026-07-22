@@ -47,13 +47,14 @@ With 3 years of experience, David focuses on creating tattoos that carry meaning
 His passion for tattooing comes from his love for drawing. He has been drawing since childhood, and being able to continue creating art as an adult is one of the things he enjoys most.
 
 For David, the purpose of each day is simple: to be happy and at peace — and that mindset is reflected in every piece he creates.`,
-    image: '/artists/alejandro/alejandro_profile.jpeg',
+    image: '/artists/david_bonilla/david_profile.jpeg',
     workImages: [
-      '/artists/alejandro/alejandro_1.jpeg',
-      '/artists/alejandro/alejandro_2.jpeg',
-      '/artists/alejandro/alejandro_3.jpeg',
-      '/artists/alejandro/alejandro_4.jpeg',
-      '/artists/alejandro/alejandro_5.jpeg',
+      '/artists/david_bonilla/IMG_2766.jpeg',
+      '/artists/david_bonilla/IMG_2836.jpeg',
+      '/artists/david_bonilla/IMG_2866.jpeg',
+      '/artists/david_bonilla/IMG_4706.jpeg',
+      '/artists/david_bonilla/IMG_4707.jpeg',
+      '/artists/david_bonilla/IMG_5585.jpeg',
     ],
     alt: 'Portrait of tattoo artist David Bonilla',
   },
