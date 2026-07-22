@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion'
-import StudioPhotosPlaceholder from './StudioPhotosPlaceholder'
+import StudioPhotos from './StudioPhotos'
 
 export default function About() {
   const reduce = useReducedMotion()
@@ -16,7 +16,7 @@ export default function About() {
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.5 }}
         >
-          <StudioPhotosPlaceholder />
+          <StudioPhotos />
         </motion.div>
 
         <div className="min-w-0 max-w-prose lg:max-w-none">
