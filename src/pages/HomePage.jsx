@@ -6,6 +6,8 @@ import InstagramSection from '../components/InstagramSection'
 import StudioShowreel from '../components/StudioShowreel'
 import Testimonials from '../components/Testimonials'
 import FaqSection from '../components/FaqSection'
+import { useGoogleReviews } from '../hooks/useGoogleReviews'
+import { reviewsShort } from '../data/reviews'
 import { FEATURE_MERCH } from '../constants'
 
 const explore = [
@@ -52,6 +54,7 @@ const explore = [
 
 export default function HomePage() {
   const reduce = useReducedMotion()
+  const { reviews } = useGoogleReviews(reviewsShort)
 
   return (
     <>
@@ -123,7 +126,7 @@ export default function HomePage() {
       </section>
       <InstagramSection />
       <FaqSection />
-      <Testimonials />
+      <Testimonials reviews={reviews.slice(0, 3)} />
       <section className="border-b border-border bg-surface py-10 text-center" aria-label="More reviews">
         <Link
           to="/reviews"

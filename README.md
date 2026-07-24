@@ -157,6 +157,79 @@ If keys are missing, the UI shows a clear error instead of failing silently.
 
 ---
 
+## Google reviews (live on `/reviews` and the home page)
+
+The site can pull **live Google reviews** and show them on the **Reviews** page and the home-page testimonials, falling back to the built-in quotes in `src/data/reviews.js` whenever Google isn't configured or reachable.
+
+**How it works**
+
+```
+Browser → /api/google-reviews  (Vercel serverless function, api/google-reviews.js)
+        → Google Places API (New)   ← API key stays on the server, never in the browser
+        → cached 24h at Vercel's edge (≈1 Google call/day, near-zero billing)
+```
+
+The frontend hook `src/hooks/useGoogleReviews.js` calls the function; `Testimonials.jsx` renders each review with the reviewer's Google avatar, star rating, relative time, and a Google attribution link.
+
+> **Local preview:** `npm run dev` serves the live reviews too — `vite.config.js` includes a dev-only shim that runs `api/google-reviews.js` at `/api/google-reviews` (reading `GOOGLE_*` from `.env`). This shim is `apply: 'serve'` only and never affects the production build; on Vercel the real serverless function is used.
+
+> **Important limitation:** Google's API returns **at most 5 reviews** (its "most relevant" set) — there is **no official way to fetch every review**. The summary rating/count on `/reviews` still reflect your *full* Google totals.
+
+Only **4★ and 5★** reviews are shown as cards (set by `MIN_DISPLAY_RATING` in `api/google-reviews.js`), sorted best-first. The overall rating and total count are **not** filtered — they always reflect your real Google numbers.
+
+### Step A — Google Cloud project + Places API
+
+1. Go to the [Google Cloud Console](https://console.cloud.google.com/) and create (or pick) a project.
+2. **Enable billing** on the project (Places API requires it; usage here is tiny thanks to caching, and Google includes a monthly free tier).
+3. **APIs & Services → Library →** enable **“Places API (New)”**.
+
+### Step B — Create and restrict an API key
+
+1. **APIs & Services → Credentials → Create credentials → API key**.
+2. Click the new key → **API restrictions → Restrict key →** select **Places API (New)**.
+3. Leave **Application restrictions** as **None** (this key is used server-side, not from the browser). Copy the key.
+
+### Step C — Find your Place ID
+
+- Use Google's [Place ID Finder](https://developers.google.com/maps/documentation/places/web-service/place-id) and search for **oneblood tattoo studio** (or the address in `src/constants.js`). Copy the ID — it looks like `ChIJ....`.
+
+### Step D — Set the environment variables
+
+These are **server-side** and must **not** have the `VITE_` prefix (that keeps them out of the browser bundle).
+
+**On Vercel:** Project → **Settings → Environment Variables** → add for **Production** (and **Preview** if you want it there too):
+
+```
+GOOGLE_PLACES_API_KEY = your_key
+GOOGLE_PLACE_ID        = ChIJ...
+```
+
+Then **Redeploy**. Locally you can add the same two lines to `.env` and run **`vercel dev`** (plain `npm run dev` doesn't run serverless functions, so it shows the built-in reviews).
+
+If the variables are missing or Google errors, visitors simply see the built-in reviews — no error is shown.
+
+### Step E — Stay on the free tier (quota cap + billing alert)
+
+The serverless function caches results for 24h, so Google is called only ~once a day (~30/month) — far under the free tier. Add two guardrails so it **can't** run up a bill:
+
+**1. Quota cap (the hard stop — Google refuses calls past it):**
+
+1. Console → **APIs & Services → Places API (New) → Quotas & System Limits**.
+2. Filter for **`per day`** (or the **"Place Details Enterprise + Atmosphere"** SKU — that's the one reviews use).
+3. Select it → **Edit Quotas** → set to **`30`** requests/day → Submit.
+   - Real usage is ~1/day. If the console only offers a per-minute limit, set **Requests per minute = 5** instead.
+4. When the cap is hit, the API errors and the site quietly falls back to built-in reviews — no visible break.
+
+**2. Billing alert (email backstop — notifies, does not block):**
+
+1. Console → **Billing → Budgets & alerts → Create budget**.
+2. Scope it to just this project, set **Target amount = $1**, thresholds at **50 / 90 / 100%**.
+3. Confirm your alert email → Finish.
+
+Quick check: search the **Quotas & System Limits** filter for `reviews`/`atmosphere` if you want to confirm which SKU your review calls bill under.
+
+---
+
 ## Project structure (high level)
 
 ```

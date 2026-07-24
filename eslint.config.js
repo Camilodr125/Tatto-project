@@ -32,4 +32,11 @@ export default defineConfig([
       ],
     },
   },
+  {
+    // Vercel serverless functions and Vite config run in Node, not the browser.
+    files: ['api/**/*.js', 'vite.config.js'],
+    languageOptions: {
+      globals: globals.node,
+    },
+  },
 ])
