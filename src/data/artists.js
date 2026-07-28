@@ -87,8 +87,8 @@ By combining each client’s vision with his own artistic style, Bulyorvis creat
     slug: 'daniel_avencilla',
     name: 'Daniel Avecilla',
     status: 'temporary',
-    availableFrom: '2026-07-20',
-    availableTo: '2026-07-27',
+    availableFrom: '2026-08-23',
+    availableTo: '2026-08-31',
     styles: 'Black & grey realism · Portraits · High detail',
     portfolioIntro:
       'Refined black-and-grey realism with high-detail portraits, smooth shading, and lifelike compositions with depth and contrast—modern black-and-grey specialist.',
@@ -96,7 +96,7 @@ By combining each client’s vision with his own artistic style, Bulyorvis creat
 
 Daniel is currently based in Los Angeles, California, and continues to work with clients from around the world.
 
-We're excited to welcome Daniel Avecilla as a guest artist at Oneblood Tattoo Studio this July, offering a unique opportunity to get tattooed by a specialist in modern black and grey realism.`,
+We're excited to welcome Daniel Avecilla as a guest artist at Oneblood Tattoo Studio this August, offering a unique opportunity to get tattooed by a specialist in modern black and grey realism.`,
     image: '/artists/daniel_avencilla/daniel_avencilla_profile.jpeg',
     workImages: [
       '/artists/daniel_avencilla/daniel_avencilla_1.jpeg',
