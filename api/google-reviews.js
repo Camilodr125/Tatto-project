@@ -97,8 +97,8 @@ export default async function handler(req, res) {
               typeof r.rating === 'number' &&
               r.rating >= MIN_DISPLAY_RATING,
           )
-          // Best-rated first, then keep Google's relevance order within a tier.
-          .sort((a, b) => b.rating - a.rating)
+          // Most recent first (publishTime is RFC3339/UTC, so string sort works).
+          .sort((a, b) => (b.publishTime || '').localeCompare(a.publishTime || ''))
       : []
 
     // Cache at the edge: serve for 24h, then revalidate in the background for
