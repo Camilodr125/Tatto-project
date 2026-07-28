@@ -175,7 +175,7 @@ The frontend hook `src/hooks/useGoogleReviews.js` calls the function; `Testimoni
 
 > **Important limitation:** Google's API returns **at most 5 reviews** (its "most relevant" set) — there is **no official way to fetch every review**. The summary rating/count on `/reviews` still reflect your *full* Google totals.
 
-Only **4★ and 5★** reviews are shown as cards (set by `MIN_DISPLAY_RATING` in `api/google-reviews.js`), sorted best-first. The overall rating and total count are **not** filtered — they always reflect your real Google numbers.
+Only **4★ and 5★** reviews are shown as cards (set by `MIN_DISPLAY_RATING` in `api/google-reviews.js`), sorted **newest-first**. Google's API returns at most 5, so the page shows up to 5 real reviews. The overall rating and total count are **not** filtered — they always reflect your real Google numbers.
 
 ### Step A — Google Cloud project + Places API
 
