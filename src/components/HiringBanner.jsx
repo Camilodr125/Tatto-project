@@ -12,12 +12,12 @@ export default function HiringBanner() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="overflow-hidden rounded-lg border border-studio-gold/25 bg-surface-elevated shadow-[0_0_80px_-40px_rgba(196,165,116,0.4)]">
           <div className="grid gap-0 md:grid-cols-2">
-            <div className="relative aspect-[4/3] w-full overflow-hidden bg-zinc-950 md:aspect-auto md:h-full md:min-h-[340px]">
+            <div className="relative aspect-square w-full overflow-hidden bg-zinc-950 md:aspect-auto md:h-full md:min-h-[340px]">
               <img
                 src="/gallery/hiring.jpeg"
                 alt="One Blood Tattoo Studio is hiring tattoo artists"
                 loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover"
+                className="absolute inset-0 h-full w-full object-contain md:object-cover"
               />
             </div>
 
