@@ -165,20 +165,11 @@ export default function ConsultForm({ embeddedInBookPage = false }) {
         },
         { publicKey },
       )
-      setStatus({
-        type: 'success',
-        text: 'Consultation request sent. We will get back to you shortly.',
-      })
-      setFirstName('')
-      setLastName('')
-      setEmail('')
-      setPhone('')
-      setPreferredArtist('')
-      setPreferredConsultDate('')
-      setPreferredTiming('')
-      setTopic('')
-      setIs18(false)
-      setErrors({})
+      // Send the visitor to the conversion page (real navigation so any
+      // page-load / GA4 / GTM conversion on /thank-you fires). Keep the button
+      // in its "Sending…" state through the redirect.
+      window.location.assign('/thank-you')
+      return
     } catch (err) {
       console.error(err)
       const apiText = typeof err?.text === 'string' ? err.text : ''

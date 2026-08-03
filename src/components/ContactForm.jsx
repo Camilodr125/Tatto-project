@@ -178,26 +178,11 @@ export default function ContactForm() {
         },
         { publicKey }
       )
-      setStatus({
-        type: 'success',
-        text: 'Booking request sent. We will get back to you shortly.',
-      })
-      setFirstName('')
-      setLastName('')
-      setEmail('')
-      setPhone('')
-      setPreferredDate('')
-      setIs18(false)
-      setPlacement('')
-      setTattooStyle('')
-      setTattooDescription('')
-      setBudget('')
-      setIsLocal(false)
-      setIsTravelling(false)
-      setIsNewClient(false)
-      setIsReturningClient(false)
-      setPreferredArtist('')
-      setErrors({})
+      // Send the visitor to the conversion page (real navigation so any
+      // page-load / GA4 / GTM conversion on /thank-you fires). Keep the button
+      // in its "Sending…" state through the redirect.
+      window.location.assign('/thank-you')
+      return
     } catch (err) {
       console.error(err)
       const apiText = typeof err?.text === 'string' ? err.text : ''
