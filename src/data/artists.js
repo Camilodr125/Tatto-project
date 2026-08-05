@@ -171,8 +171,6 @@ Currently, Juan is traveling across the United States, immersing himself in diff
     slug: 'korthe',
     name: 'Korthe',
     status: 'temporary',
-    availableFrom: '2026-07-01',
-    availableTo: '2026-07-31',
     styles: 'Add styles here',
     bio: 'Bio coming soon — update this text in src/data/artists.js.',
     portfolioIntro: '',
