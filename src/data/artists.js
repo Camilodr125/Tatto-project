@@ -2,7 +2,7 @@
  * Profile + portfolio paths live under public/artists/<slug>/ — see public/artists/README.txt
  * Filenames: profile + work images (adjust extensions in this file — e.g. .jpeg, .webp).
  */
-export const artists = [
+const allArtists = [
   {
     id: '1',
     slug: 'ale',
@@ -57,6 +57,8 @@ For David, the purpose of each day is simple: to be happy and at peace — and t
       '/artists/david_bonilla/IMG_5585.jpeg',
     ],
     alt: 'Portrait of tattoo artist David Bonilla',
+    // 682×1024 (2:3) vs the card's 4:5 — cover crops ~8% off the top and bottom, well clear of his head.
+    profileIntrinsic: { w: 682, h: 1024 },
   },
   {
     id: '3',
@@ -116,6 +118,7 @@ We're excited to welcome Daniel Avecilla as a guest artist at Oneblood Tattoo St
     id: '5',
     slug: 'drex',
     name: 'Drex',
+    hidden: true,
     status: 'temporary',
     availabilityLabel: 'Now booking',
     styles:
@@ -218,3 +221,10 @@ What motivates her is not only making her clients happy, but also the chance to 
     profileIntrinsic: { w: 1066, h: 1600 },
   },
 ]
+
+/**
+ * Artists shown sitewide (Artists page, gallery, hero, booking + consult dropdowns).
+ * To pull someone from the site without deleting their entry or images, set `hidden: true`
+ * above; remove the flag to bring them back.
+ */
+export const artists = allArtists.filter((a) => !a.hidden)

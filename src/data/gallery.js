@@ -22,9 +22,16 @@ function guestAvailabilityLine(a) {
   return 'Visit dates announced on socials.'
 }
 
-/** Artist folders under /public/artists — `workImages` + optional `workVideos` become tiles + lightbox */
+/**
+ * Artist folders under /public/artists — `workImages` + optional `workVideos` become tiles + lightbox.
+ * Order mirrors ArtistsPage: residents first, then guests, each keeping their order in `artists`.
+ */
 export function getArtistGallerySections() {
-  return artists
+  const ordered = [
+    ...artists.filter((a) => a.status === 'permanent'),
+    ...artists.filter((a) => a.status !== 'permanent'),
+  ]
+  return ordered
     .filter(
       (a) =>
         (Array.isArray(a.workImages) && a.workImages.length > 0) ||
