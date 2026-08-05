@@ -185,4 +185,36 @@ Currently, Juan is traveling across the United States, immersing himself in diff
     ],
     alt: 'Portrait of tattoo artist Korthe',
   },
+  {
+    id: '8',
+    slug: 'yessy',
+    name: 'Yessy Baeza',
+    status: 'permanent',
+    styles: 'Color realism · Illustrative · Bold custom concepts',
+    portfolioIntro:
+      'Color realism and illustrative work built on a lifetime of painting and drawing — bold ideas, bigger challenges, and close attention to detail and composition.',
+    bio: `Meet our resident artist Yessy.
+
+Though only 3 years tattooing, Yessy has been an artist her entire life and puts art at the forefront of everything she does. Specializing in color realism and illustrative, she encourages bold ideas and bigger challenges. She takes her techniques of painting and drawing and uses tattooing as another medium.
+
+Her passion for the craft, attention to detail, composition, and technique are what makes a tattoo more than just a tattoo, but a piece of art.
+
+What motivates her is not only making her clients happy, but also the chance to meet so many people in this industry. Every client makes a mark on her just as she makes a mark on them.`,
+    image: '/artists/yessy/yessy_profile.jpeg',
+    workImages: [
+      '/artists/yessy/yessy_1.jpeg',
+      '/artists/yessy/yessy_2.jpeg',
+      '/artists/yessy/yessy_3.jpeg',
+      '/artists/yessy/yessy_4.jpeg',
+      '/artists/yessy/yessy_5.jpeg',
+      '/artists/yessy/yessy_6.jpeg',
+      '/artists/yessy/yessy_7.jpeg',
+      '/artists/yessy/yessy_8.jpeg',
+      '/artists/yessy/yessy_9.jpeg',
+      '/artists/yessy/yessy_10.jpeg',
+    ],
+    alt: 'Portrait of tattoo artist Yessy Baeza',
+    // 1066×1600 (2:3) vs the card's 4:5 — cover crops ~8% off the top and bottom, well clear of her head.
+    profileIntrinsic: { w: 1066, h: 1600 },
+  },
 ]
