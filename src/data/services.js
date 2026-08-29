@@ -1,3 +1,5 @@
+import { artists } from './artists'
+
 /**
  * Curated tags for the Services page (short list for mobile). Each artist profile
  * still lists their full specialties.
@@ -5,7 +7,7 @@
 const SERVICES_PUBLIC_STYLE_TAGS = [
   'Black & grey realism',
   'Portraits',
-  'Micro realism',
+  'Anime & manga',
   'Neo-traditional',
   'Surrealism',
   'Drag dotwork',
@@ -46,6 +48,39 @@ export const tattooCategoryServices = [
   },
 ]
 
+/**
+ * Signature artist + style pairings for the Services page. Each row shows the
+ * artist, a short style label, and a strip of their portfolio images pulled
+ * straight from `artists.js` (same source as the gallery). Edit the label or
+ * reorder here; add/remove images in the artist's `workImages`.
+ */
+const ARTIST_STYLE_SPOTLIGHTS = [
+  { slug: 'ale', styleLabel: 'Black & grey realism' },
+  { slug: 'alejandro', styleLabel: 'Black & grey anime' },
+  { slug: 'bulyorvis', styleLabel: 'Color / black & grey' },
+  { slug: 'yessy', styleLabel: 'Color realism & illustrative' },
+]
+
+/** Resolved spotlights (artist + label + gallery images); skips anyone hidden/missing. */
+export function getArtistStyleSpotlights({ maxImages = 8 } = {}) {
+  return ARTIST_STYLE_SPOTLIGHTS.flatMap((entry) => {
+    const artist = artists.find((a) => a.slug === entry.slug)
+    if (!artist) return []
+    return [
+      {
+        slug: artist.slug,
+        name: artist.name,
+        styleLabel: entry.styleLabel,
+        images: (artist.workImages ?? []).slice(0, maxImages).map((src, i) => ({
+          id: `${artist.slug}-style-${i}`,
+          src,
+          alt: `${entry.styleLabel} tattoo by ${artist.name}`,
+        })),
+      },
+    ]
+  })
+}
+
 export const seminarsService = {
   title: 'Seminars',
   summary:
@@ -82,6 +117,13 @@ export const serviceSections = [
     description:
       'Custom work is built with your artist from your idea; flash and pre-made are designs the team already has ready to book. Specialty tags below show what our artists focus on for custom projects.',
     items: tattooCategoryServices,
+  },
+  {
+    id: 'artist-styles',
+    title: 'Signature styles',
+    description:
+      'Where each resident artist focuses for custom work — with a strip of their portfolio. Open a portfolio for the full set.',
+    items: [],
   },
   {
     id: 'short-consults',

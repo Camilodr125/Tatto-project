@@ -2,6 +2,7 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import PageHeader from '../components/PageHeader'
 import CustomWorkCarousel from '../components/CustomWorkCarousel'
+import ArtistStyleSpotlights from '../components/ArtistStyleSpotlights'
 import { getStudioStyleKeywords, serviceSections } from '../data/services'
 
 const container = {
@@ -94,6 +95,9 @@ export default function ServicesPage() {
                 </div>
               ) : null}
 
+              {section.id === 'artist-styles' ? <ArtistStyleSpotlights /> : null}
+
+              {section.items.length > 0 ? (
               <motion.ul
                 className={`space-y-10 sm:space-y-12 ${section.id === 'tattoos' ? 'mt-10' : 'mt-8'}`}
                 variants={reduce ? {} : container}
@@ -166,6 +170,7 @@ export default function ServicesPage() {
                   )
                 })}
               </motion.ul>
+              ) : null}
             </div>
           ))}
 
