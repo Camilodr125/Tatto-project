@@ -37,10 +37,10 @@ As the founder and owner of One Blood Tattoo Studio, Alejandro's vision is to cr
     slug: 'alejandro',
     name: 'David Bonilla',
     status: 'permanent',
-    styles: 'Micro realism · Meaningful pieces · Fine detail',
+    styles: 'Black & grey anime · Meaningful pieces · Fine detail',
     portfolioIntro:
-      'Micro realism and tattoos built to carry meaning — story-driven pieces rooted in drawing and a calm, intentional approach.',
-    bio: `Meet David Bonilla, a tattoo artist specializing in micro realism.
+      'Black & grey anime and tattoos built to carry meaning — story-driven pieces rooted in drawing and a calm, intentional approach.',
+    bio: `Meet David Bonilla, a tattoo artist specializing in black & grey anime.
 
 With 3 years of experience, David focuses on creating tattoos that carry meaning — pieces that tell a story, hold a purpose, and represent something deeper than just a good tattoo.
 
