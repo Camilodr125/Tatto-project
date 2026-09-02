@@ -88,6 +88,7 @@ By combining each client’s vision with his own artistic style, Bulyorvis creat
     id: '4',
     slug: 'daniel_avencilla',
     name: 'Daniel Avecilla',
+    hidden: true,
     status: 'temporary',
     availableFrom: '2026-08-23',
     availableTo: '2026-08-31',
@@ -118,9 +119,7 @@ We're excited to welcome Daniel Avecilla as a guest artist at Oneblood Tattoo St
     id: '5',
     slug: 'drex',
     name: 'Drex',
-    hidden: true,
-    status: 'temporary',
-    availabilityLabel: 'Now booking',
+    status: 'permanent',
     styles:
       'Bold style fusion · Black & grey realism · Neo-traditional · Asian & anime-inspired',
     bio: `Drex is a Colombian tattoo artist with over seven years of experience, specializing in bold style fusion. His work moves between soft black-and-grey realism and striking neo-traditional compositions—often blending both to create pieces that feel unique, intentional, and visually powerful.
