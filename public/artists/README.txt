@@ -14,6 +14,7 @@ Folders:
   drex/                 → drex_profile.png, drex_1.jpeg … drex_5.jpeg
   juan_haka/            → juan_haka_profile.png, juan_haka_1.jpeg … juan_haka_6.jpeg
   korthe/               → korthe_profile.png, korthe_1.jpeg … korthe_7.jpeg
+  mikey_weyer/          → mikey_weyer_profile.jpeg, mikey_weyer_1.jpeg … mikey_weyer_7.jpeg (Mikey Weyer — resident)
   robert_hernandez/     → robert_hernandez_profile.png, robert_hernandez_1.jpeg … robert_hernandez_5.jpeg
   yessy/                → yessy_profile.jpeg (still to upload), yessy_1.jpeg … yessy_10.jpeg (Yessy Baeza — resident)
 

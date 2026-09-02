@@ -218,6 +218,29 @@ What motivates her is not only making her clients happy, but also the chance to 
     // 1066×1600 (2:3) vs the card's 4:5 — cover crops ~8% off the top and bottom, well clear of her head.
     profileIntrinsic: { w: 1066, h: 1600 },
   },
+  {
+    id: '9',
+    slug: 'mikey_weyer',
+    name: 'Mikey Weyer',
+    status: 'permanent',
+    styles: 'Custom lettering · Calligraphy · Black & grey realism',
+    portfolioIntro:
+      'Dynamic custom lettering and black-and-grey realism inspired by graffiti, calligraphy, movies, and street culture—one-of-a-kind pieces designed to flow naturally with the body.',
+    bio: `Mikey has been tattooing for 6 years and specializes in dynamic custom lettering and black and grey realism. Mikey takes a lot of his inspirations from graffiti, calligraphy, movies, and street culture and have been in love with letters since he was a kid. Mikey loves to create one of a kind dynamic pieces that flow well with the body and that the client will still be happy with years down the line. From simple cursive to bold letterings, portraits to pets. Mikey will be able to take care of you.`,
+    image: '/artists/mikey_weyer/mikey_weyer_profile.jpeg',
+    workImages: [
+      '/artists/mikey_weyer/mikey_weyer_1.jpeg',
+      '/artists/mikey_weyer/mikey_weyer_2.jpeg',
+      '/artists/mikey_weyer/mikey_weyer_3.jpeg',
+      '/artists/mikey_weyer/mikey_weyer_4.jpeg',
+      '/artists/mikey_weyer/mikey_weyer_5.jpeg',
+      '/artists/mikey_weyer/mikey_weyer_6.jpeg',
+      '/artists/mikey_weyer/mikey_weyer_7.jpeg',
+    ],
+    alt: 'Portrait of resident tattoo artist Mikey Weyer',
+    // 682×1024 (2:3) vs the card's 4:5 — cover crops ~8% off the top and bottom, well clear of his head.
+    profileIntrinsic: { w: 682, h: 1024 },
+  },
 ]
 
 /**
