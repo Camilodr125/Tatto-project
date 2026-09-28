@@ -1,9 +1,7 @@
 import { Link } from 'react-router-dom'
 import { motion, useReducedMotion } from 'framer-motion'
 import Hero from '../components/Hero'
-import HiringBanner from '../components/HiringBanner'
 import InstagramSection from '../components/InstagramSection'
-import StudioShowreel from '../components/StudioShowreel'
 import Testimonials from '../components/Testimonials'
 import FaqSection from '../components/FaqSection'
 import { useGoogleReviews } from '../hooks/useGoogleReviews'
@@ -58,18 +56,14 @@ export default function HomePage() {
 
   return (
     <>
-      <HiringBanner />
       <Hero />
       <section
         className="border-b border-border bg-surface py-16 sm:py-20"
         aria-labelledby="explore-heading"
       >
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col gap-10 md:flex-row md:items-start md:gap-8 lg:gap-10 xl:gap-14">
-            <div className="order-2 w-full md:order-1 md:max-w-[min(100%,440px)] md:flex-shrink-0 lg:max-w-[min(100%,460px)] xl:max-w-[min(100%,500px)]">
-              <StudioShowreel variant="split" className="md:mt-0" />
-            </div>
-            <div className="order-1 min-w-0 flex-1 md:order-2 md:pt-0.5 lg:pt-1">
+          <div>
+            <div className="max-w-3xl">
               <h2
                 id="explore-heading"
                 className="font-display text-3xl tracking-wide text-zinc-50 sm:text-4xl"
