@@ -2,6 +2,7 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import PageHeader from '../components/PageHeader'
 import CustomWorkCarousel from '../components/CustomWorkCarousel'
+import FlashDesigns from '../components/FlashDesigns'
 import ArtistStyleSpotlights from '../components/ArtistStyleSpotlights'
 import { getStudioStyleKeywords, serviceSections } from '../data/services'
 
@@ -146,6 +147,7 @@ export default function ServicesPage() {
                       ))}
                     </ul>
                     {s.title === 'Custom tattoos' ? <CustomWorkCarousel /> : null}
+                    {s.title === 'Flash & pre-made tattoos' ? <FlashDesigns /> : null}
                     {section.id === 'short-consults' ? (
                       <div className="mt-8 border-t border-border/80 pt-6">
                         <p className="text-sm leading-relaxed text-muted">
