@@ -135,7 +135,7 @@ This versatility has led him to develop a signature approach—often blending st
 Deeply inspired by Asian art and anime since the beginning of his career, Drex naturally gravitates toward these themes in his work. Whether you're drawn to Asian folklore or you're an anime enthusiast, his style offers a unique way to bring those influences to life on skin.`,
     portfolioIntro:
       'Bold fusion of black-and-grey realism and neo-traditional with optional striking color accents—dynamic, balanced pieces rooted in Asian art and anime influences.',
-    image: '/artists/drex/drex_profile.png',
+    image: '/artists/drex/drex_profile.jpeg',
     workImages: [
       '/artists/drex/CBE367FA-BC34-487E-AF77-454DEEE7FD16.jpeg',
       '/artists/drex/DSC00087.jpeg',
@@ -154,6 +154,8 @@ Deeply inspired by Asian art and anime since the beginning of his career, Drex n
       '/artists/drex/drex_5.jpeg',
     ],
     alt: 'Portrait of tattoo artist Drex',
+    // 3465×5137 (~2:3) vs the card's 4:5 — cover crops ~8% off the top and bottom, well clear of his head.
+    profileIntrinsic: { w: 3465, h: 5137 },
   },
   {
     id: '6',
@@ -237,6 +239,7 @@ What motivates her is not only making her clients happy, but also the chance to 
     id: '9',
     slug: 'mikey_weyer',
     name: 'Mikey Weyer',
+    hidden: true,
     status: 'permanent',
     styles: 'Custom lettering · Calligraphy · Black & grey realism',
     portfolioIntro:

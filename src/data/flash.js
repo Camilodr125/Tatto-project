@@ -10,7 +10,7 @@ const FLASH_BY_ARTIST = [
   { slug: 'yessy', folder: 'yessy', count: 10 },
   { slug: 'alejandro', folder: 'david_bonilla', count: 6 },
   { slug: 'ale', folder: 'ale', count: 0 },
-  { slug: 'bulyorvis', folder: 'bulyorvis', count: 0 },
+  { slug: 'bulyorvis', folder: 'bulyorvis', count: 3 },
   { slug: 'drex', folder: 'drex', count: 0 },
   { slug: 'juan_haka', folder: 'juan_haka', count: 0 },
   { slug: 'korthe', folder: 'korthe', count: 0 },
