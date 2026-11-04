@@ -15,6 +15,7 @@ const FLASH_BY_ARTIST = [
   { slug: 'juan_haka', folder: 'juan_haka', count: 0 },
   { slug: 'korthe', folder: 'korthe', count: 0 },
   { slug: 'mikey_weyer', folder: 'mikey_weyer', count: 0 },
+  { slug: 'eazy', folder: 'eazy', count: 0 },
 ]
 
 /** Artists with flash to show, each with `designs` ({ id, src, alt }). */

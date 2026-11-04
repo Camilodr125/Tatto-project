@@ -11,6 +11,7 @@ You can use .png or .webp instead of .jpg; if you change extension, update src/d
 Folders:
   alejandro/            → alejandro_profile.jpeg, alejandro_1.jpeg … alejandro_5.jpeg (David Bonilla — resident)
   daniel_avencilla/     → daniel_avencilla_profile.jpeg, daniel_avencilla_1.jpeg, daniel_avencilla_2.jpeg, daniel_avencilla_3.webp … daniel_avencilla_5.webp, daniel_avencilla_6.jpeg, daniel_avencilla_7.jpeg
+  eazy/                 → eazy_profile.jpeg (Ezekiel “Eazy” — resident; portfolio still to upload)
   drex/                 → drex_profile.png, drex_1.jpeg … drex_5.jpeg
   juan_haka/            → juan_haka_profile.png, juan_haka_1.jpeg … juan_haka_6.jpeg
   korthe/               → korthe_profile.png, korthe_1.jpeg … korthe_7.jpeg

@@ -260,6 +260,21 @@ What motivates her is not only making her clients happy, but also the chance to 
     // 682×1024 (2:3) vs the card's 4:5 — cover crops ~8% off the top and bottom, well clear of his head.
     profileIntrinsic: { w: 682, h: 1024 },
   },
+  {
+    id: '10',
+    slug: 'eazy',
+    name: 'Ezekiel “Eazy”',
+    status: 'permanent',
+    styles: 'Black & grey realism · Chicano · Portraits',
+    portfolioIntro:
+      'Gritty black-and-grey realism rooted in Chicano culture and street art—portraits and bold, timeless imagery with depth, emotion, and a street-inspired edge.',
+    bio: `Born and raised in Dallas, Texas, Ezekiel—known professionally as “Eazy”—has been tattooing since 2015. His work is deeply influenced by Chicano culture, street art, and gritty black-and-grey realism, blending raw intensity with meticulous detail. Specializing in portraits and bold, timeless imagery, Eazy creates tattoos with depth, emotion, and a distinct street-inspired edge. Every piece reflects his Dallas roots, commitment to the craft, and the personal story behind the tattoo.`,
+    image: '/artists/eazy/eazy_profile.jpeg',
+    workImages: [],
+    alt: 'Portrait of tattoo artist Ezekiel “Eazy”',
+    // 682×1024 (2:3) vs the card's 4:5 — cover crops ~8% off the top and bottom, well clear of his head.
+    profileIntrinsic: { w: 682, h: 1024 },
+  },
 ]
 
 /**
