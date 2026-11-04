@@ -125,6 +125,7 @@ We're excited to welcome Daniel Avecilla as a guest artist at Oneblood Tattoo St
     id: '5',
     slug: 'drex',
     name: 'Drex',
+    hidden: true,
     status: 'permanent',
     styles:
       'Bold style fusion · Black & grey realism · Neo-traditional · Asian & anime-inspired',
