@@ -70,6 +70,7 @@ For David, the purpose of each day is simple: to be happy and at peace — and t
     id: '3',
     slug: 'bulyorvis',
     name: 'Bulyorvis Colmenarez',
+    hidden: true,
     status: 'permanent',
     styles: 'Black & grey & color realism · Vibrant color · Custom personalized work',
     portfolioIntro:
@@ -162,6 +163,7 @@ Deeply inspired by Asian art and anime since the beginning of his career, Drex n
     id: '6',
     slug: 'juan_haka',
     name: 'Juan Haka',
+    hidden: true,
     status: 'temporary',
     styles: 'Black & grey realism · Portraits · Surrealism',
     portfolioIntro:
@@ -188,6 +190,7 @@ Currently, Juan is traveling across the United States, immersing himself in diff
     id: '7',
     slug: 'korthe',
     name: 'Korthe',
+    hidden: true,
     status: 'temporary',
     styles: 'Add styles here',
     bio: 'Bio coming soon — update this text in src/data/artists.js.',
@@ -264,6 +267,7 @@ What motivates her is not only making her clients happy, but also the chance to 
     id: '10',
     slug: 'eazy',
     name: 'Ezekiel “Eazy”',
+    hidden: true,
     status: 'permanent',
     styles: 'Black & grey realism · Chicano · Portraits',
     portfolioIntro:
